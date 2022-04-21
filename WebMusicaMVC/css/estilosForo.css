@@ -1,0 +1,37 @@
+html, body {
+    font-family: arial;
+    margin:0 auto;
+    box-sizing: border-box;
+}
+
+#cabecera-titulo {
+    background-color: lightblue;
+    padding: 10px 0 10px 0;
+    text-align: center;
+}
+
+nav ul li{
+    display: inline-block;
+    margin-right: 120px;
+}
+
+#contenedor-listadoForos {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+/*
+#contenedor-listadoForos div {
+    background-color: lightyellow;
+}*/
+
+#pad-superior {
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+#listado-foros table th, #listado-foros table td{
+    padding: 10px;
+    text-align: center;
+}  
