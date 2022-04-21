@@ -1,0 +1,85 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+
+body{
+	background-color: purple;
+}
+
+.div-fondo{
+	background-image: url("../imagenes/fulcrum.jpg");
+	position: relative;
+	overflow-y: scroll;
+	width: 100%;
+	height: 100vh;
+}
+
+.div-contenedor-fotoPerfilNombre{
+	width: 100%;
+	display: inline;
+	align-items: center;
+}
+
+.div-fotoPerfilNombre{
+	background-color: rgba(0, 0, 255, 0.5);
+	position: relative;
+	width: 80%;
+	/*height: 80%;*/
+	margin: 5% 10% 0	;
+	/*bottom: 10%;*/
+	display: flex;
+}
+
+.div-contenedor-fotoPerfil{
+	width: 40%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.div-contenedor-fotoPerfil img{
+	width: 80%;
+	margin: 10%;
+	border-radius: 50%;
+}
+
+.div-contedor-nombre{
+	background-color: rgba(255, 0, 0, 0.5);
+	width: 60%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: left;
+}
+
+.div-tagNombre{
+	font-size: 2em;
+}
+
+.div-contenedor-informacion{
+	background-color: rgba(255, 255, 255, 0.5);
+	position: relative;
+	width: 100%;
+	padding: 1% 0;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+.div-num{
+	display: flex;
+	flex-direction: column;
+}
+
+.div-num span{
+	font-size: 1.5em;
+	text-align: center;
+}
+
+.div-contenedor-publicaciones{
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+}
