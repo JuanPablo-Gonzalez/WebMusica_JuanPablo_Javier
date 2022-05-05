@@ -1,0 +1,66 @@
+.div-contenedor-publicaciones{
+	background-color: rgba(33, 33, 33, 0.5);
+	position: relative;
+	width: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	padding: 2% 0;
+}
+
+.div-publicacion{
+	background-color: rgba(200, 200, 200, 0.8);
+	width: 60%;
+	margin: 1% 20%;
+	padding: 1%;
+	display: flex;
+	border-radius: 15px;
+	box-shadow: 0px 0px 15px 8px rgba(47,47,47,0.7);
+	-webkit-box-shadow: 0px 0px 15px 8px rgba(47,47,47,0.7);
+	-moz-box-shadow: 0px 0px 15px 8px rgba(47,47,47,0.7);
+}
+
+.div-contenedora-img-nombre{
+	width: 12%;
+}
+
+.div-contenedora-imgUser{
+	/*background-color: rgba(0, 0, 200, 0.8);*/
+	width: 45%;
+	margin: 5% 27.5%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.div-contenedora-imgUser img{
+	width: 100%;
+	border-radius: 50%;
+	border: solid 3px #212121;
+}
+
+.div-contenedora-nombre{
+	/*background-color: red;*/
+	width: 100%;
+	text-align: center;
+}
+
+.div-contenedora-nombre > *{
+	margin: 2% 1%;
+}
+
+.div-contenido{
+	/*background-color: purple;*/
+	position: relative;
+	width: 88%;
+	padding: 1%;
+}
+
+.div-contenido-texto{
+	position: relative;
+	margin: 2%;
+}
+
+.div-contenido-texto p{
+	text-align: left;
+}

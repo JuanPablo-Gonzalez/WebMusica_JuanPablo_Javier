@@ -4,61 +4,115 @@
 }
 
 body{
-	background-color: purple;
-}
-
-.div-fondo{
+	background-color: #212121;
 	background-image: url("../imagenes/fulcrum.jpg");
-	position: relative;
-	overflow-y: scroll;
-	width: 100%;
-	height: 100vh;
+	background-size: 100%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
 }
 
 .div-contenedor-fotoPerfilNombre{
+	background-color: rgba(33, 33, 33, 0.5);
+	position: relative;
 	width: 100%;
-	display: inline;
+	/*display: inline;*/
 	align-items: center;
+	color: #F5F5F5;
 }
 
 .div-fotoPerfilNombre{
-	background-color: rgba(0, 0, 255, 0.5);
 	position: relative;
-	width: 80%;
-	/*height: 80%;*/
-	margin: 5% 10% 0	;
-	/*bottom: 10%;*/
-	display: flex;
+	width: 70%;
+	margin: 0 15%;
+	display: grid;
+	grid-template-columns: 35% 65%;
+	grid-template-rows: auto;
 }
 
 .div-contenedor-fotoPerfil{
-	width: 40%;
+	/*background-color: red;*/
+	max-width: 500px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	justify-self: center;
 }
 
 .div-contenedor-fotoPerfil img{
-	width: 80%;
-	margin: 10%;
+	width: 70%;
+	margin: 5% 15%;
 	border-radius: 50%;
+	border: solid 5px #212121;
 }
 
-.div-contedor-nombre{
-	background-color: rgba(255, 0, 0, 0.5);
-	width: 60%;
-	display: flex;
+.div-contedor-info{
+	/*background-color: green;*/
+	position: relative;		
+	padding: 1%;
+    /*display: flex;
 	flex-direction: column;
-	justify-content: center;
-	align-items: left;
+	justify-content: space-around;*/
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
 }
 
 .div-tagNombre{
-	font-size: 2em;
+	margin: 0 10%;
+	align-self: center;
 }
 
-.div-contenedor-informacion{
-	background-color: rgba(255, 255, 255, 0.5);
+.p-tagNombre-nombre{
+	font-size: 1.8em;
+	font-weight: bold;
+}
+
+.p-tagNombre-tag{
+	font-size: 1.3em;
+}
+
+.div-fechaNacimiento{
+	margin: 0 10%;
+	align-self: center;
+}
+
+.div-fechaNacimiento p{
+	text-align: right;
+	font-weight: bold;
+	font-size: 1.1em;
+}
+
+.div-descripcion{
+	margin: 0 5%;
+	grid-column: 1 / 3;
+	grid-row: 2 / 3;
+}
+
+.div-descripcion p{
+	/*max-width: 80ch;*/
+	/*margin: 2%;*/
+}
+
+.div-contenedor-iframe-Spotify{
+	/*background-color: orange;*/
+	width: 100%;
+	grid-column: 1 / 3;
+	grid-row: 2 / 3;
+}
+
+.div-contenedor-iframe-Spotify h2{
+	width: 90%;
+	margin: 0 5%;
+}
+
+.iframe-spotify{
+	width: 96%;
+	margin: 0.5% 2%;
+	border-radius: 12px;
+}
+
+.div-contenedor-estadisticas{
+	background-color: rgba(200, 200, 200, 0.5);
 	position: relative;
 	width: 100%;
 	padding: 1% 0;
@@ -77,9 +131,6 @@ body{
 	text-align: center;
 }
 
-.div-contenedor-publicaciones{
-	position: relative;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
+.div-num .span-num{
+	font-weight: bold;
 }
