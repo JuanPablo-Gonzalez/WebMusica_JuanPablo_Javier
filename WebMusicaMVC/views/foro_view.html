@@ -4,67 +4,71 @@
     <meta charset="utf-8">
     <title>Login Music Network</title>
     <link rel="stylesheet" href="../css/estilosForo.css">
-    <script src="./js/index.js"></script>
+    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+    <script src='../js/foro_ajax.js'></script>
   </head>
   <body>
     <nav>
       <ul>
-        <li>LOGO</li>
-        <li>COMUNIDAD</li>
-        <li>CANCIONES</li>
-        <li>Iniciar Sesión/Registrarse</li>
+        <li><a href="../index.php"><img src="../imagenes/logo.jpg" alt="perfil"></a></li>
+        <li><a href="">Comunidad</a></li>
+        <li><a href="#contact">Canciones</a></li>
+        <li><a href="#sobre">Sobre nosotros</a></li>
+        <li style="float:right"><a class="active" href="../views/perfil.html"><img src="../imagenes/perfil2.jpg" alt="perfil"></a></li>
       </ul>
     </nav>
     <main>
-        <section id="listado-foros">
-            <div id="cabecera-titulo">
-                <h2>Nombre del foro</h2>
-            </div>
-            <div id="contenedor-listadoForos">
-                <div>
-                    <div id="pad-superior">
-                        <button>Nuevo Tema</button>
-                        <span>Ordenar por:</span>
-                        <select name="" id="">
-                            <option value="">Fecha publicación</option>
-                            <option value="">Más respuestas</option>
-                        </select>
-                    </div>
-                    <table border="1">
+      <section id="seleccion-foro">
+        <h2>COMUNIDAD</h2>
+
+        <p>¡Anímate y participa en alguno de nuestros foros!</p>
+
+        <div id="contenedor-seleccion-foro">
+          <div id="foro-ayuda" class="selector-foro" data-value="F001">
+            <h3>Ayuda</h3>
+            <!--<p>Pide ayuda para mejorar tus obras, trucos para aprender a tocar instrumentos o 
+              cualquier cosa que necesites.
+            </p>-->
+          </div>
+          <div id="foro-busqueda" class="selector-foro" data-value="F002">
+            <h3>Búsqueda de artistas</h3>
+            <!--<p>Busca integrantes para tu grupo o busca artistas para eventos...
+            </p>-->
+          </div>
+          <div id="foro-general" class="selector-foro" data-value="F003">
+            <h3>General</h3>
+            <!--<p>Habla de cualquier otro tema relacionado con el mundo de la música
+            </p>-->
+          </div>
+        </div>
+      </section>
+      <section id="listado-foros">
+          <div id="cabecera-titulo">
+              <h2>Nombre del foro</h2> <!--php-->
+          </div>
+          <div id="contenedor-listadoForos">
+              <div>
+                  <div id="pad-superior">
+                      <button id="ver">Nuevo Tema</button>
+                  </div>
+                  
+                  <table id="tablaTemas" class="display">
+                    <thead>
                         <tr>
-                            <th>Tema</th>
-                            <th>Autor</th>
+                            <th>Título</th>
+                            <th>Fecha de Publicación</th>
+                            <th>Publicado por</th>
                             <th>Respuestas</th>
-                            <th>Fecha publicación</th>
+                            <th>id</th>
                         </tr>
-                        <tr>
-                            <td>Necesito ayuda para la base de mi nuevo tema</td>
-                            <td>Usuario</td>
-                            <td>2</td>
-                            <td>20/04/2022</td>
-                        </tr>
-                        <tr>
-                            <td>Necesito ayuda para la base de mi nuevo tema</td>
-                            <td>Usuario</td>
-                            <td>2</td>
-                            <td>20/04/2022</td>
-                        </tr>
-                        <tr>
-                            <td>Necesito ayuda para la base de mi nuevo tema</td>
-                            <td>Usuario</td>
-                            <td>2</td>
-                            <td>20/04/2022</td>
-                        </tr>
-                        <tr>
-                            <td>Necesito ayuda para la base de mi nuevo tema</td>
-                            <td>Usuario</td>
-                            <td>2</td>
-                            <td>20/04/2022</td>
-                        </tr>
-                    </table>
-                </div>
-            </div>
-        </section>
+                    </thead>
+                  </table>
+              </div>
+          </div>
+      </section>
     </main>
+    <footer>footer</footer>
   </body>
 </html>
