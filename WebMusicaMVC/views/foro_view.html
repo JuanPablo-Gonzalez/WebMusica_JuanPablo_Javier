@@ -1,74 +1,74 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>Login Music Network</title>
-    <link rel="stylesheet" href="../css/estilosForo.css">
-    <link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
-    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
-    <script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
-    <script src='../js/foro_ajax.js'></script>
-  </head>
-  <body>
-    <nav>
-      <ul>
-        <li><a href="../index.php"><img src="../imagenes/logo.jpg" alt="perfil"></a></li>
-        <li><a href="">Comunidad</a></li>
-        <li><a href="#contact">Canciones</a></li>
-        <li><a href="#sobre">Sobre nosotros</a></li>
-        <li style="float:right"><a class="active" href="../views/perfil.html"><img src="../imagenes/perfil2.jpg" alt="perfil"></a></li>
-      </ul>
-    </nav>
-    <main>
-      <section id="seleccion-foro">
-        <h2>COMUNIDAD</h2>
+<head>
+	<meta charset="utf-8">
+	<title>Login Music Network</title>
+	<link rel="stylesheet" href="../css/estilosForo.css">
+	<link rel="stylesheet" href="//cdn.datatables.net/1.11.3/css/jquery.dataTables.min.css">
+	<script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+	<script src="//cdn.datatables.net/1.11.3/js/jquery.dataTables.min.js"></script>
+	<script src='../js/foro_ajax.js'></script>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li><a href="../index.php"><img src="../imagenes/logo.jpg" alt="perfil"></a></li>
+			<li><a href="">Comunidad</a></li>
+			<li><a href="#contact">Canciones</a></li>
+			<li><a href="#sobre">Sobre nosotros</a></li>
+			<li style="float:right"><a class="active" href="../views/perfil.html"><img src="../imagenes/perfil2.jpg" alt="perfil"></a></li>
+		</ul>
+	</nav>
+	<main>
+		<section id="seleccion-foro">
+			<h2>COMUNIDAD</h2>
 
-        <p>¡Anímate y participa en alguno de nuestros foros!</p>
+			<p>¡Anímate y participa en alguno de nuestros foros!</p>
 
-        <div id="contenedor-seleccion-foro">
-          <div id="foro-ayuda" class="selector-foro" data-value="F001">
-            <h3>Ayuda</h3>
-            <!--<p>Pide ayuda para mejorar tus obras, trucos para aprender a tocar instrumentos o 
-              cualquier cosa que necesites.
-            </p>-->
-          </div>
-          <div id="foro-busqueda" class="selector-foro" data-value="F002">
-            <h3>Búsqueda de artistas</h3>
-            <!--<p>Busca integrantes para tu grupo o busca artistas para eventos...
-            </p>-->
-          </div>
-          <div id="foro-general" class="selector-foro" data-value="F003">
-            <h3>General</h3>
-            <!--<p>Habla de cualquier otro tema relacionado con el mundo de la música
-            </p>-->
-          </div>
-        </div>
-      </section>
-      <section id="listado-foros">
-          <div id="cabecera-titulo">
-              <h2>Nombre del foro</h2> <!--php-->
-          </div>
-          <div id="contenedor-listadoForos">
-              <div>
-                  <div id="pad-superior">
-                      <button id="ver">Nuevo Tema</button>
-                  </div>
-                  
-                  <table id="tablaTemas" class="display">
-                    <thead>
-                        <tr>
-                            <th>Título</th>
-                            <th>Fecha de Publicación</th>
-                            <th>Publicado por</th>
-                            <th>Respuestas</th>
-                            <th>id</th>
-                        </tr>
-                    </thead>
-                  </table>
-              </div>
-          </div>
-      </section>
-    </main>
-    <footer>footer</footer>
-  </body>
+			<div id="contenedor-seleccion-foro">
+				<div id="foro-ayuda" class="selector-foro" data-value="F001">
+					<h3>Ayuda</h3>
+			<!--<p>Pide ayuda para mejorar tus obras, trucos para aprender a tocar instrumentos o 
+			  cualquier cosa que necesites.
+			</p>-->
+		</div>
+		<div id="foro-busqueda" class="selector-foro" data-value="F002">
+			<h3>Búsqueda de artistas</h3>
+			<!--<p>Busca integrantes para tu grupo o busca artistas para eventos...
+			</p>-->
+		</div>
+		<div id="foro-general" class="selector-foro" data-value="F003">
+			<h3>General</h3>
+			<!--<p>Habla de cualquier otro tema relacionado con el mundo de la música
+			</p>-->
+		</div>
+	</div>
+</section>
+<section id="listado-foros">
+	<div id="cabecera-titulo">
+		<h2>Nombre del foro</h2> <!--php-->
+	</div>
+	<div id="contenedor-listadoForos">
+		<div>
+			<div id="pad-superior">
+				<button id="ver">Nuevo Tema</button>
+			</div>
+			
+			<table id="tablaTemas" class="display">
+				<thead>
+					<tr>
+						<th>Título</th>
+						<th>Fecha de Publicación</th>
+						<th>Publicado por</th>
+						<th>Respuestas</th>
+						<th>id</th>
+					</tr>
+				</thead>
+			</table>
+		</div>
+	</div>
+</section>
+</main>
+<footer>footer</footer>
+</body>
 </html>

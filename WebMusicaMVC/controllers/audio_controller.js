@@ -26,12 +26,6 @@ $("#boton-play").click(() => {
 	}
 });
 
-//$("#song-currentTime").text("00:00");
-
-/*song.pause();
-song.currentTime = 0;*/
-//song.muted = true;
-
 function recorrerCancion(){
 	var currentTime = parseInt(song.currentTime, 10);
 	$("#song-currentTime").text(formatearTiempo(currentTime));

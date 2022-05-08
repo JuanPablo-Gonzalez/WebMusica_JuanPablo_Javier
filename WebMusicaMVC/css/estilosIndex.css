@@ -1,208 +1,208 @@
 html, body {
-  font-family: arial;
-  margin:0 auto;
-  box-sizing: border-box;
+	font-family: arial;
+	margin:0 auto;
+	box-sizing: border-box;
 }
 
 header {
-  height: 50px;
-  text-align: center;
+	height: 50px;
+	text-align: center;
 }
 
 /*Estilos para la portada*/
 #seccion-portada {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  height: 1500px;
-  background-image: linear-gradient(
-      rgba(0, 0, 150,.5),
-      rgba(0, 0, 50, 0.3)
-    ), url("../imagenes/imagenPortada2.jpg");
-    background-size: cover;
-    background-attachment: fixed;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	height: 1500px;
+	background-image: linear-gradient(
+		rgba(0, 0, 150,.5),
+		rgba(0, 0, 50, 0.3)
+	), url("../imagenes/imagenPortada2.jpg");
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 #texto-presentacion {
-  width: 95%;
-  font-size: 40px;
-  text-align: center;
-  color: white;
-  margin-bottom: 40px;
+	width: 95%;
+	font-size: 40px;
+	text-align: center;
+	color: white;
+	margin-bottom: 40px;
 }
 
 #contenedor-login {
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  margin-top: 2%;
-  margin-bottom: 2%;
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	margin-top: 2%;
+	margin-bottom: 2%;
 }
 
 #contenedor-login>div {
-  width: 80%;
-  border-radius: 20px;
-  padding: 30px;
-  background-color: rgba(255,255,255,.9);
-  text-align: center;
-  box-shadow: 0px 0px 10px 8px rgba(0,0,0,0.3);
-  font-size: 40px;
+	width: 80%;
+	border-radius: 20px;
+	padding: 30px;
+	background-color: rgba(255,255,255,.9);
+	text-align: center;
+	box-shadow: 0px 0px 10px 8px rgba(0,0,0,0.3);
+	font-size: 40px;
 }
 
 #form-login {
-  /*background-color: lightblue;*/
-  border-radius: 20px;
-  padding: 15px;
+	/*background-color: lightblue;*/
+	border-radius: 20px;
+	padding: 15px;
 }
 
 #contenedor-login>div>h2 {
-  font-size: 55px;
+	font-size: 55px;
 }
 
 #form-login input {
-  margin-top: 10px;
-  text-align: justify;
-  border: 2px solid lightgrey;
-  border-radius: 15px;
-  padding: 7px;
-  width: 70%;
-  height: 50px;
-  font-size: 30px;
+	margin-top: 10px;
+	text-align: justify;
+	border: 2px solid lightgrey;
+	border-radius: 15px;
+	padding: 7px;
+	width: 70%;
+	height: 50px;
+	font-size: 30px;
 }
 
 #form-login input:focus{
-  outline:none;
-  border: 2px solid rgb(250, 222, 179);
+	outline:none;
+	border: 2px solid rgb(250, 222, 179);
 } 
 
 #form-login img {
-  width: 40px;
-  display: none;
+	width: 40px;
+	display: none;
 } 
 
 #form-login>#boton-iniciar {
-  border: 0px;
-  width: 70%;
-  height: 50px;
-  margin: 0;
-  text-align: center;
-  background-color: rgb(250, 222, 179);
-  color: black;
-  box-shadow: 0px 8px 0px -3px rgba(0,0,0,0.75);
-  font-size: 30px;
+	border: 0px;
+	width: 70%;
+	height: 50px;
+	margin: 0;
+	text-align: center;
+	background-color: rgb(250, 222, 179);
+	color: black;
+	box-shadow: 0px 8px 0px -3px rgba(0,0,0,0.75);
+	font-size: 30px;
 }
 
 #form-login>#boton-iniciar:hover {
-  cursor: pointer;
-  box-shadow: 0px 6px 0px -3px rgba(0,0,0,0.75);
+	cursor: pointer;
+	box-shadow: 0px 6px 0px -3px rgba(0,0,0,0.75);
 }
 
 #contenedor-login>div>p>a {
-  text-decoration: none;
-  color: grey;
+	text-decoration: none;
+	color: grey;
 }
 /*Fin estilos para la portada*/
 
 /*Estilos para la sección de los foros*/
 
 #seccion-presentacion h2 {
-  text-align: center;
+	text-align: center;
 }
 
 #listado-foros {
-  width: 100%;
-  display: flex;
-  justify-content: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
 #contenedor-foros {
-    display: grid;
-    grid-template-columns: repeat(1,1fr);
-    grid-template-rows: repeat(1,1fr);
-    font-size: 8pt;
-    text-align: center;
-    width: 90%;
-    max-width: 1200px;
+	display: grid;
+	grid-template-columns: repeat(1,1fr);
+	grid-template-rows: repeat(1,1fr);
+	font-size: 8pt;
+	text-align: center;
+	width: 90%;
+	max-width: 1200px;
 }
 
 .foro {
-  border: solid 1px lightgrey;
-  border-radius: 20px;
-  background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(250,222,179,1) 0%, rgba(255,255,255,0) 100%);
-  margin-bottom: 15px;
-  padding: 10px 0 10px 0;
+	border: solid 1px lightgrey;
+	border-radius: 20px;
+	background: linear-gradient(180deg, rgba(2,0,36,1) 0%, rgba(250,222,179,1) 0%, rgba(255,255,255,0) 100%);
+	margin-bottom: 15px;
+	padding: 10px 0 10px 0;
 }
 
 .foro img {
-  width: 200px;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
+	width: 200px;
+	border-top-left-radius: 20px;
+	border-top-right-radius: 20px;
 }
 
 .foro h3 {
-  font-size: 50px;
+	font-size: 50px;
 }
 /*Fin estilos para la sección de los foros*/
 
 @media (min-width: 1200px) {
-  #seccion-portada {
-    width: 100%;
-    flex-direction: row;
-    height: 450px;
-  }
+	#seccion-portada {
+		width: 100%;
+		flex-direction: row;
+		height: 450px;
+	}
 
-  #texto-presentacion {
-    text-align: center;
-    width: 50%;
-    font-size: 20px;
-    max-width: 1000px;
-    margin-bottom: 0px;
-  }
-  
-  #contenedor-login {
-    width: 50%;
-    margin-top: 0%;
-    margin-bottom: 0%;
-    max-width: 1000px;
-  }
+	#texto-presentacion {
+		text-align: center;
+		width: 50%;
+		font-size: 20px;
+		max-width: 1000px;
+		margin-bottom: 0px;
+	}
+	
+	#contenedor-login {
+		width: 50%;
+		margin-top: 0%;
+		margin-bottom: 0%;
+		max-width: 1000px;
+	}
 
-  #contenedor-login>div {
-    width: 250px;
-    font-size: 12px;
-  }
+	#contenedor-login>div {
+		width: 250px;
+		font-size: 12px;
+	}
 
-  #contenedor-login>div>h2 {
-    font-size: 22px;
-  }
-  
-  #form-login input {
-    margin-top: 3px;
-    text-align: justify;
-    border: 2px solid lightgrey;
-    border-radius: 15px;
-    padding: 7px;
-    width: 70%;
-    height: 8px;
-    font-size: 12px;
-  }
-  
-  #form-login>#boton-iniciar {
-    width: 50%;
-    height: 20px;
-    font-size: 12px;
-    padding: 0;
-  }
+	#contenedor-login>div>h2 {
+		font-size: 22px;
+	}
+	
+	#form-login input {
+		margin-top: 3px;
+		text-align: justify;
+		border: 2px solid lightgrey;
+		border-radius: 15px;
+		padding: 7px;
+		width: 70%;
+		height: 8px;
+		font-size: 12px;
+	}
+	
+	#form-login>#boton-iniciar {
+		width: 50%;
+		height: 20px;
+		font-size: 12px;
+		padding: 0;
+	}
 
-  #contenedor-foros {
-    display: grid;
-    grid-template-columns: repeat(3,1fr);
-    grid-template-rows: repeat(1,1fr);
-   
-  }
+	#contenedor-foros {
+		display: grid;
+		grid-template-columns: repeat(3,1fr);
+		grid-template-rows: repeat(1,1fr);
+		
+	}
 }
 
 
