@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Login Music Network</title>
+    <link rel="stylesheet" href="../css/estilosForo.css">
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src='../controllers/crearTema.js'></script>
+  </head>
+  <body>
+    <nav>
+      <ul>
+        <li><a href="../index.php"><img src="../imagenes/logo.jpg" alt="perfil"></a></li>
+        <li><a href="">Comunidad</a></li>
+        <li><a href="#contact">Canciones</a></li>
+        <li><a href="#sobre">Sobre nosotros</a></li>
+        <li style="float:right"><a class="active" href="../views/perfil.html"><img src="../imagenes/perfil2.jpg" alt="perfil"></a></li>
+      </ul>
+    </nav>
+    <main>
+      <section id="creacion-tema">
+        <h2>Nuevo tema en el foro...</h2>
+
+        <div id="contenedor-seleccion-foro">
+          <form name="formulario" id="form-login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
+            <label for="titulo-tema">Título del tema</label> <br>
+            <input type="text" name="titulo-tema" id="titulo-tema">
+            <br><br>
+
+            <label for="comentario">Comentario</label> <br>
+            <textarea name="comentario" id="comentario" cols="80" rows="20"></textarea>
+
+            <div id="barra-añadir-adicionales">
+              <button type="button" name="negrita" id="negrita"><b>B</b></button>
+              <button type="button" name="cursiva" id="cursiva"><i>I</i></button>
+              <button type="button" name="subrayado" id="subrayado"><u>A</u></button>
+            </div>
+
+            <br>
+
+            <input type="hidden" name="foro-elegido" id="foro-elegido" value="<?php echo $foroElegido ?>">
+            <input type="submit" id="boton-publicar-tema" value="Publicar tema"> <br>
+          </form>
+        </div>
+      </section>
+
+      <br><br>
+
+      <section>
+        <div id="ver">
+
+        </div>
+      </section>
+
+    </main>
+    <footer>footer</footer>
+  </body>
+</html>
