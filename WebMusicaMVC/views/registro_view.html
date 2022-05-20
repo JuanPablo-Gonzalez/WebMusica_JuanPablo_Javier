@@ -2,48 +2,39 @@
 <html lang="en" dir="ltr">
 <head>
 	<meta charset="utf-8">
-	<title></title>
+	<title>Login Music Network</title>
+	<link rel="stylesheet" href="../css/estilosRegistro.css">
+	<script src="../controllers/registro.js"></script>
 </head>
 <body>
-	<!DOCTYPE html>
-	<html lang="en" dir="ltr">
-	<head>
-		<meta charset="utf-8">
-		<title>Login Music Network</title>
-		<link rel="stylesheet" href="../css/estilosRegistro.css">
-		<script src="../controllers/registro.js"></script>
-	</head>
-	<body>
-		<main>
-			<div id="contenedor-registro">
-				<img src="imagenes/logo.jpg" alt="Logo de la web">
-				<h2>Únete a nuestra gran comunidad</h2>
+	<main>
+		<div id="contenedor-registro">
+			<img src="imagenes/logo.jpg" alt="Logo de la web">
+			<h2>Únete a nuestra gran comunidad</h2>
 
-				<form class="" action="#" method="post" id="form-registro" onsubmit="return validarLogin()">
-					<label for="usuario">Nombre de usuario</label> <br>
-					<input type="text" name="usuario" id="usuario"> <br><br>
-					<input type="hidden" name="usuarioCorrecto" id="usuarioCorrecto">
+			<form class="" action="#" method="post" id="form-registro" onsubmit="return validarLogin()">
+				<label for="usuario">Nombre de usuario</label> <br>
+				<input type="text" name="usuario" id="usuario"> <br><br>
+				<input type="hidden" name="usuarioCorrecto" id="usuarioCorrecto">
 
-					<label for="email">Correo electrónico</label> <br>
-					<input type="email" name="email" id="email"> <br><br>
+				<label for="email">Correo electrónico</label> <br>
+				<input type="email" name="email" id="email"> <br><br>
 
-					<label for="contrasena">Contraseña</label> <br>
-					<input type="password" name="contrasena" id="contrasena"> <br><br>
+				<label for="contrasena">Contraseña</label> <br>
+				<input type="password" name="contrasena" id="contrasena"> <br><br>
 
-					<label for="nacimiento">Fecha nacimiento</label> <br>
-					<input type="date" name="nacimiento" id="nacimiento"> <br>
+				<label for="nacimiento">Fecha nacimiento</label> <br>
+				<input type="date" name="nacimiento" id="nacimiento"> <br>
 
-					<!--<input type="text" name="codigo" id="codigo" placeholder="Introduce el código de verificación"> <br>-->
+				<!--<input type="text" name="codigo" id="codigo" placeholder="Introduce el código de verificación"> <br>-->
 
-					<br>
-					<input type="submit" id="boton-iniciar" value="Registrarse" name="registrarse"> <br>
-					<!--<input type="button" id="boton-validar" value="Validar" name="validar"> <br>-->
-				</form>
+				<br>
+				<input type="submit" id="boton-iniciar" value="Registrarse" name="registrarse"> <br>
+				<!--<input type="button" id="boton-validar" value="Validar" name="validar"> <br>-->
+			</form>
 
-				<p>¿Ya tienes una cuenta? <br><a href="../index.php">Accede</a></p>
-			</div>
-		</main>
-	</body>
-	</html>
+			<p>¿Ya tienes una cuenta? <br><a href="../index.php">Accede</a></p>
+		</div>
+	</main>
 </body>
 </html>

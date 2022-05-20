@@ -1,163 +1,163 @@
 html, body {
-    font-family: arial;
-    margin:0 auto;
-    box-sizing: border-box;
+	font-family: arial;
+	margin:0 auto;
+	box-sizing: border-box;
 }
 
 /*estilos nav*/
 nav {
-  background-color: #333;
+	background-color: #333;
 }
 
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  top: 0;
-  margin: 0 30px;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	position: -webkit-sticky; /* Safari */
+	position: sticky;
+	top: 0;
+	margin: 0 30px;
 }
 
 li {
-  float: left;
+	float: left;
 }
 
 li a {
-  display: block;
-  color: white;
-  text-align: center;
-  padding: 26px 25px;
-  text-decoration: none;
+	display: block;
+	color: white;
+	text-align: center;
+	padding: 26px 25px;
+	text-decoration: none;
 }
 
 li a:hover:not(.active) {
-  background-color: #111;
+	background-color: #111;
 }
 
 .active {
-  background-color: transparent;
-  padding:12px 0px 8px 0px;
+	background-color: transparent;
+	padding:12px 0px 8px 0px;
 }
 
 ul li:first-child {
-  margin-right: 30px;
+	margin-right: 30px;
 }
 
 ul li:first-child img {
-  width: 45px;
+	width: 45px;
 }
 
 ul li:first-child a {
-  padding:12px 0 8px 0;
+	padding:12px 0 8px 0;
 }
 
 ul li:last-child img {
-  width: 55px;
-  border-radius: 30%;
-  border: solid 2px rgb(250, 222, 179);
+	width: 55px;
+	border-radius: 30%;
+	border: solid 2px rgb(250, 222, 179);
 }
 /*fin estilos nav*/
 
 /*
 main {
-  background-color: lightyellow;
+	background-color: lightyellow;
 }*/
 
 /*estilos cabecera*/
 #cabecera-titulo {
-    background-color: rgb(250, 222, 179);
-    color: black;
-    padding: 5px 0 5px 0;
-    text-align: center;
-    /*background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../imagenes/foro.jpeg');*/
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+	background-color: rgb(250, 222, 179);
+	color: black;
+	padding: 5px 0 5px 0;
+	text-align: center;
+	/*background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../imagenes/foro.jpeg');*/
+	background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
 }
 /*fin estilos cabecera*/
 
 /*estilos tabla*/
 #pad-superior button {
-  border-radius: 20px;
+	border-radius: 20px;
 }
 
 #contenedor-listadoForos {
-    width: 100%;
-    display: flex;
-    justify-content: center;
+	width: 100%;
+	display: flex;
+	justify-content: center;
 }
 
- #tablaTemas {
-  /*table-layout: fixed;*/
-  border-collapse: collapse;
-  width: 100%; /*para movil*/
+#tablaTemas {
+	/*table-layout: fixed;*/
+	border-collapse: collapse;
+	width: 100%; /*para movil*/
 }
 
 /*
 #contenedor-listadoForos div {
-    background-color: lightyellow;
+		background-color: lightyellow;
 }*/
 
 #pad-superior {
-    margin-top: 20px;
-    margin-bottom: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
 }
 
 
 #listado-foros table thead tr th:first-child, #listado-foros table td:first-child {
-  /*width: 500px;*/
-  word-wrap: break-word;
-  text-align: left;
-  /*border: solid 2px blue;*/
+	/*width: 500px;*/
+	word-wrap: break-word;
+	text-align: left;
+	/*border: solid 2px blue;*/
 }
 
 a{
-  text-decoration: none;
+	text-decoration: none;
 }
 
 #listado-foros table th, #listado-foros table td {
-    padding: 10px;
-    text-align: right;
-    /*width:120px;*/
+	padding: 10px;
+	text-align: right;
+	/*width:120px;*/
 }
 
 #listado-foros table th {
-  background-color: lightyellow;
+	background-color: lightyellow;
 }
 
 /*fin estilos tabla*/
 
 /*Estilos cuadro selección*/
 #contenedor-seleccion-foro {
-  display: flex;
-  justify-content: space-around;
-  width: 100%;
-  margin-bottom: 20px;
-  margin-top: 30px;
+	display: flex;
+	justify-content: space-around;
+	width: 100%;
+	margin-bottom: 20px;
+	margin-top: 30px;
 }
 
 #seleccion-foro>h2,#seleccion-foro>p{
-  text-align: center;
+	text-align: center;
 }
 
 .selector-foro {
-  background-color: rgb(250, 222, 179);
-  border-radius: 20px;
-  text-align: center;
-  width: 15%;
-  cursor: pointer;
-  padding: 5px 0;
-  font-size: 11px;
+	background-color: rgb(250, 222, 179);
+	border-radius: 20px;
+	text-align: center;
+	width: 15%;
+	cursor: pointer;
+	padding: 5px 0;
+	font-size: 11px;
 }
 
 .selector-foro:hover {
-  background-color: rgb(245, 240, 175);
+	background-color: rgb(245, 240, 175);
 }
 
 footer {
-  text-align: center;
-  background-color: beige;
-  padding: 20px;
+	text-align: center;
+	background-color: beige;
+	padding: 20px;
 }
