@@ -1,7 +1,7 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "rootroot";
+$password = "";
 $database = "musicnetwork";
 
 try {

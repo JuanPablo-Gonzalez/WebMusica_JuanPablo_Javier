@@ -1,5 +1,5 @@
 <?php
-//include_once "db/db.php";
-
-include_once "controllers/login_controller.php";
+header('Location: ' . "controllers/login_controller.php");
+die();
+//include_once "controllers/login_controller.php";
 ?>

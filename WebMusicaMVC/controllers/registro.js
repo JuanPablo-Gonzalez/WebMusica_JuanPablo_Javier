@@ -1,17 +1,31 @@
-if(document.addEventListener)
-	window.addEventListener("load",inicio);
-else if (document.attachEvent)
-	window.attachEvent("onload",inicio);
+$("#form-registro").submit(() => {
+	event.preventDefault();
 
-function inicio() {
-	//document.getElementById("usuario").addEventListener("change",mostrarValidacion);
-	//document.getElementById("contrasena").addEventListener("change",mostrarValidacion);
-	if(document.addEventListener) {
-		document.getElementById("usuario").addEventListener("change",iniciar);
-	}
-	else if (document.attachEvent)
-		document.getElementById("usuario").attachEvent("onchange",iniciar);
-}
+	var datosRegistrarse = {};
+	datosRegistrarse["email"] = $("#inputEmail").val();
+	datosRegistrarse["nombre"] = $("#inputNombre").val();
+	datosRegistrarse["tag"] = $("#inputTag").val();
+	datosRegistrarse["password"] = $("#inputPassword").val();
+	datosRegistrarse["fechaNacimiento"] = $("#inputFechaNacimiento").val();
+
+	$.ajax({
+		method: "POST",
+		url: "../models/registrarse.php",
+		data: datosRegistrarse,
+		success: function(resultado){
+			console.log(resultado)
+			if(!resultado.error){
+				//Ir al perfil
+			}else{
+				//error
+			}
+		},
+		dataType: "json"
+	});
+
+	return false;
+});
+
 
 function comprobarNomUsuario() {
 	let correcto= true;
@@ -48,15 +62,6 @@ function comprobarContrasena() {
 
 	return correcto;
 }
-
-/*
-function mostrarValidacion() {
-	if(comprobarNomUsuario()) {
-		document.querySelector("#form-login img").style.display= "inline-block";
-	} else {
-		document.querySelector("#form-login img").style.display= "none"
-	}
-}*/
 
 function validarLogin() {
 	let correcto= true;

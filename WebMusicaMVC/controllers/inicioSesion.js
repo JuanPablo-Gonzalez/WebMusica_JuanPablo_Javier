@@ -1,18 +1,19 @@
 $("#form-login").submit(() => {
-	//event.preventDefault();
-	var email = $("#usuario").val();
-	var password = $("#contrasena").val();
+	event.preventDefault();
 
-	auth.signInWithEmailAndPassword(email, password)
-	.then((userCredential) => {
-		var user = userCredential.user;
-		console.log(userCredential)
-		console.log(user)
-	})
-	.catch((error) => {
-		var errorCode = error.code;
-		var errorMessage = error.message;
-		console.log(error)
+	var datosInicioSesion = {};
+	datosInicioSesion["email"] = $("#usuario").val();
+	datosInicioSesion["password"] = $("#contrasena").val();
+
+	$.ajax({
+		method: "POST",
+		url: "../models/iniciarSesion.php",
+		data: datosInicioSesion,
+		success: function(result){
+			console.log(result)
+			//datosInicioSesion = {};
+		},
+		dataType: "text"
 	});
 
 	return false;
