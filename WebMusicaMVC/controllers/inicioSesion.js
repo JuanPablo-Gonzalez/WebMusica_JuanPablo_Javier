@@ -18,16 +18,3 @@ $("#form-login").submit(() => {
 
 	return false;
 });
-
-$("#form-login").validate({
-	rules:{
-		usuario:{
-			required: true,
-			email: true
-		},
-		contrasena:{
-			required: true,
-			minlength: 3
-		}
-	}
-});

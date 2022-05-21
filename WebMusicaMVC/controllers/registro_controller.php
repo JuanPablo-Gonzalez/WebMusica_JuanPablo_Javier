@@ -13,5 +13,6 @@
 	<?php
 	include_once "../views/registro_view.html";	?>
 	<script src="registro.js"></script>
+	<script src="validateForms.js"></script>
 </body>
 </html>
