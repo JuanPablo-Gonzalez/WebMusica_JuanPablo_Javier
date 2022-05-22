@@ -1,28 +1,27 @@
-$("#form-registro").submit(() => {
-	event.preventDefault();
+$("#formRegistrarse").submit(() => {
+	if($("#formRegistrarse").valid()){
+		var datosRegistrarse = {};
+		datosRegistrarse["email"] = $("#inputEmail").val();
+		datosRegistrarse["nombre"] = $("#inputNombre").val();
+		datosRegistrarse["tag"] = $("#inputTag").val();
+		datosRegistrarse["password"] = $("#inputPassword").val();
+		datosRegistrarse["fechaNacimiento"] = $("#inputFechaNacimiento").val();
 
-	var datosRegistrarse = {};
-	datosRegistrarse["email"] = $("#inputEmail").val();
-	datosRegistrarse["nombre"] = $("#inputNombre").val();
-	datosRegistrarse["tag"] = $("#inputTag").val();
-	datosRegistrarse["password"] = $("#inputPassword").val();
-	datosRegistrarse["fechaNacimiento"] = $("#inputFechaNacimiento").val();
-
-	$.ajax({
-		method: "POST",
-		url: "../models/registrarse.php",
-		data: datosRegistrarse,
-		success: function(resultado){
-			console.log(resultado)
-			if(!resultado.error){
-				//Ir al perfil
-			}else{
-				//error
-			}
-		},
-		dataType: "json"
-	});
-
+		$.ajax({
+			method: "POST",
+			url: "../models/registrarse.php",
+			data: datosRegistrarse,
+			success: function(resultado){
+				console.log(resultado)
+				if(!resultado.error){
+					//Ir al perfil
+				}else{
+					//error
+				}
+			},
+			dataType: "json"
+		});
+	}
 	return false;
 });
 
