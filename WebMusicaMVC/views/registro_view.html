@@ -4,25 +4,31 @@
 		<!--<img src="../imagenes/logo.jpg" alt="Logo de la web">-->
 		<h2>Únete a nuestra gran comunidad</h2>
 
-		<form class="" action="#" method="post" id="form-registro">
+		<form method="post" id="formRegistrarse">
 			<label for="inputEmail">Correo electrónico</label> <br>
-			<input type="email" name="inputEmail" id="inputEmail"> <br><br>
+			<input type="email" name="inputEmail" id="inputEmail"> <br>
+			<label id="inputEmail-error" class="error" for="inputEmail"></label><br> 
 
 			<label for="inputNombre">Nombre completo</label> <br>
-			<input type="text" name="inputNombre" id="inputNombre"> <br><br>
+			<input type="text" name="inputNombre" id="inputNombre"> <br>
+			<label id="inputNombre-error" class="error" for="inputNombre"></label><br>
 
 			<label for="inputTag">Nombre de usuario</label> <br>
-			<input type="text" name="inputTag" id="inputTag"> <br><br>
+			<input type="text" name="inputTag" id="inputTag"> <br>
+			<label id="inputTag-error" class="error" for="inputTag"></label><br>
 
 			<label for="inputPassword">Contraseña</label> <br>
-			<input type="password" name="inputPassword" id="inputPassword"> <br><br>
+			<input type="password" name="inputPassword" id="inputPassword"> <br>
+			<label id="inputPassword-error" class="error" for="inputPassword"></label><br>
 
-			<!--<label for="inputPassword2">Contraseña</label> <br>
-			<input type="password" name="inputPassword2" id="inputPassword2"><br><br>-->
+			<label for="inputPassword2">Repite la contraseña</label> <br>
+			<input type="password" name="inputPassword2" id="inputPassword2"><br>
+			<label id="inputPassword2-error" class="error" for="inputPassword2"></label><br>
 
 			<label for="inputFechaNacimiento">Fecha nacimiento</label> <br>
 			<input type="date" name="inputFechaNacimiento" id="inputFechaNacimiento"> <br>
-
+			<label id="inputFechaNacimiento-error" class="error" for="inputFechaNacimiento"></label><br>
+			
 			<br>
 			<input type="submit" id="bttn-registrarse" value="Registrarse" name="registrarse"> <br>
 		</form>
