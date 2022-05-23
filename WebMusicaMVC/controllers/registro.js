@@ -1,4 +1,3 @@
-var userInfo = {};
 $("#formRegistrarse").submit(() => {
 	if($("#formRegistrarse").valid()){
 		var datosRegistrarse = {};
@@ -14,7 +13,7 @@ $("#formRegistrarse").submit(() => {
 			data: datosRegistrarse,
 			success: function(result){
 				if(!result.error){
-					userInfo = result["userInfo"];
+					var idUsuario = result["idUsuario"];
 					//Ir al perfil
 				}else{
 					if(result.errorInfo.errorCode == 23000 && result.errorInfo.code == 1062){
@@ -28,7 +27,6 @@ $("#formRegistrarse").submit(() => {
 								$("#inputTag-error").show();
 							break;
 						}
-						
 					}
 				}
 			},

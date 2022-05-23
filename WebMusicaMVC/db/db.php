@@ -1,11 +1,11 @@
 <?php
 $servername = "localhost";
 $username = "root";
-$password = "";
+$db_password = "";
 $database = "musicnetwork";
 
 try {
-	$conexion = new PDO("mysql:host=$servername;dbname=$database", $username, $password); 	 	 	 	 	 	
+	$conexion = new PDO("mysql:host=$servername;dbname=$database", $username, $db_password); 	 	 	 	 	 	
 	$conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION); 	 	 	 	
 } catch (PDOException $e) {
 	echo $e->getMessage(); 	 	 	 	 	 	
@@ -13,11 +13,11 @@ try {
 
 /*$servername = "localhost";
 $username = "id18819700_tfg";
-$password = "MuNetJaviJP9@";
+$db_password = "MuNetJaviJP9@";
 $database = "id18819700_musicnetwork";
 
 try {
-	$conexion = new PDO("mysql:host=$servername;dbname=$database", $username, $password); 	 	 	 	 	 	
+	$conexion = new PDO("mysql:host=$servername;dbname=$database", $username, $db_password); 	 	 	 	 	 	
 	$conexion->setAttribute(PDO::ATTR_ERRMODE,PDO::ERRMODE_EXCEPTION); 	 	
 
 } catch (PDOException $e) {

@@ -1,3 +1,11 @@
+session_start();
+<?php
+if(isset($_SESSION['nif'])){
+	$nif = $_SESSION['nif'];
+}else{
+	$nif = "";
+}
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>

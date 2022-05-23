@@ -1,11 +1,20 @@
 $("#form-login").validate({
 	rules:{
-		usuario:{
+		inputEmail:{
 			required: true,
 			email: true
 		},
-		contrasena:{
+		inputPassword:{
 			required: true
+		}
+	},
+	messages : {
+		inputEmail:{
+			required: "Es necesario rellenar este campo",
+			email: "El campo debe tener un formato de email valido"
+		},
+		inputPassword:{
+			required: "Es necesario rellenar este campo"
 		}
 	}
 });

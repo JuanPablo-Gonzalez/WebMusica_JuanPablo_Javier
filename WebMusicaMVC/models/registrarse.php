@@ -15,12 +15,14 @@ try {
 	$conexion->exec($sql);
 
 	$json["error"] = false;
-	$idUsuario= $conexion->lastInsertId();
+	$idUsuario = $conexion->lastInsertId();
 
-	$json["userInfo"]["idUsuario"] = $_SESSION["idUsuario"] = $idUsuario;
-	$json["userInfo"]["nombre"] = $_SESSION["nombre"] = $nombre;
-	$json["userInfo"]["tag"] = $_SESSION["tag"] = $tag;
-	$json["userInfo"]["email"] = $_SESSION["email"] = $email;
+	$json["idUsuario"] = $idUsuario;
+	$_SESSION["idUsuario"] = $idUsuario;
+	$_SESSION["nombre"] = $nombre;
+	$_SESSION["tag"] = $tag;
+	$_SESSION["email"] = $email;
+	$_SESSION["foto_perfil"] = null;
 } catch(PDOException $e) {
 	$json["error"] = true;
 	$json["errorInfo"]["errorCode"] = $e->getCode();

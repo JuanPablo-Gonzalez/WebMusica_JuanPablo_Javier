@@ -2,16 +2,20 @@ $("#form-login").submit(() => {
 	event.preventDefault();
 
 	var datosInicioSesion = {};
-	datosInicioSesion["email"] = $("#usuario").val();
-	datosInicioSesion["password"] = $("#contrasena").val();
+	datosInicioSesion["email"] = $("#inputEmail").val();
+	datosInicioSesion["password"] = $("#inputPassword").val();
 
 	$.ajax({
 		method: "POST",
 		url: "../models/iniciarSesion.php",
 		data: datosInicioSesion,
 		success: function(result){
-			console.log(result)
-			//datosInicioSesion = {};
+			if(!result.error){
+				var idUsuario = result["idUsuario"];
+				//Ir al perfil
+			}else{
+				//Error, email o contraseña incorrectos
+			}
 		},
 		dataType: "text"
 	});
