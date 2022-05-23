@@ -1,4 +1,5 @@
 <?php
+session_start();
 $email = $_POST["email"];
 $nombre = $_POST["nombre"];
 $tag = $_POST["tag"];
@@ -14,7 +15,12 @@ try {
 	$conexion->exec($sql);
 
 	$json["error"] = false;
-	$json["idUsuario"] = $conexion->lastInsertId();
+	$idUsuario= $conexion->lastInsertId();
+
+	$json["userInfo"]["idUsuario"] = $_SESSION["idUsuario"] = $idUsuario;
+	$json["userInfo"]["nombre"] = $_SESSION["nombre"] = $nombre;
+	$json["userInfo"]["tag"] = $_SESSION["tag"] = $tag;
+	$json["userInfo"]["email"] = $_SESSION["email"] = $email;
 } catch(PDOException $e) {
 	$json["error"] = true;
 	$json["errorInfo"]["errorCode"] = $e->getCode();

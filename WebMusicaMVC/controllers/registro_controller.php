@@ -11,8 +11,9 @@
 </head>
 <body>
 	<?php
-	include_once "../views/registro_view.html";	?>
-	<script src="registro.js"></script>
-	<script src="validateForms.js"></script>
+	include_once "../views/registro_view.html";
+	?>
+	<script type="text/javascript" src="registro.js"></script>
+	<script type="text/javascript" src="validateForms.js"></script>
 </body>
 </html>
