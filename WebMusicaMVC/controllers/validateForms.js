@@ -1,11 +1,20 @@
 $("#form-login").validate({
 	rules:{
-		usuario:{
+		inputEmail:{
 			required: true,
 			email: true
 		},
-		contrasena:{
+		inputPassword:{
 			required: true
+		}
+	},
+	messages : {
+		inputEmail:{
+			required: "Es necesario rellenar este campo",
+			email: "El campo debe tener un formato de email valido"
+		},
+		inputPassword:{
+			required: "Es necesario rellenar este campo"
 		}
 	}
 });
@@ -70,6 +79,5 @@ $("#formRegistrarse").validate({
 });
 
 $.validator.addMethod("password", (value, element) => {
-	console.log(value);
 	return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[\S\s]+$/.test(value);
 }, "La contraseña debe incluir al menos una mayuscula, una minuscula y un número");

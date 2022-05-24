@@ -1,3 +1,16 @@
+<?php
+session_start();
+if(isset($_SESSION["email"])){
+	$email = $_SESSION["email"];
+}else{
+	$email = "";
+}
+
+/*if(isset($_COOKIE["idUsuario"])){
+	$idUsuario = $_SESSION["idUsuario"];
+
+}*/
+?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
@@ -17,3 +30,7 @@
 	<script src="inicioSesion.js"></script>
 </body>
 </html>
+<?php
+/*session_unset();
+session_destroy();*/
+?>	
