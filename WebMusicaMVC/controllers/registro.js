@@ -13,8 +13,7 @@ $("#formRegistrarse").submit(() => {
 			data: datosRegistrarse,
 			success: function(result){
 				if(!result.error){
-					var idUsuario = result["idUsuario"];
-					//Ir al perfil
+					window.location.assign("../usuarios/" + result.tag)
 				}else{
 					if(result.errorInfo.errorCode == 23000 && result.errorInfo.code == 1062){
 						switch(result.errorInfo.key){

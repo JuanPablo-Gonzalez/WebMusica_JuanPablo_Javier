@@ -1,11 +1,12 @@
-$("#form-login").validate({
+$("#formLogin").validate({
 	rules:{
 		inputEmail:{
 			required: true,
 			email: true
 		},
 		inputPassword:{
-			required: true
+			required: true,
+			password: false
 		}
 	},
 	messages : {

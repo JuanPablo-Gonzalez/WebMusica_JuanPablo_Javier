@@ -13,21 +13,38 @@ try {
 	$sql = "INSERT INTO usuarios (email, nombre_usuario, tag, password, fecha_nacimiento) VALUES ('$email','$nombre','$tag','$pwd','$fechaNacimiento')";
 	
 	$conexion->exec($sql);
-
-	$json["error"] = false;
+	
 	$idUsuario = $conexion->lastInsertId();
 
-	$json["idUsuario"] = $idUsuario;
+	$json["error"] = false;
+	$json["tag"] = $tag;
+	//$json["idUsuario"] = $idUsuario;
+	
 	$_SESSION["idUsuario"] = $idUsuario;
 	$_SESSION["nombre"] = $nombre;
 	$_SESSION["tag"] = $tag;
 	$_SESSION["email"] = $email;
 	$_SESSION["foto_perfil"] = null;
 
-	mkdir("../usuarios/" . $tag);
-	mkdir("../usuarios/" . $tag . "/fotos");
-	mkdir("../usuarios/" . $tag . "/videos");
-	mkdir("../usuarios/" . $tag . "/audios");
+	if(!file_exists("../usuarios")){
+		mkdir("../usuarios");
+	}
+	if(!file_exists("../usuarios/" . $tag)){
+		mkdir("../usuarios/" . $tag);
+	}
+	if(!file_exists("../usuarios/" . $tag . "/fotos")){
+		mkdir("../usuarios/" . $tag . "/fotos");
+	}
+	if(!file_exists("../usuarios/" . $tag . "/videos")){
+		mkdir("../usuarios/" . $tag . "/videos");
+	}
+	if(!file_exists("../usuarios/" . $tag . "/audios")){
+		mkdir("../usuarios/" . $tag . "/audios");
+	}
+
+	$indexFile = fopen("../usuarios/" . $tag ."/index.php", "w");
+	$codeIndex = '<?php include_once "../../controllers/perfil_controller.php"; ?>';
+	fwrite($indexFile, $codeIndex);
 
 } catch(PDOException $e) {
 	$json["error"] = true;
@@ -40,7 +57,7 @@ try {
 			$json["errorInfo"]["key"] = $key;
 		}
 	}
-}
 
-echo json_encode($json);
+}
+	echo json_encode($json);
 ?>

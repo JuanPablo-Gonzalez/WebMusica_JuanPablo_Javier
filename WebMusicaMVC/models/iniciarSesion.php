@@ -19,8 +19,8 @@ if(count($usuario) != 0){
 	$json["error"] = false;
 	$usuario = $usuario[0];
 
-	$json["idUsuario"] = $usuario["id_usuario"];
-
+	//$json["idUsuario"] = $usuario["id_usuario"];
+	$json["tag"] = $usuario["tag"];
 	
 	$_SESSION["idUsuario"] = $usuario["id_usuario"];
 	$_SESSION["nombre"] = $usuario["nombre_usuario"];
@@ -34,4 +34,6 @@ if(count($usuario) != 0){
 }else{
 	$json["error"] = true;
 }
+
+echo json_encode($json);
 ?>
