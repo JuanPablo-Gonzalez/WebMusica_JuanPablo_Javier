@@ -8,20 +8,21 @@
 			<div>
 				<h2>Accede a tu cuenta</h2>
 
-				<form name="formulario" id="form-login" action="" method="post">
+				<form name="formulario" id="formLogin" action="" method="post">
 					<label for="inputEmail">Correo electronico</label> <br>
-					<input type="email" name="inputEmail" id="inputEmail"  value="<?php echo $email; ?>"> 
-					<br><br>
+					<input type="email" name="inputEmail" id="inputEmail"  value="<?php echo $email; ?>"><br>
+					<label id="inputEmail-error" class="error" for="inputEmail"></label><br> 
 
 					<label for="inputPassword">Contraseña</label> <br>
-					<input type="password" name="inputPassword" id="inputPassword"> 
-					<br><br>
+					<input type="password" name="inputPassword" id="inputPassword"><br>
+					<label id="inputPassword-error" class="error" for="inputPassword"></label><br> 
 
 					<!--<input type="checkbox" name="inputRecuerdame" id="inputRecuerdame">
-					<label for="inputRecuerdame">Recuerdame</label>
-					<br><br>-->
-
-					<input type="submit" id="boton-iniciar" value="Iniciar Sesión"> <br>
+					<label for="inputRecuerdame">Recuerdame</label>-->
+					
+					<label id="label-inicioIncorrecto" class="error"></label>
+					<br><br>
+					<input type="submit" id="boton-iniciar" value="Iniciar Sesión"><br>
 				</form>
 
 				<p>¿Aún no tienes una cuenta? <br><a href="../controllers/registro_controller.php">Regístrate</a></p>

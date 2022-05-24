@@ -109,7 +109,7 @@ header {
 	font-size: 40px;
 }
 
-#form-login {
+#formLogin {
 	/*background-color: lightblue;*/
 	border-radius: 20px;
 	padding: 15px;
@@ -119,7 +119,7 @@ header {
 	font-size: 55px;
 }
 
-#form-login input {
+#formLogin input {
 	margin-top: 10px;
 	text-align: justify;
 	border: 2px solid lightgrey;
@@ -130,17 +130,17 @@ header {
 	font-size: 30px;
 }
 
-#form-login input:focus{
+#formLogin input:focus{
 	outline:none;
 	border: 2px solid rgb(250, 222, 179);
 } 
 
-#form-login img {
+#formLogin img {
 	width: 40px;
 	display: none;
 } 
 
-#form-login>#boton-iniciar {
+#formLogin>#boton-iniciar {
 	border: 0px;
 	width: 70%;
 	height: 50px;
@@ -152,7 +152,7 @@ header {
 	font-size: 30px;
 }
 
-#form-login>#boton-iniciar:hover {
+#formLogin>#boton-iniciar:hover {
 	cursor: pointer;
 	box-shadow: 0px 6px 0px -3px rgba(0,0,0,0.75);
 }
@@ -235,7 +235,7 @@ header {
 		font-size: 22px;
 	}
 	
-	#form-login input {
+	#formLogin input {
 		margin-top: 3px;
 		text-align: justify;
 		border: 2px solid lightgrey;
@@ -246,7 +246,7 @@ header {
 		font-size: 12px;
 	}
 	
-	#form-login>#boton-iniciar {
+	#formLogin>#boton-iniciar {
 		width: 50%;
 		height: 20px;
 		font-size: 12px;

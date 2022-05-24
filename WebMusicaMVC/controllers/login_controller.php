@@ -5,11 +5,6 @@ if(isset($_SESSION["email"])){
 }else{
 	$email = "";
 }
-
-/*if(isset($_COOKIE["idUsuario"])){
-	$idUsuario = $_SESSION["idUsuario"];
-
-}*/
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -27,10 +22,7 @@ if(isset($_SESSION["email"])){
 	include_once "../views/barraNavegacion.html";
 	include_once "../views/login_view.html";
 	?>
+	<script src="validateForms.js"></script>
 	<script src="inicioSesion.js"></script>
 </body>
 </html>
-<?php
-/*session_unset();
-session_destroy();*/
-?>	

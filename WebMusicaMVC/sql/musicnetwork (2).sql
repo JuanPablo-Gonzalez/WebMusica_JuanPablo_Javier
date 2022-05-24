@@ -46,15 +46,17 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `id_usuario` int(10) NOT NULL AUTO_INCREMENT,
   `nombre_usuario` varchar(30) NOT NULL,
   `tag` varchar(15) NOT NULL,
-  `foto_usuario` varchar(20) DEFAULT NULL,
+  `foto_perfil` varchar(40) DEFAULT NULL,
   `descripcion` varchar(300) DEFAULT NULL,
   `email` varchar(30) NOT NULL,
   `password` varchar(32) NOT NULL,
   `fecha_nacimiento` date DEFAULT NULL,
   `email_verificado` tinyint(1) NOT NULL DEFAULT '0',
+  `cancion` varchar(20) DEFAULT NULL,
+  `foto_fondo` varchar(40) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`),
   UNIQUE KEY `UK_tag` (`tag`) USING BTREE,
-  UNIQUE KEY `UK_email` (`email`)
+  UNIQUE KEY `UK_email` (`email`) USING BTREE
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
