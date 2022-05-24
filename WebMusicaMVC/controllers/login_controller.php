@@ -1,10 +1,15 @@
-session_start();
 <?php
-if(isset($_SESSION['nif'])){
-	$nif = $_SESSION['nif'];
+session_start();
+if(isset($_SESSION["email"])){
+	$email = $_SESSION["email"];
 }else{
-	$nif = "";
+	$email = "";
 }
+
+/*if(isset($_COOKIE["idUsuario"])){
+	$idUsuario = $_SESSION["idUsuario"];
+
+}*/
 ?>
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -25,3 +30,7 @@ if(isset($_SESSION['nif'])){
 	<script src="inicioSesion.js"></script>
 </body>
 </html>
+<?php
+/*session_unset();
+session_destroy();*/
+?>	

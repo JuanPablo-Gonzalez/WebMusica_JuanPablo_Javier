@@ -23,6 +23,12 @@ try {
 	$_SESSION["tag"] = $tag;
 	$_SESSION["email"] = $email;
 	$_SESSION["foto_perfil"] = null;
+
+	mkdir("../usuarios/" . $tag);
+	mkdir("../usuarios/" . $tag . "/fotos");
+	mkdir("../usuarios/" . $tag . "/videos");
+	mkdir("../usuarios/" . $tag . "/audios");
+
 } catch(PDOException $e) {
 	$json["error"] = true;
 	$json["errorInfo"]["errorCode"] = $e->getCode();

@@ -4,6 +4,7 @@ $("#form-login").submit(() => {
 	var datosInicioSesion = {};
 	datosInicioSesion["email"] = $("#inputEmail").val();
 	datosInicioSesion["password"] = $("#inputPassword").val();
+	datosInicioSesion["recuerdame"] = $("#inputRecuerdame")[0].checked;
 
 	$.ajax({
 		method: "POST",
@@ -12,7 +13,7 @@ $("#form-login").submit(() => {
 		success: function(result){
 			if(!result.error){
 				var idUsuario = result["idUsuario"];
-				//Ir al perfil
+				window.location.assign("perfil_controller.php")
 			}else{
 				//Error, email o contraseña incorrectos
 			}

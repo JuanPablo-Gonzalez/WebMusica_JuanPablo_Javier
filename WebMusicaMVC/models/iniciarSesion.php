@@ -2,6 +2,7 @@
 session_start();
 $email = $_POST["email"];
 $password = MD5($_POST["password"]);
+//$recuerdame = $_POST["recuerdame"];
 
 include_once "../db/db.php";
 
@@ -20,11 +21,16 @@ if(count($usuario) != 0){
 
 	$json["idUsuario"] = $usuario["id_usuario"];
 
+	
 	$_SESSION["idUsuario"] = $usuario["id_usuario"];
 	$_SESSION["nombre"] = $usuario["nombre_usuario"];
 	$_SESSION["tag"] = $usuario["tag"];
 	$_SESSION["email"] = $email;
 	$_SESSION["foto_perfil"] = $usuario["foto_perfil"];
+
+	/*if($recuerdame){ 
+		setcookie("idUsuario",$idUsuario,time() + (86400 * 30 * 365), "/");
+	}*/
 }else{
 	$json["error"] = true;
 }
