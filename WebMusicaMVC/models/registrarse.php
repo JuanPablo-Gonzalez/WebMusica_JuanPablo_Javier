@@ -1,10 +1,10 @@
 <?php
 session_start();
-$email = $_POST["email"];
-$nombre = $_POST["nombre"];
-$tag = $_POST["tag"];
-$pwd = MD5($_POST["password"]);
-$fechaNacimiento = $_POST["fechaNacimiento"];
+$email = trim(addslashes($_POST["email"]));
+$nombre = trim(addslashes($_POST["nombre"]));
+$tag = trim(addslashes($_POST["tag"]));
+$pwd = MD5(trim($_POST["password"]));
+$fechaNacimiento = trim(addslashes($_POST["fechaNacimiento"]));
 
 include_once "../db/db.php";
 
@@ -25,6 +25,7 @@ try {
 	$_SESSION["tag"] = $tag;
 	$_SESSION["email"] = $email;
 	$_SESSION["foto_perfil"] = null;
+	$_SESSION["foto_fondo"] = null;
 
 	if(!file_exists("../usuarios")){
 		mkdir("../usuarios");
@@ -45,7 +46,6 @@ try {
 	$indexFile = fopen("../usuarios/" . $tag ."/index.php", "w");
 	$codeIndex = '<?php include_once "../../controllers/perfil_controller.php"; ?>';
 	fwrite($indexFile, $codeIndex);
-
 } catch(PDOException $e) {
 	$json["error"] = true;
 	$json["errorInfo"]["errorCode"] = $e->getCode();
@@ -57,7 +57,6 @@ try {
 			$json["errorInfo"]["key"] = $key;
 		}
 	}
-
 }
-	echo json_encode($json);
+echo json_encode($json);
 ?>
