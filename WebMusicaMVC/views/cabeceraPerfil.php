@@ -5,19 +5,19 @@
 			</div>
 			<div class="div-contedor-info">
 				<div class="div-tagNombre item-a">
-					<p class="p-tagNombre-nombre" id="p-tagNombre-nombre"><?php echo $_SESSION["nombre"] ?></p>
-					<p class="p-tagNombre-tag" id="p-tagNombre-tag">@JRenedo</p>
+					<p class="p-tagNombre-nombre" id="p-tagNombre-nombre"></p>
+					<p class="p-tagNombre-tag" id="p-tagNombre-tag"></p>
 				</div>
 				<div class="div-fechaNacimiento item-a">
-					<p>28 de agosto de 2001</p>
+					<p id="p-fechaNacimiento"></p>
 				</div>
 				<div class="div-descripcion">
-					<p id="p-descripcion">Esto es una descripción Lorem ipsum adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum</p>
+					<p id="p-descripcion"></p>
 				</div>
 			</div>
 			<div class="div-contenedor-iframe-Spotify">
 				<h2>Tu canción favorita</h2>
-				<iframe class="iframe-spotify" src="https://open.spotify.com/embed/track/1RnDdNwGdqTMSTiZmSLYdU?utm_source=generator&theme=0" width="100%" height="80" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media;picture-in-picture"></iframe>
+				<iframe class="iframe-spotify" id="iframe-cancion" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;picture-in-picture"></iframe>
 			</div>
 		</div>
 	</div>

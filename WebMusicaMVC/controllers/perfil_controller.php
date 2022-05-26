@@ -37,6 +37,15 @@ $tagPerfil = $arrayPath[count($arrayPath)-1];
 					$(document).ready(function(){
 						$("body").css("background-image",'url("fotos/'+result.foto_fondo+'")');
 						$("#fotoPerfil").attr("src","fotos/"+result.foto_perfil);
+						$("#p-tagNombre-nombre").text(result.nombre_usuario);
+						$("#p-tagNombre-tag").text("@" + result.tag);
+						$("#p-fechaNacimiento").text(result.fecha_nacimiento);
+						$("#p-descripcion").text(result.descripcion);
+						$("#iframe-cancion").attr("src", "https://open.spotify.com/embed/track/" + result.cancion + "?utm_source=generator&theme=0");
+						$("#p-descripcion").text(result.descripcion);
+						$("#span-numPublicaciones").text(result.numPublicaciones);
+						$("#span-numSeguidores").text(result.numSeguidores);
+						$("#span-numSeguidos").text(result.numSeguidos);
 					});
 				}
 			},

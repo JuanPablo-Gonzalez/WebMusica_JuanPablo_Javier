@@ -23,4 +23,13 @@ try {
 } catch (PDOException $e) {
 	echo $e->getMessage(); 	 	 	 	 	 	
 }*/
+
+
+function obtenerArraySQL($conexion, $sql){
+	$stmt = $conexion->prepare($sql);
+	$stmt->execute();
+	$result = $stmt->setFetchMode(PDO::FETCH_ASSOC);
+
+	return new RecursiveArrayIterator($stmt->fetchAll());
+}
 ?>
