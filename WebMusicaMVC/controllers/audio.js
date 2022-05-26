@@ -1,4 +1,4 @@
-var song = new Audio("../American Idiot.mp3");
+var song = new Audio("audios/American Idiot.mp3");
 song.loop = false;
 var songInterval;
 
