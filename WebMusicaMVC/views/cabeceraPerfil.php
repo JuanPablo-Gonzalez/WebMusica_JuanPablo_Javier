@@ -4,11 +4,14 @@
 				<img id="fotoPerfil">
 			</div>
 			<div class="div-contedor-info">
-				<div class="div-tagNombre item-a">
+				<div class="div-tagNombre">
 					<p class="p-tagNombre-nombre" id="p-tagNombre-nombre"></p>
 					<p class="p-tagNombre-tag" id="p-tagNombre-tag"></p>
 				</div>
-				<div class="div-fechaNacimiento item-a">
+				<div class="div-buttonSeguir">
+					<button id="bttnSeguir">Seguir</button>
+				</div>
+				<div class="div-fechaNacimiento">
 					<p id="p-fechaNacimiento"></p>
 				</div>
 				<div class="div-descripcion">

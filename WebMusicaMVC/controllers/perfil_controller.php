@@ -46,6 +46,16 @@ $tagPerfil = $arrayPath[count($arrayPath)-1];
 						$("#span-numPublicaciones").text(result.numPublicaciones);
 						$("#span-numSeguidores").text(result.numSeguidores);
 						$("#span-numSeguidos").text(result.numSeguidos);
+						
+						if(result.siguiendo == 0){
+							$("#bttnSeguir").html("Seguir");
+						}else if(result.siguiendo == 1){
+							$("#bttnSeguir").html("Siguiendo");
+						}
+
+						$("#bttnSeguir").click(() => {
+							
+						})
 					});
 				}
 			},
