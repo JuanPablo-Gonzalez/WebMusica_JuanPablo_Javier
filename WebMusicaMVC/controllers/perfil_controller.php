@@ -27,46 +27,16 @@ $tagPerfil = $arrayPath[count($arrayPath)-1];
 	<script type="text/javascript">
 		var datos = {};
 		datos["tagPerfil"] = <?php echo '"'.$tagPerfil.'"'; ?>;
-		$.ajax({
-			method: "POST",
-			url: "../../models/obtenerUsuarioPerfil.php",
-			data: datos,
-			success: function(result){
-				console.log(result)
-				if(!result.error){
-					$(document).ready(function(){
-						$("body").css("background-image",'url("fotos/'+result.foto_fondo+'")');
-						$("#fotoPerfil").attr("src","fotos/"+result.foto_perfil);
-						$("#p-tagNombre-nombre").text(result.nombre_usuario);
-						$("#p-tagNombre-tag").text("@" + result.tag);
-						$("#p-fechaNacimiento").text(result.fecha_nacimiento);
-						$("#p-descripcion").text(result.descripcion);
-						$("#iframe-cancion").attr("src", "https://open.spotify.com/embed/track/" + result.cancion + "?utm_source=generator&theme=0");
-						$("#p-descripcion").text(result.descripcion);
-						$("#span-numPublicaciones").text(result.numPublicaciones);
-						$("#span-numSeguidores").text(result.numSeguidores);
-						$("#span-numSeguidos").text(result.numSeguidos);
-						
-						if(result.siguiendo == 0){
-							$("#bttnSeguir").html("Seguir");
-						}else if(result.siguiendo == 1){
-							$("#bttnSeguir").html("Siguiendo");
-						}
-
-						$("#bttnSeguir").click(() => {
-							
-						})
-					});
-				}
-			},
-			dataType: "json"
-		});
 	</script>
+	<script type="text/javascript" src="../../controllers/perfil.js"></script>
 	<?php
 	include_once "../../views/cabeceraPerfil.php";
 	include_once "../../views/estadisticasPerfil.html";
 	include_once "../../views/publicaciones.html";
 	?>
+	<script type="text/javascript">
+		
+	</script>
 	<script type="text/javascript" src="../../controllers/audio.js"></script>
 </body>
 </html>

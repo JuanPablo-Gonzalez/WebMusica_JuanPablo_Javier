@@ -1,7 +1,7 @@
 	<div class="div-contenedor-fotoPerfilNombre">
 		<div class="div-fotoPerfilNombre">
 			<div class="div-contenedor-fotoPerfil">
-				<img id="fotoPerfil">
+				<img id="fotoPerfil" src="../../imagenes/estandarPerfil.png">
 			</div>
 			<div class="div-contedor-info">
 				<div class="div-tagNombre">
@@ -19,7 +19,7 @@
 				</div>
 			</div>
 			<div class="div-contenedor-iframe-Spotify">
-				<h2>Tu canción favorita</h2>
+				<!--<h2>Tu canción favorita</h2>-->
 				<iframe class="iframe-spotify" id="iframe-cancion" width="100%" height="80" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;picture-in-picture"></iframe>
 			</div>
 		</div>

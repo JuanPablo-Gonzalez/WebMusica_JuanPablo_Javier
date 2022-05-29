@@ -24,7 +24,7 @@ if(count($usuario) != 0){
 	$usuario["numPublicaciones"] = obtenerArraySQL($conexion, $sql)[0]["numPublicaciones"];
 
 	$sql ="SELECT * FROM seguidores WHERE seguidor='$idUsuarioActual' AND seguido='$idUsuario'";
-	$usuario["siguiendo"] = count(obtenerArraySQL($conexion, $sql));
+	$usuario["siguiendo"] = count(obtenerArraySQL($conexion, $sql)) == 1;
 
 	setlocale(LC_TIME, "spanish");
 	$usuario["fecha_nacimiento"] = str_replace("/", "-", $usuario["fecha_nacimiento"]);
