@@ -32,6 +32,7 @@ DROP TABLE IF EXISTS `seguidores`;
 DROP TABLE IF EXISTS `comentarios`;
 DROP TABLE IF EXISTS `comentarios_publicaciones`;
 DROP TABLE IF EXISTS `publicaciones`;
+DROP TABLE IF EXISTS `megusta`;
 DROP TABLE IF EXISTS `temas`;
 DROP TABLE IF EXISTS `foros`;
 DROP TABLE IF EXISTS `usuarios`;
@@ -114,6 +115,7 @@ CREATE TABLE IF NOT EXISTS `comentarios` (
 CREATE TABLE IF NOT EXISTS `publicaciones` (
   `id_publicacion` int(10) NOT NULL AUTO_INCREMENT,
   `id_usuario` int(10) NOT NULL,
+  `titulo` varchar(100) NOT NULL,
   `texto` varchar(250) NOT NULL,
   `archivo` varchar(30) NOT NULL,
   `tipo_archivo` int(4) NOT NULL,
@@ -139,6 +141,19 @@ CREATE TABLE IF NOT EXISTS `comentarios_publicaciones` (
   KEY `id_publicacion` (`id_publicacion`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `megusta`
+--
+
+DROP TABLE IF EXISTS `megusta`;
+CREATE TABLE IF NOT EXISTS `megusta` (
+  `id_usuario` int(10) NOT NULL,
+  `id_publicacion` int(10) NOT NULL,
+  PRIMARY KEY (`id_publicacion`,`id_usuario`),
+  KEY `id_usuario` (`id_usuario`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
 
@@ -163,6 +178,12 @@ ALTER TABLE `comentarios`
   ADD CONSTRAINT `fk_comentarios_tema` FOREIGN KEY (`id_tema`) REFERENCES `temas` (`id_tema`);
 
 --
+-- Filtros para la tabla `publicaciones`
+--
+ALTER TABLE `publicaciones`
+  ADD CONSTRAINT `publicaciones_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+
+--
 -- Filtros para la tabla `comentarios_publicaciones`
 --
 ALTER TABLE `comentarios_publicaciones`
@@ -170,10 +191,12 @@ ALTER TABLE `comentarios_publicaciones`
   ADD CONSTRAINT `fk_comentarios_publicacion_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
--- Filtros para la tabla `publicaciones`
+-- Filtros para la tabla `megusta`
 --
-ALTER TABLE `publicaciones`
-  ADD CONSTRAINT `publicaciones_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+ALTER TABLE `megusta`
+  ADD CONSTRAINT `megusta_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE,
+  ADD CONSTRAINT `megusta_ibfk_2` FOREIGN KEY (`id_publicacion`) REFERENCES `publicaciones` (`id_publicacion`) ON DELETE CASCADE;
+COMMIT;
 
 --
 -- Filtros para la tabla `seguidores`
