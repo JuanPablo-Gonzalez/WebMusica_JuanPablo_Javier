@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION["idUsuario"]) || !isset($_SESSION["tag"])){
 	session_unset();
 	session_destroy();
-	header("../../controllers/login_controller.php");
+	header("Location: ../../controllers/login_controller.php");
 	die();
 }
 $arrayPath = explode("\\",getcwd());
@@ -34,9 +34,6 @@ $tagPerfil = $arrayPath[count($arrayPath)-1];
 	include_once "../../views/estadisticasPerfil.html";
 	include_once "../../views/publicaciones.html";
 	?>
-	<script type="text/javascript">
-		
-	</script>
 	<script type="text/javascript" src="../../controllers/audio.js"></script>
 </body>
 </html>
