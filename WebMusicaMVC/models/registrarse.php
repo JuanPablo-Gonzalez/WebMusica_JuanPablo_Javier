@@ -18,7 +18,6 @@ try {
 
 	$json["error"] = false;
 	$json["tag"] = $tag;
-	//$json["idUsuario"] = $idUsuario;
 	
 	$_SESSION["idUsuario"] = $idUsuario;
 	$_SESSION["nombre"] = $nombre;

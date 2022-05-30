@@ -3,7 +3,7 @@ session_start();
 if(!isset($_SESSION["idUsuario"]) || !isset($_SESSION["tag"])){
 	session_unset();
 	session_destroy();
-	header("../../controllers/login_controller.php");
+	header("Location: ../../controllers/login_controller.php");
 	die();
 }
 $arrayPath = explode("\\",getcwd());
@@ -27,31 +27,8 @@ $tagPerfil = $arrayPath[count($arrayPath)-1];
 	<script type="text/javascript">
 		var datos = {};
 		datos["tagPerfil"] = <?php echo '"'.$tagPerfil.'"'; ?>;
-		$.ajax({
-			method: "POST",
-			url: "../../models/obtenerUsuarioPerfil.php",
-			data: datos,
-			success: function(result){
-				console.log(result)
-				if(!result.error){
-					$(document).ready(function(){
-						$("body").css("background-image",'url("fotos/'+result.foto_fondo+'")');
-						$("#fotoPerfil").attr("src","fotos/"+result.foto_perfil);
-						$("#p-tagNombre-nombre").text(result.nombre_usuario);
-						$("#p-tagNombre-tag").text("@" + result.tag);
-						$("#p-fechaNacimiento").text(result.fecha_nacimiento);
-						$("#p-descripcion").text(result.descripcion);
-						$("#iframe-cancion").attr("src", "https://open.spotify.com/embed/track/" + result.cancion + "?utm_source=generator&theme=0");
-						$("#p-descripcion").text(result.descripcion);
-						$("#span-numPublicaciones").text(result.numPublicaciones);
-						$("#span-numSeguidores").text(result.numSeguidores);
-						$("#span-numSeguidos").text(result.numSeguidos);
-					});
-				}
-			},
-			dataType: "json"
-		});
 	</script>
+	<script type="text/javascript" src="../../controllers/perfil.js"></script>
 	<?php
 	include_once "../../views/cabeceraPerfil.php";
 	include_once "../../views/estadisticasPerfil.html";

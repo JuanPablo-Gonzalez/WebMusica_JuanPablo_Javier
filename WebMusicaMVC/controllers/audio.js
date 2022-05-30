@@ -1,4 +1,4 @@
-var song = new Audio("audios/American Idiot.mp3");
+/*var song = new Audio("audios/American Idiot.mp3");
 song.loop = false;
 var songInterval;
 
@@ -8,9 +8,9 @@ var songStateInterval = setInterval(() =>{
 		$("#song-length").text(formatearTiempo(duration));
 		clearInterval(songStateInterval);
 	}
-},100);
+},100);*/
 
-$("#boton-play").click(() => {
+/*$("#boton-play").click(() => {
 	if(song.readyState == 4){
 		if(song.paused){
 			song.play();
@@ -24,18 +24,18 @@ $("#boton-play").click(() => {
 			$("#boton-play").removeClass("pause");
 		}
 	}
-});
+});*/
 
-function recorrerCancion(){
+/*function recorrerCancion(){
 	var currentTime = parseInt(song.currentTime, 10);
 	$("#song-currentTime").text(formatearTiempo(currentTime));
 
 	var progresoCancion = (song.currentTime / song.duration) * 100;
-	$("#barra-progreso").css("width",progresoCancion+"%");
+	$("#progressBar").css("width",progresoCancion+"%");
 	if(progresoCancion == 100 && song.ended){
 		clearInterval(songInterval);
 	}
-}
+}*/
 
 function formatearTiempo(tiempo){
 	if(tiempo < 60){
