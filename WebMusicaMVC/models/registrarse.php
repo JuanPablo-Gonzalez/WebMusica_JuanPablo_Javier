@@ -32,8 +32,8 @@ try {
 	if(!file_exists("../usuarios/" . $tag)){
 		mkdir("../usuarios/" . $tag);
 	}
-	if(!file_exists("../usuarios/" . $tag . "/fotos")){
-		mkdir("../usuarios/" . $tag . "/fotos");
+	if(!file_exists("../usuarios/" . $tag . "/imagenes")){
+		mkdir("../usuarios/" . $tag . "/imagenes");
 	}
 	if(!file_exists("../usuarios/" . $tag . "/videos")){
 		mkdir("../usuarios/" . $tag . "/videos");

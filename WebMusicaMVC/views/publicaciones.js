@@ -8,31 +8,45 @@ function alternarButtonSeguir(siguiendo){
 
 function setImagenPerfil(foto_perfil){
 	if(foto_perfil != null){
-		$("#fotoPerfil").attr("src","fotos/"+foto_perfil);
+		$("#fotoPerfil").attr("src","imagenes/"+foto_perfil);
 	}
 }
 
 function mostrarPublicacion(infoUsuario, publicacion){
-	var divContenido = $("<div>").addClass("div-contenido");
 	$("#div-contenedor-publicaciones").append(
-		$("<div>").attr("id","publicacion-"+publicacion.id_publicacion).addClass("div-publicacion")
-		.append(
+		$("<div>").attr("id","publicacion-"+publicacion.id_publicacion).addClass("div-publicacion").append(
 			$("<div>").addClass("div-contenedora-img-nombre").append(
 				$("<div>").addClass("div-contenedora-imgUser").append(
-					$("<img>").attr("id","fotoPerfil").attr("src","fotos/" + infoUsuario.foto_perfil)
+					$("<img>").attr("id","fotoPerfil").attr("src","imagenes/" + infoUsuario.foto_perfil)
 				),
 				$("<div>").addClass("div-contenedora-nombre").append(
 					$("<h4>").attr("id","h4-nombre").text(infoUsuario.nombre_usuario),
 					$("<p>").attr("id","p-tag").text(infoUsuario.tag)
+				),
+				$("<div>").addClass("div-contenedora-mgComents").append(
+					$("<div>").addClass("div-contenedora-mg").append(
+						$("<img>").attr("id","img-"+publicacion.id_publicacion),
+						$("<p>").text(publicacion.numMegusta)
+					),
+					$("<div>").addClass("div-contenedora-coments").append(
+						$("<img>").attr("src","../../imagenes/coments.png"),
+						$("<p>").text(publicacion.numComentarios)
+					)
 				)
 			),
-			$("<div>").attr("id","div-contenido-"+publicacion.id_publicacion).addClass("div-contenido")
-			.append(
-				$("<h2>").text(publicacion.titulo),
-				$("<p>").text(publicacion.texto)
+			$("<div>").attr("id","div-contenido-"+publicacion.id_publicacion).addClass("div-contenido").append(
+				$("<div>").addClass("div-contenido-texto").append(
+					$("<h2>").text(publicacion.titulo),
+					$("<p>").text(publicacion.texto)
+				)
 			)
 		)
 	);
+	if(publicacion.tegusta == "true"){
+		$("#img-"+publicacion.id_publicacion).attr("src","../../imagenes/mg.png")
+	} else if(publicacion.tegusta == "false"){
+		$("#img-"+publicacion.id_publicacion).attr("src","../../imagenes/nomg.png")
+	}
 
 	switch(publicacion.tipo_archivo){
 		case "1":
@@ -42,6 +56,10 @@ function mostrarPublicacion(infoUsuario, publicacion){
 			mostrarImagenPublicacion(publicacion);
 		break;
 	}
+
+	$("#div-contenido-"+publicacion.id_publicacion).append(
+		$("<p>").addClass("nombre-archivo").text(publicacion.archivo)
+	)
 }
 
 function mostrarAudioPublicacion(publicacion){
@@ -79,5 +97,9 @@ function mostrarAudioPublicacion(publicacion){
 }
 
 function mostrarImagenPublicacion(publicacion){
-
+	$("#div-contenido-"+publicacion.id_publicacion).append(
+		$("<div>").addClass("div-contenido-img").append(
+			$("<img>").attr("src","imagenes/"+publicacion.archivo)
+		)
+	)
 }

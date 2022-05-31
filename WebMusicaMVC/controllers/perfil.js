@@ -7,7 +7,7 @@ $.ajax({
 	success: function(infoUsuario){
 		if(!infoUsuario.error){
 			$(document).ready(function(){
-				$("body").css("background-image",'url("fotos/'+infoUsuario.foto_fondo+'")');
+				$("body").css("background-image",'url("imagenes/'+infoUsuario.foto_fondo+'")');
 				setImagenPerfil(infoUsuario.foto_perfil);
 				$("#p-tagNombre-nombre").text(infoUsuario.nombre_usuario);
 				$("#p-tagNombre-tag").text("@" + infoUsuario.tag);
@@ -46,7 +46,6 @@ $.ajax({
 				url: "../../models/obtenerPublicaciones.php",
 				data: {"idPerfil": infoUsuario.id_usuario},
 				success: function(publicaciones){
-					console.log(infoUsuario);
 					for(let i in publicaciones){
 						mostrarPublicacion(infoUsuario, publicaciones[i]);
 					}
