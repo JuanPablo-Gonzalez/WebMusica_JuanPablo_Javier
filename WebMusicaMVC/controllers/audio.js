@@ -1,41 +1,51 @@
-/*var song = new Audio("audios/American Idiot.mp3");
-song.loop = false;
-var songInterval;
+function prepararAudio(publicacion){
+	let audio = new Audio("audios/" + publicacion.archivo)
+	audio.loop = false;
 
-var songStateInterval = setInterval(() =>{
-	if(song.readyState == 4){
-		duration = parseInt(song.duration, 10);		
-		$("#song-length").text(formatearTiempo(duration));
-		clearInterval(songStateInterval);
-	}
-},100);*/
+	let audioStateInterval = setInterval(() =>{
+		if(audio.readyState == 4){
+			duration = parseInt(audio.duration, 10);		
+			$("#song-length-"+publicacion.id_publicacion).text(formatearTiempo(duration));
+			archivosPublicaciones[publicacion.id_publicacion] = audio;
+			clearInterval(audioStateInterval);
+		}
+	},100);
+}
 
-/*$("#boton-play").click(() => {
-	if(song.readyState == 4){
-		if(song.paused){
-			song.play();
-			songInterval = setInterval(recorrerCancion, 100);
-			$("#boton-play").removeClass("play");
-			$("#boton-play").addClass("pause");
+function alternarReproducion(id_publicacion){
+	if(archivosPublicaciones[id_publicacion].readyState == 4){
+		if(archivosPublicaciones[id_publicacion].paused){
+			for(let i in archivosPublicaciones){
+				if(i == id_publicacion){
+					archivosPublicaciones[i].play();
+					intervaloAudios[i] = setInterval(() => {
+						var currentTime = parseInt(archivosPublicaciones[i].currentTime, 10);
+						$("#song-currentTime-"+i).text(formatearTiempo(currentTime));
+
+						var progresoCancion = (archivosPublicaciones[i].currentTime / archivosPublicaciones[i].duration) * 100;
+						$("#progressBar-"+i).css("width",progresoCancion+"%");
+						if(progresoCancion == 100 && archivosPublicaciones[i].ended){
+							clearInterval(intervaloAudios[i]);
+						}
+					}, 100);
+					$("#boton-play-"+i).removeClass("play");
+					$("#boton-play-"+i).addClass("pause");
+				}else{
+					pausarAudio(i);
+				}
+			}
 		}else{
-			song.pause();
-			clearInterval(songInterval);
-			$("#boton-play").addClass("play");
-			$("#boton-play").removeClass("pause");
+			pausarAudio(id_publicacion);
 		}
 	}
-});*/
+}
 
-/*function recorrerCancion(){
-	var currentTime = parseInt(song.currentTime, 10);
-	$("#song-currentTime").text(formatearTiempo(currentTime));
-
-	var progresoCancion = (song.currentTime / song.duration) * 100;
-	$("#progressBar").css("width",progresoCancion+"%");
-	if(progresoCancion == 100 && song.ended){
-		clearInterval(songInterval);
-	}
-}*/
+function pausarAudio(id){
+	archivosPublicaciones[id].pause();
+	clearInterval(intervaloAudios[id]);
+	$("#boton-play-"+id).addClass("play");
+	$("#boton-play-"+id).removeClass("pause");
+}
 
 function formatearTiempo(tiempo){
 	if(tiempo < 60){

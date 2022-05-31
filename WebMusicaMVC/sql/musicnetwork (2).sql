@@ -31,8 +31,9 @@ SET time_zone = "+00:00";
 DROP TABLE IF EXISTS `seguidores`;
 DROP TABLE IF EXISTS `comentarios`;
 DROP TABLE IF EXISTS `comentarios_publicaciones`;
-DROP TABLE IF EXISTS `publicaciones`;
 DROP TABLE IF EXISTS `megusta`;
+DROP TABLE IF EXISTS `publicaciones`;
+DROP TABLE IF EXISTS `tipos_archivos`;
 DROP TABLE IF EXISTS `temas`;
 DROP TABLE IF EXISTS `foros`;
 DROP TABLE IF EXISTS `usuarios`;
@@ -121,7 +122,8 @@ CREATE TABLE IF NOT EXISTS `publicaciones` (
   `tipo_archivo` int(4) NOT NULL,
   `fecha_publicacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_publicacion`),
-  KEY `fk_publicaciones_usuario` (`id_usuario`)
+  KEY `fk_publicaciones_usuario` (`id_usuario`),
+  KEY `publicaciones_fk_2` (`tipo_archivo`
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -168,6 +170,27 @@ CREATE TABLE IF NOT EXISTS `seguidores` (
   KEY `fk_seguido_usuario` (`seguido`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+--
+-- Estructura de tabla para la tabla `tipos_archivos`
+--
+
+DROP TABLE IF EXISTS `tipos_archivos`;
+CREATE TABLE IF NOT EXISTS `tipos_archivos` (
+  `id_archivo` int(4) NOT NULL AUTO_INCREMENT,
+  `nombre` varchar(50) NOT NULL,
+  PRIMARY KEY (`id_archivo`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Volcado de datos para la tabla `tipos_archivos`
+--
+
+INSERT INTO `tipos_archivos` (`id_archivo`, `nombre`) VALUES
+(1, 'audio'),
+(2, 'imagen'),
+(3, 'video'),
+(4, 'enlace');
+
 -- Restricciones para tablas volcadas
 --
 
@@ -181,6 +204,7 @@ ALTER TABLE `comentarios`
 -- Filtros para la tabla `publicaciones`
 --
 ALTER TABLE `publicaciones`
+  ADD CONSTRAINT `publicaciones_fk_2` FOREIGN KEY (`tipo_archivo`) REFERENCES `tipos_archivos` (`id_archivo`),
   ADD CONSTRAINT `publicaciones_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
