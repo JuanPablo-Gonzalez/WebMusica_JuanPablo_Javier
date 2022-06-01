@@ -14,7 +14,8 @@ $sql = "SELECT
 	LEFT JOIN comentarios_publicaciones ON comentarios_publicaciones.id_publicacion = publicaciones.id_publicacion 
 	LEFT JOIN megusta ON megusta.id_publicacion = publicaciones.id_publicacion 
 	WHERE publicaciones.id_usuario = '$idPerfil'
-	GROUP BY publicaciones.id_publicacion";
+	GROUP BY publicaciones.id_publicacion
+	ORDER BY publicaciones.fecha_publicacion DESC";
 
 $array = obtenerArraySQL($conexion, $sql);
 foreach($array as $i => $publicacion){

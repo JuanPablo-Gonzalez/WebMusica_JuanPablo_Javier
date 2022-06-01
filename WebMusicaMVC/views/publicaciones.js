@@ -1,18 +1,17 @@
-function alternarButtonMeGusta(tegusta,id_publicacion){
-	console.log(tegusta)	;
+function alternarButtonMeGusta(urlImagenes,tegusta,id_publicacion){
 	if(tegusta){
-		$("#img-"+id_publicacion).attr("src","../../imagenes/mg.png")
+		$("#img-mg-"+id_publicacion).attr("src",urlImagenes+"../imagenes/mg.png")
 	}else{
-		$("#img-"+id_publicacion).attr("src","../../imagenes/nomg.png")
+		$("#img-mg-"+id_publicacion).attr("src",urlImagenes+"../imagenes/nomg.png")
 	}
 }
 
-function mostrarPublicacion(infoUsuario, publicacion){
+function mostrarPublicacion(url,urlImagenes,infoUsuario, publicacion){
 	$("#div-contenedor-publicaciones").append(
 		$("<div>").attr("id","publicacion-"+publicacion.id_publicacion).addClass("div-publicacion").append(
 			$("<div>").addClass("div-contenedora-img-nombre").append(
 				$("<div>").addClass("div-contenedora-imgUser").append(
-					$("<img>").attr("id","fotoPerfil").attr("src","imagenes/" + infoUsuario.foto_perfil)
+					$("<img>").attr("id","fotoPerfil").attr("src",url+"imagenes/" + infoUsuario.foto_perfil)
 				),
 				$("<div>").addClass("div-contenedora-nombre").append(
 					$("<h4>").attr("id","h4-nombre").text(infoUsuario.nombre_usuario),
@@ -20,11 +19,11 @@ function mostrarPublicacion(infoUsuario, publicacion){
 				),
 				$("<div>").addClass("div-contenedora-mgComents").append(
 					$("<div>").addClass("div-contenedora-mg").append(
-						$("<img>").attr("id","img-"+publicacion.id_publicacion),
+						$("<img>").attr("id","img-mg-"+publicacion.id_publicacion),
 						$("<p>").attr("id","numMegust-"+publicacion.id_publicacion).text(publicacion.numMegusta)
 					),
 					$("<div>").addClass("div-contenedora-coments").append(
-						$("<img>").attr("src","../../imagenes/coments.png"),
+						$("<img>").attr("src",urlImagenes+"../imagenes/coments.png"),
 						$("<p>").text(publicacion.numComentarios)
 					)
 				)
@@ -37,15 +36,15 @@ function mostrarPublicacion(infoUsuario, publicacion){
 			)
 		)
 	);
-	alternarButtonMeGusta(publicacion.tegusta,publicacion.id_publicacion);
+	alternarButtonMeGusta(urlImagenes,publicacion.tegusta,publicacion.id_publicacion);
 
 	$("#div-contenido-"+publicacion.id_publicacion).append(
 		$("<p>").addClass("nombre-archivo").text(publicacion.archivo)
 	)
 }
 
-function mostrarAudioPublicacion(publicacion){
-	prepararAudio(publicacion);
+function mostrarAudioPublicacion(url,publicacion){
+	prepararAudio(url,publicacion);
 	$("#div-contenido-"+publicacion.id_publicacion).append(
 		$("<div>").addClass("div-contenido-audio").append(
 			$("<div>").addClass("controls").append(
@@ -78,10 +77,20 @@ function mostrarAudioPublicacion(publicacion){
 	)
 }
 
-function mostrarImagenPublicacion(publicacion){
+function mostrarImagenPublicacion(url,publicacion){
 	$("#div-contenido-"+publicacion.id_publicacion).append(
 		$("<div>").addClass("div-contenido-img").append(
-			$("<img>").attr("src","imagenes/"+publicacion.archivo)
+			$("<img>").attr("src",url+"imagenes/"+publicacion.archivo)
 		)
 	)
+}
+
+function mostrarVideoPublicacion(url,publicacion){
+
+}
+
+function mostrarEnlacePublicacion(publicacion){
+	$("#div-contenido-"+publicacion.id_publicacion).append(
+		$("<iframe>").addClass("iframe-publicacion").attr("src",publicacion.archivo)
+	);
 }

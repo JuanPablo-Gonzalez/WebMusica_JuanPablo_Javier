@@ -11,7 +11,7 @@ $.ajax({
 					$("body").css("background-image",'url("imagenes/'+infoUsuario.foto_fondo+'")');
 				}
 				if(infoUsuario.foto_perfil != null){
-					$("#fotoPerfil").attr("src","imagenes/"+foto_perfil);
+					$("#fotoPerfil").attr("src","imagenes/"+infoUsuario.foto_perfil);
 				}
 
 				$("#p-tagNombre-nombre").text(infoUsuario.nombre_usuario);
@@ -59,9 +59,9 @@ $.ajax({
 						);
 					}
 					for(let i in publicaciones){
-						mostrarPublicacion(infoUsuario, publicaciones[i]);
+						mostrarPublicacion("","../",infoUsuario, publicaciones[i]);
 
-						$("#img-"+publicaciones[i].id_publicacion).click(() => {
+						$("#img-mg-"+publicaciones[i].id_publicacion).click(() => {
 							var datosMg = {
 								"idPublicacion": publicaciones[i].id_publicacion,
 								"tegusta": publicaciones[i].tegusta
@@ -71,10 +71,9 @@ $.ajax({
 								url: "../../models/megusta.php",
 								data: datosMg,
 								success: function(result){
-									console.log(result);
 									if(!result.error){
 										publicaciones[i].tegusta = result.tegusta;
-										alternarButtonMeGusta(result.tegusta,datosMg.idPublicacion);
+										alternarButtonMeGusta("../",result.tegusta, datosMg.idPublicacion);
 										if(result.tegusta){
 											publicaciones[i].numMegusta++;
 										}else{
@@ -89,10 +88,16 @@ $.ajax({
 
 						switch(publicaciones[i].tipo_archivo){
 							case "1":
-								mostrarAudioPublicacion(publicaciones[i]);
+								mostrarAudioPublicacion("",publicaciones[i]);
 							break;
 							case "2":
-								mostrarImagenPublicacion(publicaciones[i]);
+								mostrarImagenPublicacion("",publicaciones[i]);
+							break;
+							case "3":
+								mostrarVideoPublicacion("",publicaciones[i]);
+							break;
+							case "4":
+								mostrarEnlacePublicacion("",publicaciones[i]);
 							break;
 						}
 					}
