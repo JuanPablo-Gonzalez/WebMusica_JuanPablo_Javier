@@ -6,6 +6,15 @@ function alternarButtonSeguir(siguiendo){
 	}
 }
 
+function alternarButtonMeGusta(tegusta,id_publicacion){
+	console.log(tegusta)	;
+	if(tegusta){
+		$("#img-"+id_publicacion).attr("src","../../imagenes/mg.png")
+	}else{
+		$("#img-"+id_publicacion).attr("src","../../imagenes/nomg.png")
+	}
+}
+
 function setImagenPerfil(foto_perfil){
 	if(foto_perfil != null){
 		$("#fotoPerfil").attr("src","imagenes/"+foto_perfil);
@@ -42,11 +51,26 @@ function mostrarPublicacion(infoUsuario, publicacion){
 			)
 		)
 	);
-	if(publicacion.tegusta == "true"){
-		$("#img-"+publicacion.id_publicacion).attr("src","../../imagenes/mg.png")
-	} else if(publicacion.tegusta == "false"){
-		$("#img-"+publicacion.id_publicacion).attr("src","../../imagenes/nomg.png")
-	}
+	alternarButtonMeGusta(publicacion.tegusta,publicacion.id_publicacion);
+	$("#img-"+publicacion.id_publicacion).click(() => {
+		var datosMg = {
+			"idPublicacion": publicacion.id_publicacion,
+			"tegusta": publicacion.tegusta
+		};
+		$.ajax({
+			method: "POST",
+			url: "../../models/megusta.php",
+			data: datosMg,
+			success: function(result){
+				console.log(result);
+				if(!result.error){
+					publicacion.tegusta = result.tegusta;
+					alternarButtonMeGusta(result.tegusta,datosMg.idPublicacion);
+				}
+			},
+			dataType: "json"
+		});
+	});
 
 	switch(publicacion.tipo_archivo){
 		case "1":

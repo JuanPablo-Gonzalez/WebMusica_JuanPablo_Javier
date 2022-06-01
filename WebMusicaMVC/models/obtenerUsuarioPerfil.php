@@ -2,6 +2,7 @@
 session_start();
 $idUsuarioActual = $_SESSION["idUsuario"];
 $tagPerfil = $_POST["tagPerfil"];
+
 include_once "../db/db.php";
 
 $sql = "SELECT id_usuario, nombre_usuario, tag, descripcion, fecha_nacimiento, foto_perfil, foto_fondo, cancion FROM usuarios WHERE  tag='$tagPerfil'";
