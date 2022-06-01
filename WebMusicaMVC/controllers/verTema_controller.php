@@ -3,7 +3,7 @@
     include_once "../models/verTema_model.php";
 
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        $contenidoComentario= $_POST["comentario"];
+        $contenidoComentario=$_POST["comentario"];
         $idTema= $_POST["tema-elegido"];
         $comentarios= obtenerComentarios($conexion,$idTema);
 
