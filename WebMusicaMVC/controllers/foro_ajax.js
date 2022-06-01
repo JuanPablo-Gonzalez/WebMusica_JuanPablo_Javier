@@ -33,15 +33,15 @@ $(document).ready(function() {
 function mostrarTablaForos(event) {
     let foroElegido= event;
 
-    if(foroElegido!='F001') {
+    if(foroElegido!='1') {
        foroElegido= event.data.foro;
     }
 
-    if(foroElegido=='F001') {
+    if(foroElegido=='1') {
         $("#cabecera-titulo>h2").html("Foro de ayuda");
-    } else if(foroElegido=='F002') {
+    } else if(foroElegido=='2') {
         $("#cabecera-titulo>h2").html("Foro de búsqueda");
-    } else if(foroElegido=='F003') {
+    } else if(foroElegido=='3') {
         $("#cabecera-titulo>h2").html("Foro general");
     } 
 
@@ -55,9 +55,32 @@ function mostrarTablaForos(event) {
     /*let tabla=*/ $('#tablaTemas').DataTable( {
         responsive: true,
         "aaSorting": [],
+        "lengthChange": false,
+        "pageLength": 15,
+        "info": false,
         //ordering: false, //no aparecerán las flechas ordenación y no funcionará
         retrieve: true, //mirar
         //paging: false, //para quitar o poner los números que aparecen abajo cuando se excede un límite
+        "language": {
+            "decimal": "",
+            "emptyTable": "No hay información",
+            "info": "Mostrando _START_ de _TOTAL_ temas",
+            "infoEmpty": "Mostrando 0 to 0 of 0 Entradas",
+            "infoFiltered": "(Filtrado de _MAX_ total entradas)",
+            "infoPostFix": "",
+            "thousands": ",",
+            "lengthMenu": "Mostrar _MENU_ Entradas",
+            "loadingRecords": "Cargando...",
+            "processing": "Procesando...",
+            "search": "Buscar por título o usuario:",
+            "zeroRecords": "Sin resultados encontrados",
+            "paginate": {
+            "first": "Primero",
+            "last": "Ultimo",
+            "next": "Siguiente",
+            "previous": "Anterior"
+            }
+        },
         "ajax":{
             "url": "../models/foro_model.php",
             "dataSrc": "",
@@ -98,30 +121,13 @@ function mostrarTablaForos(event) {
             {"bSearchable": false, "aTargets": [1, 3]},
             {"bVisible": false, "aTargets": [4]},
             {"width": "400px", "targets": [0]},
-            {"width": "150px", "targets": [1,2,3]}
+            {"width": "180px", "targets": [1,2,3]}
         ]
     } );
-
-    //función delegada para sacar el valor de una td al hacer click
-    /*$('#tablaTemas').on('click', 'tbody td', function () {
-        var data = this.textContent;
-        alert(data);
-    } );
-
-    $('#tablaTemas').on('click', 'tbody tr', function () {
-        var data = this.textContent;
-        alert(data);
-    } );*/
 
     $("#listado-foros").show();
     cambiarForoCrearTema(foroElegido);
 }
-
-/*
-- Mirar lo de los tamaños de las columnas...
-- crear siguiente pantalla con los comentarios...
-- Mirar lo del movimiento raro al hacer pulsar sobre el mismo botón, al hacer destroy...
-*/
 
 /*Función para que recoja y envía el foro correcto para crear el tema*/
 function cambiarForoCrearTema(foroElegido) {

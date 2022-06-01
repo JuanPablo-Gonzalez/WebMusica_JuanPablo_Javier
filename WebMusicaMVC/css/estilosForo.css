@@ -1,12 +1,24 @@
-html, body {
-	font-family: arial;
-	margin:0 auto;
+* {
+	margin: 0 auto;
 	box-sizing: border-box;
+	font-family: arial;
 }
 
 /*estilos nav*/
 nav {
-	background-color: #333;
+	background-color: rgb(56, 56, 56);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 10px 0;
+}
+
+.parte-nav {
+	margin: 0;
+}
+
+#logo h1 a{
+	color: white;
 }
 
 ul {
@@ -28,48 +40,95 @@ li a {
 	display: block;
 	color: white;
 	text-align: center;
-	padding: 26px 25px;
+	padding: 6px 10px;
 	text-decoration: none;
+  margin-left: 10px;
+  border-radius: 20px;
 }
 
-li a:hover:not(.active) {
-	background-color: #111;
+li a:hover {
+	/*background-color: white;*/
+	color: rgb(250, 222, 179);
 }
 
-.active {
-	background-color: transparent;
-	padding:12px 0px 8px 0px;
-}
-
-ul li:first-child {
-	margin-right: 30px;
-}
-
-ul li:first-child img {
-	width: 45px;
-}
-
-ul li:first-child a {
-	padding:12px 0 8px 0;
-}
-
-ul li:last-child img {
+#perfil a img {
 	width: 55px;
 	border-radius: 30%;
 	border: solid 2px rgb(250, 222, 179);
 }
 /*fin estilos nav*/
 
-/*
 main {
-	background-color: lightyellow;
-}*/
+	background-color: white;
+}
+
+.flecha {
+	display: inline-block;
+	background-color: lightblue;
+	width: 50px;
+	height: 50px;
+	text-align: center;
+	border-radius: 4px;
+	margin: 30px;
+	position: fixed;
+	bottom: 10px;
+	right: 10px;
+	transition: background-color .3s;
+	z-index: 1000;
+}
+
+.flecha:hover {
+	background-color: lightcoral;
+}
+
+.flecha::after {
+	content: "\f077";
+	font-family: FontAwesome;
+	font-weight: normal;
+	font-style: normal;
+	font-size: 2em;
+	line-height: 50px;
+	color: #fff;
+}
+
+#tablaTemas_filter {
+	margin-bottom: 10px;
+}
+
+#tablaTemas_paginate {
+	margin: 10px 0;
+}
+
+#tablaTemas tr td:first-child a,#tablaTemas tr td:nth-child(3) a {
+	color: rgb(0, 80, 185);
+}
+
+#tablaTemas tr td:first-child a:hover,#tablaTemas tr td:nth-child(3) a:hover {
+	color: rgb(25, 125, 255);
+}
+
+td a{
+	color: black;
+}
+
+#seleccion-foro {
+	background-image:linear-gradient(rgba(0,0,0,0.8),rgba(0,0,0,0.5)),
+	 url("../imagenes/portada_foro_1.jpeg");
+	background-size: cover;
+	background-position: center;
+	padding: 20px;
+}
+
+#seleccion-foro>h2,#seleccion-foro>p {
+	text-align: center;
+	color: white;
+}
 
 /*estilos cabecera*/
 #cabecera-titulo {
 	background-color: rgb(250, 222, 179);
 	color: black;
-	padding: 5px 0 5px 0;
+	padding: 15px 0;
 	text-align: center;
 	/*background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../imagenes/foro.jpeg');*/
 	background-size: cover;
@@ -79,14 +138,26 @@ main {
 /*fin estilos cabecera*/
 
 /*estilos tabla*/
-#pad-superior button {
-	border-radius: 20px;
-}
-
 #contenedor-listadoForos {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+}
+
+#ver {
+	background-color: rgb(230, 230, 230);
+	color: black;
+	padding: 6px;
+	cursor: pointer;
+	border: none;
+	-webkit-box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.5);
+	box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.5);
+	border-radius: 5px;
+}
+
+#ver:hover {
+	-webkit-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.5);
+	box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.5);
 }
 
 #tablaTemas {
@@ -101,8 +172,7 @@ main {
 }*/
 
 #pad-superior {
-	margin-top: 20px;
-	margin-bottom: 20px;
+	margin-top: 30px;
 }
 
 
@@ -124,7 +194,8 @@ a{
 }
 
 #listado-foros table th {
-	background-color: lightyellow;
+	background-color: rgb(255, 251, 200);
+	padding: 15px;
 }
 
 /*fin estilos tabla*/
@@ -133,27 +204,24 @@ a{
 #contenedor-seleccion-foro {
 	display: flex;
 	justify-content: space-around;
-	width: 100%;
+	width: 80%;
 	margin-bottom: 20px;
 	margin-top: 30px;
 }
 
-#seleccion-foro>h2,#seleccion-foro>p{
-	text-align: center;
-}
-
 .selector-foro {
 	background-color: rgb(250, 222, 179);
+	box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.3);
 	border-radius: 20px;
 	text-align: center;
 	width: 15%;
 	cursor: pointer;
-	padding: 5px 0;
+	padding: 15px 0;
 	font-size: 11px;
 }
 
 .selector-foro:hover {
-	background-color: rgb(245, 240, 175);
+	background-color: rgb(250, 251, 200);
 }
 
 footer {
