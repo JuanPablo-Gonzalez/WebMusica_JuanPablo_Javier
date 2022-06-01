@@ -49,6 +49,20 @@
 	margin: 2% 1%;
 }
 
+.div-contenedora-mgComents{
+	margin: 1%;
+}
+
+.div-contenedora-mgComents img{
+	position: relative;
+	width: 20%;
+	margin: 4% 40% 0;
+}
+
+.div-contenedora-mgComents p{
+	text-align: center;
+}
+
 .div-contenido{
 	/*background-color: purple;*/
 	position: relative;
@@ -63,4 +77,18 @@
 
 .div-contenido-texto p{
 	text-align: left;
+}
+
+.nombre-archivo{
+	text-align: right;
+	padding: 1%;
+}
+
+.div-contenido-img{
+	position: relative;
+	width: 100%;
+}
+
+.div-contenido-img img{
+	width: 100%;
 }

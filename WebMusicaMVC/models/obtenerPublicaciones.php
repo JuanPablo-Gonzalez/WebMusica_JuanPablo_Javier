@@ -2,8 +2,6 @@
 session_start();
 $idUsuarioActual = $_SESSION["idUsuario"];
 $idPerfil = $_POST["idPerfil"];
-//$idUsuarioActual = 44;
-//$idPerfil = 43;
 
 include_once "../db/db.php";
 
@@ -19,7 +17,9 @@ $sql = "SELECT
 	GROUP BY publicaciones.id_publicacion";
 
 $array = obtenerArraySQL($conexion, $sql);
-//var_dump($array);
+foreach($array as $i => $publicacion){
+	$array[$i]["tegusta"] = filter_var($publicacion["tegusta"], FILTER_VALIDATE_BOOLEAN);
+}
 echo json_encode($array);
 ?>
 

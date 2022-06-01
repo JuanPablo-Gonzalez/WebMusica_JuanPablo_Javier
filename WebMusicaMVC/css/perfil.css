@@ -147,3 +147,13 @@ body{
 .div-num .span-num{
 	font-weight: bold;
 }
+
+.div-noPublicaciones{
+	width: 60%;
+	margin: 4% 20%;
+}
+
+.h2-noPublicaciones{
+	color: white;
+	text-align: center;
+}

@@ -32,8 +32,9 @@ $tagPerfil = $arrayPath[count($arrayPath)-1];
 	<?php
 	include_once "../../views/cabeceraPerfil.php";
 	include_once "../../views/estadisticasPerfil.html";
-	include_once "../../views/publicaciones.html";
 	?>
+	<div class="div-contenedor-publicaciones" id="div-contenedor-publicaciones"></div>
+	<script type="text/javascript" src="../../views/publicaciones.js"></script>
 	<script type="text/javascript" src="../../controllers/audio.js"></script>
 </body>
 </html>
