@@ -1,23 +1,9 @@
-function alternarButtonSeguir(siguiendo){
-	if(siguiendo){
-		$("#bttnSeguir").html("Siguiendo");
-	}else{
-		$("#bttnSeguir").html("Seguir");
-	}
-}
-
 function alternarButtonMeGusta(tegusta,id_publicacion){
 	console.log(tegusta)	;
 	if(tegusta){
 		$("#img-"+id_publicacion).attr("src","../../imagenes/mg.png")
 	}else{
 		$("#img-"+id_publicacion).attr("src","../../imagenes/nomg.png")
-	}
-}
-
-function setImagenPerfil(foto_perfil){
-	if(foto_perfil != null){
-		$("#fotoPerfil").attr("src","imagenes/"+foto_perfil);
 	}
 }
 
@@ -35,7 +21,7 @@ function mostrarPublicacion(infoUsuario, publicacion){
 				$("<div>").addClass("div-contenedora-mgComents").append(
 					$("<div>").addClass("div-contenedora-mg").append(
 						$("<img>").attr("id","img-"+publicacion.id_publicacion),
-						$("<p>").text(publicacion.numMegusta)
+						$("<p>").attr("id","numMegust-"+publicacion.id_publicacion).text(publicacion.numMegusta)
 					),
 					$("<div>").addClass("div-contenedora-coments").append(
 						$("<img>").attr("src","../../imagenes/coments.png"),
@@ -52,34 +38,6 @@ function mostrarPublicacion(infoUsuario, publicacion){
 		)
 	);
 	alternarButtonMeGusta(publicacion.tegusta,publicacion.id_publicacion);
-	$("#img-"+publicacion.id_publicacion).click(() => {
-		var datosMg = {
-			"idPublicacion": publicacion.id_publicacion,
-			"tegusta": publicacion.tegusta
-		};
-		$.ajax({
-			method: "POST",
-			url: "../../models/megusta.php",
-			data: datosMg,
-			success: function(result){
-				console.log(result);
-				if(!result.error){
-					publicacion.tegusta = result.tegusta;
-					alternarButtonMeGusta(result.tegusta,datosMg.idPublicacion);
-				}
-			},
-			dataType: "json"
-		});
-	});
-
-	switch(publicacion.tipo_archivo){
-		case "1":
-			mostrarAudioPublicacion(publicacion);
-		break;
-		case "2":
-			mostrarImagenPublicacion(publicacion);
-		break;
-	}
 
 	$("#div-contenido-"+publicacion.id_publicacion).append(
 		$("<p>").addClass("nombre-archivo").text(publicacion.archivo)
