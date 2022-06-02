@@ -44,20 +44,7 @@ $.ajax({
 					});
 				});
 
-				switch(publicacion.tipo_archivo){
-					case "1":
-					mostrarAudioPublicacion(url,publicacion);
-					break;
-					case "2":
-					mostrarImagenPublicacion(url,publicacion);
-					break;
-					case "3":
-					mostrarVideoPublicacion(url,publicacion);
-					break;
-					case "4":
-					mostrarEnlacePublicacion(publicacion);
-					break;
-				}
+				mostrarArchivo(url,publicacion);
 			}
 		});
 	},

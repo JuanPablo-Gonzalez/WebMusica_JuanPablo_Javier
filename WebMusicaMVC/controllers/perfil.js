@@ -86,20 +86,7 @@ $.ajax({
 							});
 						});
 
-						switch(publicaciones[i].tipo_archivo){
-							case "1":
-								mostrarAudioPublicacion("",publicaciones[i]);
-							break;
-							case "2":
-								mostrarImagenPublicacion("",publicaciones[i]);
-							break;
-							case "3":
-								mostrarVideoPublicacion("",publicaciones[i]);
-							break;
-							case "4":
-								mostrarEnlacePublicacion("",publicaciones[i]);
-							break;
-						}
+						mostrarArchivo("",publicaciones[i]);
 					}
 				},
 				dataType: "json"

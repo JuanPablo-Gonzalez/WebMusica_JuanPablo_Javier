@@ -15,7 +15,7 @@ function mostrarPublicacion(url,urlImagenes,infoUsuario, publicacion){
 				),
 				$("<div>").addClass("div-contenedora-nombre").append(
 					$("<h4>").attr("id","h4-nombre").text(infoUsuario.nombre_usuario),
-					$("<p>").attr("id","p-tag").text(infoUsuario.tag)
+					$("<a>").attr("id","a-tag").text("@"+infoUsuario.tag).attr("href",url)
 				),
 				$("<div>").addClass("div-contenedora-mgComents").append(
 					$("<div>").addClass("div-contenedora-mg").append(
@@ -37,6 +37,23 @@ function mostrarPublicacion(url,urlImagenes,infoUsuario, publicacion){
 		)
 	);
 	alternarButtonMeGusta(urlImagenes,publicacion.tegusta,publicacion.id_publicacion);
+}
+
+function mostrarArchivo(url,publicacion){
+	switch(publicacion.tipo_archivo){
+		case "1":
+		mostrarAudioPublicacion(url,publicacion);
+		break;
+		case "2":
+		mostrarImagenPublicacion(url,publicacion);
+		break;
+		case "3":
+		mostrarVideoPublicacion(url,publicacion);
+		break;
+		case "4":
+		mostrarEnlacePublicacion(publicacion);
+		break;
+	}
 
 	$("#div-contenido-"+publicacion.id_publicacion).append(
 		$("<p>").addClass("nombre-archivo").text(publicacion.archivo)

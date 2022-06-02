@@ -1,25 +1,25 @@
 <?php
 session_start();
-//$idUsuarioActual = $_SESSION["idUsuario"];
-//$idPublicacion = $_POST["idPublicacion"];
-$idUsuarioActual = 43;
-$idPublicacion = 3;
+$idUsuarioActual = $_SESSION["idUsuario"];
+$idPublicacion = $_POST["idPublicacion"];
+//$idUsuarioActual = 43;
+//$idPublicacion = 3;
 
 include_once "../db/db.php";
 
 $sql = "SELECT 
-    publicaciones.*, 
-    COUNT(comentarios_publicaciones.id_comentario) as numComentarios,
-    COUNT(megusta.id_publicacion) as numMegusta,
-    IF('$idUsuarioActual' in (SELECT id_usuario from megusta where megusta.id_publicacion=publicaciones.id_publicacion),'true','false') as tegusta,
-    usuarios.nombre_usuario,
-    usuarios.tag,
-    usuarios.foto_perfil
-    FROM publicaciones
-    LEFT JOIN comentarios_publicaciones ON comentarios_publicaciones.id_publicacion = publicaciones.id_publicacion 
-    LEFT JOIN megusta ON megusta.id_publicacion = publicaciones.id_publicacion 
-    LEFT JOIN usuarios on usuarios.id_usuario = publicaciones.id_usuario
-    WHERE publicaciones.id_publicacion = '$idPublicacion'";
+	publicaciones.*, 
+	COUNT(DISTINCT(comentarios_publicaciones.id_comentario)) as numComentarios,
+	COUNT(DISTINCT(megusta.id_usuario)) as numMegusta,
+	IF('$idUsuarioActual' in (SELECT id_usuario from megusta where megusta.id_publicacion=publicaciones.id_publicacion),'true','false') as tegusta,
+	usuarios.nombre_usuario,
+	usuarios.tag,
+	usuarios.foto_perfil
+	FROM publicaciones
+	LEFT JOIN comentarios_publicaciones ON comentarios_publicaciones.id_publicacion = publicaciones.id_publicacion 
+	LEFT JOIN megusta ON megusta.id_publicacion = publicaciones.id_publicacion 
+	LEFT JOIN usuarios on usuarios.id_usuario = publicaciones.id_usuario
+	WHERE publicaciones.id_publicacion = '$idPublicacion'";
 
 $publicacion = obtenerArraySQL($conexion, $sql)[0];
 

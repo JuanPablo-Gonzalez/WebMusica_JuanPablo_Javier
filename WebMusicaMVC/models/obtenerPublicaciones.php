@@ -7,8 +7,8 @@ include_once "../db/db.php";
 
 $sql = "SELECT 
 	publicaciones.*, 
-	COUNT(comentarios_publicaciones.id_comentario) as numComentarios,
-	COUNT(megusta.id_publicacion) as numMegusta,
+	COUNT(DISTINCT(comentarios_publicaciones.id_comentario)) as numComentarios,
+	COUNT(DISTINCT(megusta.id_usuario)) as numMegusta,
 	IF('$idUsuarioActual' in (SELECT id_usuario from megusta where megusta.id_publicacion=publicaciones.id_publicacion),'true','false') as tegusta
 	FROM publicaciones 
 	LEFT JOIN comentarios_publicaciones ON comentarios_publicaciones.id_publicacion = publicaciones.id_publicacion 
