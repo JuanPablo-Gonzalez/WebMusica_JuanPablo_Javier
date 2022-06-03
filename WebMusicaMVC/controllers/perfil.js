@@ -60,6 +60,8 @@ $.ajax({
 					}
 					for(let i in publicaciones){
 						mostrarPublicacion("","../",infoUsuario, publicaciones[i]);
+						
+						$("#publicacion-"+publicaciones[i].id_publicacion).attr("onClick","irAPublicacion('../',"+publicaciones[i].id_publicacion+")")
 
 						$("#img-mg-"+publicaciones[i].id_publicacion).click(() => {
 							var datosMg = {
@@ -95,6 +97,10 @@ $.ajax({
 	},
 	dataType: "json"
 });
+
+function irAPublicacion(url,id_publicacion) {
+	window.location.assign(url+"../controllers/publicacion_controller.php?idPublicacion="+id_publicacion);
+}
 
 function alternarButtonSeguir(siguiendo){
 	if(siguiendo){

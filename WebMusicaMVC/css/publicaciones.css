@@ -1,5 +1,5 @@
 .div-contenedor-publicaciones{
-	background-color: rgba(33, 33, 33, 0.5);
+	/*background-color: rgba(33, 33, 33, 0.5);*/
 	position: relative;
 	width: 100%;
 	display: flex;
@@ -13,15 +13,14 @@
 	width: 60%;
 	margin: 0.7% 20%;
 	padding: 1%;
-	display: flex;
+	display: grid;
+	grid-template-columns: 12% 88%;
+	grid-template-rows: auto;
 	border-radius: 15px;
 	box-shadow: 0px 0px 15px 8px rgba(47,47,47,0.7);
 	-webkit-box-shadow: 0px 0px 15px 8px rgba(47,47,47,0.7);
 	-moz-box-shadow: 0px 0px 15px 8px rgba(47,47,47,0.7);
-}
-
-.div-contenedora-img-nombre{
-	width: 12%;
+	cursor: pointer;
 }
 
 .div-contenedora-imgUser{
@@ -43,6 +42,7 @@
 	/*background-color: red;*/
 	width: 100%;
 	text-align: center;
+	overflow-wrap: anywhere;
 }
 
 .div-contenedora-nombre > *{
@@ -60,13 +60,16 @@
 }
 
 .div-contenedora-mgComents{
-	margin: 1%;
+	margin: 10% 1%;
+	display: grid;
+	grid-template-columns: 50% 50%;
+	grid-template-rows: auto;
 }
 
 .div-contenedora-mgComents img{
 	position: relative;
-	width: 20%;
-	margin: 4% 40% 0;
+	width: 60%;
+	margin: 5% 20% 0;
 }
 
 .div-contenedora-mgComents p{
@@ -76,7 +79,6 @@
 .div-contenido{
 	/*background-color: purple;*/
 	position: relative;
-	width: 88%;
 	padding: 1%;
 }
 
@@ -101,4 +103,39 @@
 
 .div-contenido-img img{
 	width: 100%;
+}
+
+@media(max-width: 1100px){
+	.div-contenedora-nombre{
+		font-size: 14px;
+	}
+}
+
+@media(max-width: 900px){
+	.div-publicacion{
+		background-color: rgba(200, 200, 200, 0.8);
+		width: 70%;
+		margin: 0.7% 15%;
+		grid-template-columns: 15% 85%;
+	}
+	.div-contenedora-mgComents img{
+		position: relative;
+		width: 55%;
+		margin: 5% 22.5% 0;
+	}
+}
+
+@media(max-width: 700px){
+	.div-contenedora-nombre{
+		font-size: 12px;
+	}
+}
+
+@media(max-width: 600px){
+	.div-publicacion{
+		background-color: rgba(200, 200, 200, 0.8);
+		width: 75%;
+		margin: 0.7% 12.5%;
+		grid-template-columns: 15% 85%;
+	}
 }

@@ -8,7 +8,7 @@ function alternarButtonMeGusta(urlImagenes,tegusta,id_publicacion){
 
 function mostrarPublicacion(url,urlImagenes,infoUsuario, publicacion){
 	$("#div-contenedor-publicaciones").append(
-		$("<div>").attr("id","publicacion-"+publicacion.id_publicacion).addClass("div-publicacion").append(
+		$("<article>").addClass("div-publicacion").attr("id","publicacion-"+publicacion.id_publicacion).append(
 			$("<div>").addClass("div-contenedora-img-nombre").append(
 				$("<div>").addClass("div-contenedora-imgUser").append(
 					$("<img>").attr("id","fotoPerfil").attr("src",url+"imagenes/" + infoUsuario.foto_perfil)

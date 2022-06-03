@@ -39,12 +39,12 @@
 
 .input-comentario{
 	position: relative;
-	width: 90%;
+	width: 95%;
 }
 
 .bttn-addComentario{
 	position: relative;
-	width: 10%;
+	width: 5%;
 }
 
 .bttn-addComentario img{
@@ -99,5 +99,3 @@
 	color: #551A8B;
 	text-decoration: underline;
 }
-
-.input-comentario
