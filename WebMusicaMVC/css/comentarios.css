@@ -37,6 +37,10 @@
 	display: flex;
 }
 
+#form-AddComentario{
+	display: flex;
+}
+
 .input-comentario{
 	position: relative;
 	width: 95%;

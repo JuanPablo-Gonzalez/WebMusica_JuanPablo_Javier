@@ -50,3 +50,15 @@ $.ajax({
 	},
 	dataType: "json"
 });
+
+/*$.ajax({
+	method: "POST",
+	url: "../models/obtenerComentarios.php",
+	data: datos,
+	success: function(result){
+		$(document).ready(function(){
+
+		});
+	},
+	dataType: "json"
+});*/

@@ -26,15 +26,16 @@ if(isset($_GET["idPublicacion"])){
 		datos["idPublicacion"] = <?php echo '"'.$idPublicacion.'"'; ?>;
 	</script>
 	<script type="text/javascript" src="publicacion.js"></script>
-	<script type="text/javascript" src="audio.js"></script>
-	<script type="text/javascript" src="../views/publicaciones.js"></script>
 	<div class="div-contenedor-publicaciones" id="div-contenedor-publicaciones"></div>
+
 	<div class="div-contenerdor-comentarios" id="div-contenedor-comentarios">
 		<div class="div-comentario div-crearComentario">
-			<input class="input-comentario" type="text" id="nuevoComentario">
-			<button class="bttn-addComentario">
-				<img src="../imagenes/enviar.png">
-			</button>
+			<form method="post" id="form-AddComentario" name="form-AddComentario">
+				<input class="input-comentario" type="text" id="inputNewComentario">
+				<button class="bttn-addComentario" id="bttn-addComentario">
+					<img src="../imagenes/enviar.png">
+				</button>
+			</form>
 		</div>
 		<div class="div-comentario">
 			<div class="div-contenedora-imgUser">
@@ -49,5 +50,9 @@ if(isset($_GET["idPublicacion"])){
 			</div>
 		</div>
 	</div>
+	
+	<script type="text/javascript" src="audio.js"></script>
+	<script type="text/javascript" src="../views/publicaciones.js"></script>
+	<script type="text/javascript" src="comentario.js"></script>
 </body>
 </html>
