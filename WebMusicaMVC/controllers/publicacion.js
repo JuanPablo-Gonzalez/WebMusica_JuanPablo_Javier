@@ -51,14 +51,20 @@ $.ajax({
 	dataType: "json"
 });
 
-/*$.ajax({
+$.ajax({
 	method: "POST",
 	url: "../models/obtenerComentarios.php",
 	data: datos,
-	success: function(result){
+	success: function(comentarios){
+		console.log(comentarios)
 		$(document).ready(function(){
-
+			if(Object.keys(publicaciones).length == 0){
+				//No hay comentarios
+			}
+			for(let i in comentarios){
+				mostrarComentarios
+			}
 		});
 	},
 	dataType: "json"
-});*/
+});
