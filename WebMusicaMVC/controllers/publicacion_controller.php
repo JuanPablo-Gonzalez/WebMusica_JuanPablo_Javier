@@ -1,8 +1,10 @@
 <?php
+session_start();
 if(isset($_GET["idPublicacion"])){
 	$idPublicacion = $_GET["idPublicacion"];
 }else{
-	
+	header("Location: ../usuarios/".$_SESSION["tag"]."/");
+	die();
 }
 ?>
 <!DOCTYPE html>
@@ -12,6 +14,7 @@ if(isset($_GET["idPublicacion"])){
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Perfil</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 
 	<link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
 
@@ -24,35 +27,19 @@ if(isset($_GET["idPublicacion"])){
 	<script type="text/javascript">
 		var datos = {};
 		datos["idPublicacion"] = <?php echo '"'.$idPublicacion.'"'; ?>;
+		datos["idUsuario"] = <?php echo '"'.$_SESSION["idUsuario"].'"'; ?>;
+		datos["tag"] = <?php echo '"'.$_SESSION["tag"].'"'; ?>;
+		datos["foto_perfil"] = <?php echo '"'.$_SESSION["foto_perfil"].'"'; ?>;
 	</script>
 	<script type="text/javascript" src="publicacion.js"></script>
-	<div class="div-contenedor-publicaciones" id="div-contenedor-publicaciones"></div>
-
-	<div class="div-contenerdor-comentarios" id="div-contenedor-comentarios">
-		<div class="div-comentario div-crearComentario">
-			<form method="post" id="form-AddComentario" name="form-AddComentario">
-				<input class="input-comentario" type="text" id="inputNewComentario">
-				<button class="bttn-addComentario" id="bttn-addComentario">
-					<img src="../imagenes/enviar.png">
-				</button>
-			</form>
-		</div>
-		<div class="div-comentario">
-			<div class="div-contenedora-imgUser">
-				<img id="fotoPerfil" src="../usuarios/JRenedo/imagenes/yoda-bebe.jpg">
-			</div>
-			<div class="div-contenedora-tag-fecha">
-				<a id="a-tag">@JRenedo</a>
-				<p class="p-fecha" id="p-fecha">2 de junio de 2022</p>
-			</div>
-			<div class="div-contenido">
-				<p>Esto es un comentario Hardcodeado muy guapo</p>				
-			</div>
-		</div>
-	</div>
 	
+	<?php
+	include_once "../views/publicacion.html";
+	?>
+
 	<script type="text/javascript" src="audio.js"></script>
+	<script type="text/javascript" src="validateForms.js"></script>
 	<script type="text/javascript" src="../views/publicaciones.js"></script>
-	<script type="text/javascript" src="comentario.js"></script>
+	<script type="text/javascript" src="../views/comentarios.js"></script>
 </body>
 </html>

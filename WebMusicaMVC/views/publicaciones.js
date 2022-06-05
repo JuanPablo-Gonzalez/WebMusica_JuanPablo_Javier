@@ -11,7 +11,9 @@ function mostrarPublicacion(url,urlImagenes,infoUsuario, publicacion){
 		$("<article>").addClass("div-publicacion").attr("id","publicacion-"+publicacion.id_publicacion).append(
 			$("<div>").addClass("div-contenedora-img-nombre").append(
 				$("<div>").addClass("div-contenedora-imgUser").append(
-					$("<img>").attr("id","fotoPerfil").attr("src",url+"imagenes/" + infoUsuario.foto_perfil)
+					$("<img>").attr("id","fotoPerfil").attr("src",url+"imagenes/" + infoUsuario.foto_perfil).click(() => {
+						window.location.assign(url);
+					})
 				),
 				$("<div>").addClass("div-contenedora-nombre").append(
 					$("<h4>").attr("id","h4-nombre").text(infoUsuario.nombre_usuario),
