@@ -4,22 +4,29 @@
     <meta charset="utf-8">
     <title>Login Music Network</title>
     <link rel="stylesheet" href="../css/verTema.css">
+    <script src="https://kit.fontawesome.com/ce14add742.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src='../controllers/crearTema.js'></script>
   </head>
   <body>
     <nav>
-      <ul>
-        <li><a href="../index.php"><img src="../imagenes/logo.jpg" alt="perfil"></a></li>
-        <li><a href="../controllers/foro_controller.php">Comunidad</a></li>
+      <div id="logo" class="parte-nav">
+        <h1><a href="../index.php">Music-Network</a></h1>
+      </div>
+
+      <ul id="listado-nav" class="parte-nav">
+        <li><a href="">Comunidad</a></li>
         <li><a href="#contact">Canciones</a></li>
         <li><a href="#sobre">Sobre nosotros</a></li>
-        <li style="float:right"><a class="active" href="../views/perfil.html"><img src="../imagenes/perfil2.jpg" alt="perfil"></a></li>
       </ul>
+
+      <div id="perfil" class="parte-nav">
+        <a class="active" href="../views/perfil.html"><img src="../imagenes/perfil2.jpg" alt="perfil"></a>
+      </div>
     </nav>
     <header>
       <div class="encabezado-tema">
-        <?php 
+        <?php
           foreach($comentarios as $row) {
               $titulo= $row['titulo'];
               $usuario_creador= $row['nombre_usuario'];
@@ -37,14 +44,16 @@
       </div>
     </header>
     <main>
+      <a href="#logo" class="flecha"></a>
+    
       <section class="seccion-comentarios">
-        <a href="#form-responder"><button>Responder</button></a>
+        <a href="#form-responder"><button>Escribe tu respuesta</button></a>
 
-          <?php 
+          <?php
               foreach($comentarios as $row) {
                   echo "<div class='contenedor-comentario'>";
                   echo "<div class='encabezado-comentario'>";
-                  echo "<img src='../imagenes/perfil2.jpg' alt='imagen de perfil' width='80px'>";
+                  echo "<img src='../imagenes/perfil2.jpg' alt='imagen de perfil' width='80px'/>";
                   echo "<span><a href=''>".$row['nombre_usuario']."</a></span>";
                   echo "</div>";
                   echo "<div class='mensaje-comentario'>";
@@ -57,7 +66,7 @@
       <section class="seccion-responder">
           <form name="formulario" id="form-responder" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
             <label for="comentario">Escribe tu respuesta</label> <br>
-            <textarea name="comentario" id="comentario" cols="60" rows="15"></textarea>
+            <textarea name="comentario" id="comentario" cols="83" rows="15" wrap="hard"></textarea>
 
             <div id="barra-añadir-adicionales">
               <button type="button" name="negrita" id="negrita"><b>B</b></button>
@@ -70,12 +79,12 @@
             <input type="hidden" name="tema-elegido" id="tema-elegido" value="<?php echo $idTema ?>">
             <input type="submit" id="boton-responder" value="Responder"> <br>
           </form>
-      </section>
 
-      <section>
-        <div id="ver">
+          <br>
 
-        </div>
+          <p id="ver">
+        
+          </p>
       </section>
     </main>
     <!--<aside>
