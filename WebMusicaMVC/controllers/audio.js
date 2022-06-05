@@ -1,5 +1,5 @@
-function prepararAudio(publicacion){
-	let audio = new Audio("audios/" + publicacion.archivo)
+function prepararAudio(url,publicacion){
+	let audio = new Audio(url+"audios/" + publicacion.archivo)
 	audio.loop = false;
 
 	let audioStateInterval = setInterval(() =>{

@@ -82,3 +82,16 @@ $("#formRegistrarse").validate({
 $.validator.addMethod("password", (value, element) => {
 	return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[\S\s]+$/.test(value);
 }, "La contraseña debe incluir al menos una mayuscula, una minuscula y un número");
+
+$("#formAddComentario").validate({
+	rules:{
+		inputNewComentario:{
+			required: true,
+		}
+	},
+	messages : {
+		inputNewComentario:{
+			required: "No puedes publicar un comentario vacio"
+		}
+	}
+});

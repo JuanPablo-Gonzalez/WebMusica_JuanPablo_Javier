@@ -5,7 +5,7 @@
 
 body{
 	background-color: #212121;
-	/*background-image: url("../imagenes/fulcrum.jpg");*/
+	background-image: linear-gradient(to bottom, #585959 0%, #141415 100%);
 	background-size: 100%;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
@@ -156,4 +156,27 @@ body{
 .h2-noPublicaciones{
 	color: white;
 	text-align: center;
+}
+
+@media(max-width: 900px){
+	.div-fotoPerfilNombre{
+		width: 70%;
+		margin: 0 15%;
+		grid-template-columns: 30% 70%;
+	}
+}
+
+@media(max-width: 600px){
+	.div-num span{
+		font-size: 1.2em;
+	}
+}
+
+
+@media(max-width: 600px){
+	.div-fotoPerfilNombre{
+		width: 80%;
+		margin: 0 10%;
+		grid-template-columns: 30% 70%;
+	}
 }

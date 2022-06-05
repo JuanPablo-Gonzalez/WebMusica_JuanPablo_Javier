@@ -123,7 +123,7 @@ CREATE TABLE IF NOT EXISTS `publicaciones` (
   `fecha_publicacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_publicacion`),
   KEY `fk_publicaciones_usuario` (`id_usuario`),
-  KEY `publicaciones_fk_2` (`tipo_archivo`
+  KEY `publicaciones_fk_2` (`tipo_archivo`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------

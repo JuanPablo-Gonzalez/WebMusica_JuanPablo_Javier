@@ -11,7 +11,7 @@ $.ajax({
 					$("body").css("background-image",'url("imagenes/'+infoUsuario.foto_fondo+'")');
 				}
 				if(infoUsuario.foto_perfil != null){
-					$("#fotoPerfil").attr("src","imagenes/"+foto_perfil);
+					$("#fotoPerfil").attr("src","imagenes/"+infoUsuario.foto_perfil);
 				}
 
 				$("#p-tagNombre-nombre").text(infoUsuario.nombre_usuario);
@@ -59,9 +59,11 @@ $.ajax({
 						);
 					}
 					for(let i in publicaciones){
-						mostrarPublicacion(infoUsuario, publicaciones[i]);
+						mostrarPublicacion("","../",infoUsuario, publicaciones[i]);
+						
+						$("#publicacion-"+publicaciones[i].id_publicacion).attr("onClick","irAPublicacion('../',"+publicaciones[i].id_publicacion+")")
 
-						$("#img-"+publicaciones[i].id_publicacion).click(() => {
+						$("#img-mg-"+publicaciones[i].id_publicacion).click(() => {
 							var datosMg = {
 								"idPublicacion": publicaciones[i].id_publicacion,
 								"tegusta": publicaciones[i].tegusta
@@ -71,10 +73,9 @@ $.ajax({
 								url: "../../models/megusta.php",
 								data: datosMg,
 								success: function(result){
-									console.log(result);
 									if(!result.error){
 										publicaciones[i].tegusta = result.tegusta;
-										alternarButtonMeGusta(result.tegusta,datosMg.idPublicacion);
+										alternarButtonMeGusta("../",result.tegusta, datosMg.idPublicacion);
 										if(result.tegusta){
 											publicaciones[i].numMegusta++;
 										}else{
@@ -87,14 +88,7 @@ $.ajax({
 							});
 						});
 
-						switch(publicaciones[i].tipo_archivo){
-							case "1":
-								mostrarAudioPublicacion(publicaciones[i]);
-							break;
-							case "2":
-								mostrarImagenPublicacion(publicaciones[i]);
-							break;
-						}
+						mostrarArchivo("",publicaciones[i]);
 					}
 				},
 				dataType: "json"
@@ -103,6 +97,10 @@ $.ajax({
 	},
 	dataType: "json"
 });
+
+function irAPublicacion(url,id_publicacion) {
+	window.location.assign(url+"../controllers/publicacion_controller.php?idPublicacion="+id_publicacion);
+}
 
 function alternarButtonSeguir(siguiendo){
 	if(siguiendo){
