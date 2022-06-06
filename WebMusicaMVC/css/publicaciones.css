@@ -36,6 +36,7 @@
 	width: 100%;
 	border-radius: 50%;
 	border: solid 3px #212121;
+	z-index: 20;
 }
 
 .div-contenedora-nombre{

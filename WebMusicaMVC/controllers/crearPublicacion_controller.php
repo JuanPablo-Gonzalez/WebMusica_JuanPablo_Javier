@@ -6,12 +6,6 @@ if(!isset($_SESSION["idUsuario"]) || !isset($_SESSION["tag"])){
 	header("Location: ../../controllers/login_controller.php");
 	die();
 }
-if(isset($_GET["idPublicacion"])){
-	$idPublicacion = $_GET["idPublicacion"];
-}else{
-	header("Location: ../usuarios/".$_SESSION["tag"]."/");
-	die();
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -39,9 +33,34 @@ if(isset($_GET["idPublicacion"])){
 	</script>
 	<script type="text/javascript" src="publicacion.js"></script>
 	
-	<?php
-	include_once "../views/publicacion.html";
-	?>
+	<div class="divNuevaPublicacion">
+		<form id="formNuevaPublicacion" name="formNuevaPublicacion">
+			<h1>Nuevo publicación</h1>
+			<div class="div-input">
+				<label for="inputTitulo">Titulo</label>
+				<input type="text" name="inputTitulo" id="inputTitulo" maxlength="100">
+				<label id="inputTitulo-error" class="error" for="inputTitulo"></label>
+			</div>
+
+			<div class="div-input">
+				<label for="inputTexto">Texto</label>
+				<input type="text" name="inputTexto" id="inputTexto" maxlength="350">
+				<label id="inputTexto-error" class="error" for="inputTexto"></label>
+			</div>
+			<button type="button" id="bttnAddArchivo">Añadir un archivo</button>
+			<div class="div-addArchivos" id="div-addArchivos">
+				<label for="inputNombreArchivo"></label>
+				<input type="file" name="inputNombreArchivo" id="inputNombreArchivo" maxlength="100">
+				<label id="inputNombreArchivo-error" class="error" for="inputNombreArchivo"></label>
+			</div>
+		</form>
+	</div>
+
+	<script type="text/javascript">
+		$("#bttnAddArchivo").click(() => {
+			$("#div-addArchivos").toggle();
+		})
+	</script>
 
 	<script type="text/javascript" src="audio.js"></script>
 	<script type="text/javascript" src="validateForms.js"></script>
