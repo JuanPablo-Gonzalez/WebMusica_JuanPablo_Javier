@@ -95,3 +95,12 @@ $("#formAddComentario").validate({
 		}
 	}
 });
+
+$("#formNuevaPublicacion").validate({
+	rules:{
+		
+	},
+	messages : {
+		
+	}
+});

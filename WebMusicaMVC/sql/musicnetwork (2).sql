@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `publicaciones` (
   `id_usuario` int(10) NOT NULL,
   `titulo` varchar(100) NOT NULL,
   `texto` varchar(250) NOT NULL,
-  `archivo` varchar(30) NOT NULL,
+  `archivo` varchar(500) NOT NULL,
   `tipo_archivo` int(4) NOT NULL,
   `fecha_publicacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_publicacion`),
