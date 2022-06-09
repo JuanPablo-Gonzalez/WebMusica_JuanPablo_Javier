@@ -6,6 +6,9 @@ if(!isset($_SESSION["idUsuario"]) || !isset($_SESSION["tag"])){
 	header("Location: ../../controllers/login_controller.php");
 	die();
 }
+if($_SERVER["REQUEST_METHOD"] == "POST"){
+	include "../models/addPublicacion.php";
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -18,24 +21,12 @@ if(!isset($_SESSION["idUsuario"]) || !isset($_SESSION["tag"])){
 
 	<link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
 
-	<!--<link rel="stylesheet" type="text/css" href="../css/perfil.css">
+	<link rel="stylesheet" type="text/css" href="../css/perfil.css">
 	<link rel="stylesheet" type="text/css" href="../css/publicaciones.css">
 	<link rel="stylesheet" type="text/css" href="../css/comentarios.css">
-	<link rel="stylesheet" type="text/css" href="../css/audio.css">-->
+	<link rel="stylesheet" type="text/css" href="../css/audio.css">
 </head>
 <body>
-	<?php
-	$tag = $_SESSION["tag"];
-	include "../models/addPublicacion.php";
-	?>
-	<script type="text/javascript">
-		var datos = {};
-		datos["idUsuario"] = <?php echo '"'.$_SESSION["idUsuario"].'"'; ?>;
-		datos["tag"] = <?php echo '"'.$_SESSION["tag"].'"'; ?>;
-		datos["foto_perfil"] = <?php echo '"'.$_SESSION["foto_perfil"].'"'; ?>;
-	</script>
-	<script type="text/javascript" src="publicacion.js"></script>
-	
 	<div class="divNuevaPublicacion">
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="formNuevaPublicacion" name="formNuevaPublicacion" enctype="multipart/form-data">
 			<h1>Nuevo publicación</h1>
@@ -65,27 +56,6 @@ if(!isset($_SESSION["idUsuario"]) || !isset($_SESSION["tag"])){
 		$("#bttnAddArchivo").click(() => {
 			$("#div-addArchivos").toggle();
 		})
-
-		/*$("#bttnCrearPublicacion").click(() => {
-			//if($("#formNuevaPublicacion").valid()){
-
-				datos["titulo"] = $("#inputTitulo").val();
-				datos["texto"] = $("#inputTexto").val();
-				//datos["archivo"] = $("#inputNombreArchivo").val();
-				datos["archivo"] = $("#inputNombreArchivo")[0].files[0].name;
-				console.log(datos);
-				$.ajax({
-					method: "POST",
-					url: "../models/addPublicacion.php",
-					data: datos,
-					success: function(result){
-						document.write(result);
-					},
-					dataType: "text"
-				})
-			//}
-			return false;
-		})*/
 	</script>
 
 	<script type="text/javascript" src="audio.js"></script>

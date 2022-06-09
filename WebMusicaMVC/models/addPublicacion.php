@@ -1,17 +1,12 @@
 <?php
 //session_start();
-//$idUsuarioActual = $_SESSION["idUsuario"];
-//$tag = $_SESSION["tag"];
-//$titulo = $_POST["titulo"];
+$idUsuarioActual = $_SESSION["idUsuario"];
+$tag = $_SESSION["tag"];
 
-//$titulo = $_POST["inputTitulo"];
-//$texto = $_POST["inputTexto"];
-
-//$texto = $_POST["texto"];
-//$file = $_POST["archivo"];
+$titulo = trim(addslashes($_POST["inputTitulo"]));
+$texto = trim(addslashes($_POST["inputTexto"]));
 
 $type = explode("/",$_FILES["inputArchivo"]["type"])[0];
-var_dump($type);
 
 switch($type){
 	case "audio":
@@ -27,14 +22,21 @@ switch($type){
 	$tipo_archivo = 3;
 	break;
 }
-
-$target_file = $target_dir . basename($_FILES["inputArchivo"]["name"]);
-
-var_dump($_FILES);
-var_dump($target_file);
+$archivo = basename($_FILES["inputArchivo"]["name"]);
+$target_file = $target_dir . $archivo;
 
 $subido = move_uploaded_file($_FILES["inputArchivo"]["tmp_name"], $target_file);
 
-var_dump($subido);
+include_once "../db/db.php";
 
+try{
+	$sql = "INSERT into publicaciones (id_usuario, titulo, texto, archivo, tipo_archivo) VALUES ('$idUsuarioActual', '$titulo', '$texto', '$archivo', '$tipo_archivo')";
+
+	$conexion->exec($sql);
+
+	header("Location: ../usuarios/".$tag."/");
+	die();
+}catch(PDOException $e){
+	$json["error"] = true;
+}
 ?>
