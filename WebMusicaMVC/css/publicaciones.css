@@ -106,6 +106,10 @@
 	width: 100%;
 }
 
+.videoPublicacion{
+	width: 100%;
+}
+
 @media(max-width: 1100px){
 	.div-contenedora-nombre{
 		font-size: 14px;

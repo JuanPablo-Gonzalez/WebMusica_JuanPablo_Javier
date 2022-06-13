@@ -43,7 +43,13 @@ try {
 	}
 
 	$indexFile = fopen("../usuarios/" . $tag ."/index.php", "w");
-	$codeIndex = '<?php include_once "../../controllers/perfil_controller.php"; ?>';
+	
+	$codeIndex = "";
+	$arrayCodeIndex = file("codePerfil.php");
+	foreach($arrayCodeIndex as $codeLine){
+		$codeIndex .= $codeLine;
+	}
+
 	fwrite($indexFile, $codeIndex);
 } catch(PDOException $e) {
 	$json["error"] = true;

@@ -1,42 +1,57 @@
 <?php
-//session_start();
 $idUsuarioActual = $_SESSION["idUsuario"];
 $tag = $_SESSION["tag"];
 
 $titulo = trim(addslashes($_POST["inputTitulo"]));
 $texto = trim(addslashes($_POST["inputTexto"]));
 
-$type = explode("/",$_FILES["inputArchivo"]["type"])[0];
-
-switch($type){
-	case "audio":
-	$target_dir = "../usuarios/".$tag."/audios/";
-	$tipo_archivo = 1;
-	break;
-	case "image":
-	$target_dir = "../usuarios/".$tag."/imagenes/";
-	$tipo_archivo = 2;
-	break;
-	case "video":
-	$target_dir = "../usuarios/".$tag."/videos/";
-	$tipo_archivo = 3;
-	break;
-}
-$archivo = basename($_FILES["inputArchivo"]["name"]);
-$target_file = $target_dir . $archivo;
-
-$subido = move_uploaded_file($_FILES["inputArchivo"]["tmp_name"], $target_file);
-
 include_once "../db/db.php";
 
-try{
+if(isset($_FILES["inputArchivo"]) && $_FILES["inputArchivo"]["type"] != ""){
+	var_dump($_FILES);
+	$type = explode("/",$_FILES["inputArchivo"]["type"])[0];
+
+	switch($type){
+		case "audio":
+		$target_dir = "../usuarios/".$tag."/audios/";
+		$tipo_archivo = 1;
+		break;
+		case "image":
+		$target_dir = "../usuarios/".$tag."/imagenes/";
+		$tipo_archivo = 2;
+		break;
+		case "video":
+		$target_dir = "../usuarios/".$tag."/videos/";
+		$tipo_archivo = 3;
+		break;
+	}
+	$archivo = basename($_FILES["inputArchivo"]["name"]);
+	$target_file = $target_dir . $archivo;
+
+	$subido = move_uploaded_file($_FILES["inputArchivo"]["tmp_name"], $target_file);
+
 	$sql = "INSERT into publicaciones (id_usuario, titulo, texto, archivo, tipo_archivo) VALUES ('$idUsuarioActual', '$titulo', '$texto', '$archivo', '$tipo_archivo')";
 
 	$conexion->exec($sql);
 
 	header("Location: ../usuarios/".$tag."/");
 	die();
-}catch(PDOException $e){
-	$json["error"] = true;
+}else if(isset($_POST["inputUrl"])){
+	$url = $_POST["inputUrl"];
+	$url = str_replace("https://youtu.be/","https://www.youtube.com/embed/",$url);
+	
+	$sql = "INSERT into publicaciones (id_usuario, titulo, texto, archivo, tipo_archivo) VALUES ('$idUsuarioActual', '$titulo', '$texto', '$url', 4)";
+
+	$conexion->exec($sql);
+
+	header("Location: ../usuarios/".$tag."/");
+	die();
+}else{
+	$sql = "INSERT into publicaciones (id_usuario, titulo, texto) VALUES ('$idUsuarioActual', '$titulo', '$texto')";
+
+	$conexion->exec($sql);
+
+	header("Location: ../usuarios/".$tag."/");
+	die();
 }
 ?>

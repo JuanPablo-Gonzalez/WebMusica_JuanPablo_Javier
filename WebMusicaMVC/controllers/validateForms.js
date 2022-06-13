@@ -98,7 +98,20 @@ $("#formAddComentario").validate({
 
 $("#formNuevaPublicacion").validate({
 	rules:{
-		
+		inputTitulo:{
+			required: true,
+			maxlength: 100
+		},
+		inputTexto:{
+			required: true,
+			maxlength: 350
+		},
+		inputArchivo:{
+
+		},
+		inputUrl:{
+			url: true
+		},
 	},
 	messages : {
 		
