@@ -39,6 +39,11 @@ $.ajax({
 							if(!result.error){
 								infoUsuario.siguiendo = result.siguiendo;
 								alternarButtonSeguir(infoUsuario.siguiendo);
+								if(result.siguiendo){
+									$("#span-numSeguidores").text(++infoUsuario.numSeguidores);
+								}else{
+									$("#span-numSeguidores").text(--infoUsuario.numSeguidores);
+								}
 							}
 						},
 						dataType: "json"

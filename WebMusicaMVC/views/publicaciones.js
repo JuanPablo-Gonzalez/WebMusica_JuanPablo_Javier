@@ -124,4 +124,13 @@ function mostrarEnlacePublicacion(publicacion){
 	$("#div-contenido-"+publicacion.id_publicacion).append(
 		$("<iframe>").addClass("iframe-publicacion").attr("src",publicacion.archivo)
 	);
+
+	$("#div-contenido-"+publicacion.id_publicacion+" iframe").height(
+		$("#div-contenido-"+publicacion.id_publicacion+" iframe").width() / 1.8
+	);
+	$(window).resize(() => {
+		$("#div-contenido-"+publicacion.id_publicacion+" iframe").height(
+			$("#div-contenido-"+publicacion.id_publicacion+" iframe").width() / 1.8
+		);
+	});
 }
