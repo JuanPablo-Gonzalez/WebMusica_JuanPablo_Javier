@@ -55,7 +55,8 @@ $.ajax({
 				method: "POST",
 				url: "../../models/obtenerPublicaciones.php",
 				data: {"idPerfil": infoUsuario.id_usuario},
-				success: function(publicaciones){
+				success: function(jsonPublicaciones){
+					var publicaciones = jsonPublicaciones.publicaciones;
 					if(Object.keys(publicaciones).length == 0){
 						$("#div-contenedor-publicaciones").append(
 							$("<div>").addClass("div-noPublicaciones").append(
@@ -65,12 +66,15 @@ $.ajax({
 					}
 					for(let i in publicaciones){
 						mostrarPublicacion("","../",infoUsuario, publicaciones[i]);
+						let id_publicacion = publicaciones[i].id_publicacion;
 						
-						$("#publicacion-"+publicaciones[i].id_publicacion).attr("onClick","irAPublicacion('../',"+publicaciones[i].id_publicacion+")")
+						$("#publicacion-"+id_publicacion).attr("onClick","irAPublicacion('../',"+id_publicacion+")")
 
-						$("#img-mg-"+publicaciones[i].id_publicacion).click(() => {
+						addMenusTressPuntos(jsonPublicaciones.esTuPerfil,id_publicacion);
+
+						$("#img-mg-"+id_publicacion).click(() => {
 							var datosMg = {
-								"idPublicacion": publicaciones[i].id_publicacion,
+								"idPublicacion": id_publicacion,
 								"tegusta": publicaciones[i].tegusta
 							};
 							$.ajax({
@@ -86,7 +90,7 @@ $.ajax({
 										}else{
 											publicaciones[i].numMegusta--;
 										}
-										$("#numMegust-"+publicaciones[i].id_publicacion).text(publicaciones[i].numMegusta)
+										$("#numMegust-"+id_publicacion).text(publicaciones[i].numMegusta)
 									}
 								},
 								dataType: "json"
@@ -116,7 +120,6 @@ function alternarButtonSeguir(siguiendo){
 }
 
 function setCancion(cancion){
-	//https://open.spotify.com/track/57iDDD9N9tTWe75x6qhStw?si=92e0a2b167dd491e
 	var theme = "&utm_source=generator&theme=0";
 	if(cancion == null){
 		cancion = "https://open.spotify.com/embed/track/57iDDD9N9tTWe75x6qhStw?" + theme;
@@ -129,4 +132,16 @@ function setCancion(cancion){
 		cancion = "https://open.spotify.com/embed/track/" + cancion + "?" + theme;
 	}
 	$("#iframe-cancion").attr("src", cancion);
+}
+
+function eliminarPublicacion(id_publicacion){
+	$.ajax({
+		method: "POST",
+		url: "../../models/eliminarPublicacion.php",
+		data: {"idPublicacion": id_publicacion},
+		success: function(tag){
+			location.reload();
+		},
+		dataType: "text"
+	});
 }

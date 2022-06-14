@@ -37,9 +37,12 @@ function mostrarPublicacion(url,urlImagenes,infoUsuario, publicacion){
 				)
 			),
 			$("<div>").attr("id","div-contenido-"+publicacion.id_publicacion).addClass("div-contenido").append(
-				$("<div>").addClass("div-contenido-texto").append(
-					$("<h2>").text(publicacion.titulo),
-					$("<p>").text(publicacion.texto)
+				$("<div>").attr("id","div-contenido-textoPuntos-"+publicacion.id_publicacion)
+				.addClass("div-contenido-textoPuntos").append(
+					$("<div>").addClass("div-contenido-texto").append(
+						$("<h2>").text(publicacion.titulo),
+						$("<p>").text(publicacion.texto)
+					)
 				)
 			)
 		)
@@ -105,7 +108,7 @@ function mostrarAudioPublicacion(url,publicacion){
 function mostrarImagenPublicacion(url,publicacion){
 	$("#div-contenido-"+publicacion.id_publicacion).append(
 		$("<div>").addClass("div-contenido-img").append(
-			$("<img>").attr("src",url +" imagenes/" + publicacion.archivo)
+			$("<img>").attr("src",url +"imagenes/" + publicacion.archivo)
 		)
 	);
 }
@@ -133,4 +136,23 @@ function mostrarEnlacePublicacion(publicacion){
 			$("#div-contenido-"+publicacion.id_publicacion+" iframe").width() / 1.8
 		);
 	});
+}
+
+function addMenusTressPuntos(esTuPerfil,id_publicacion) {
+	if(esTuPerfil){
+		$("#div-contenido-textoPuntos-"+id_publicacion).append(
+			$("<div>").addClass("div-contenerdor-tresPuntos").append(
+				$("<div>").addClass("div-punto"),
+				$("<div>").addClass("div-punto"),
+				$("<div>").addClass("div-punto")
+			).hover(() => {
+				$("#div-dropdown-"+id_publicacion).toggle();
+			}),
+			$("<div>").attr("id","div-dropdown-"+id_publicacion).addClass("div-dropdown").append(
+				$("<div>").attr("onClick","eliminarPublicacion("+id_publicacion+")").text("Eliminar Publicación")
+			).hover(() => {
+				$("#div-dropdown-"+id_publicacion).toggle();
+			})
+		)
+	}
 }

@@ -39,11 +39,11 @@ if($idPublicacion != null){
 	$comentarios = obtenerArraySQL($conexion, $sql);
 
 	$json["error"] = false;
+	$json["esTuPerfil"] = $idUsuarioActual == $publicacion["id_usuario"];
 	$json["publicacion"] = $publicacion;
 	$json["comentarios"] = $comentarios;
 }else{
 	$json["error"] = true;
 }
-//var_dump($json);
 echo json_encode($json);
 ?>

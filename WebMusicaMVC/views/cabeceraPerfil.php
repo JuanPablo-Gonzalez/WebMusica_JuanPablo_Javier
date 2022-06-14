@@ -8,9 +8,17 @@
 					<p class="p-tagNombre-nombre" id="p-tagNombre-nombre"></p>
 					<p class="p-tagNombre-tag" id="p-tagNombre-tag"></p>
 				</div>
-				<div class="div-buttonSeguir">
+				<?php
+				if($_SESSION["tag"] == $tagPerfil){
+				echo '<div class="div-bttnPerfil">
+					<button id="bttnEditar">Editar Perfil</button>
+				</div>';
+				}else{
+				echo '<div class="div-bttnPerfil">
 					<button id="bttnSeguir">Seguir</button>
-				</div>
+				</div>';
+				}
+				?>
 				<div class="div-fechaNacimiento">
 					<p id="p-fechaNacimiento"></p>
 				</div>

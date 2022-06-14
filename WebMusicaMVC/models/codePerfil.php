@@ -11,7 +11,7 @@ $arrayPath = explode("\\",getcwd());
 $tagPerfil = $arrayPath[count($arrayPath)-1];
 
 if($_SESSION["tag"] == $tagPerfil){
-
+	include_once "../../controllers/tuperfil_controller.php";
 }else{
 	include_once "../../controllers/perfil_controller.php";
 }
