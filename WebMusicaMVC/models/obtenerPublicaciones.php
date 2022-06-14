@@ -5,6 +5,8 @@ $idPerfil = $_POST["idPerfil"];
 
 include_once "../db/db.php";
 
+$json = [];
+
 $sql = "SELECT 
 	publicaciones.*, 
 	COUNT(DISTINCT(comentarios_publicaciones.id_comentario)) as numComentarios,
@@ -21,6 +23,9 @@ $array = obtenerArraySQL($conexion, $sql);
 foreach($array as $i => $publicacion){
 	$array[$i]["tegusta"] = filter_var($publicacion["tegusta"], FILTER_VALIDATE_BOOLEAN);
 }
-echo json_encode($array);
+
+$json["esTuPerfil"] = $idUsuarioActual == $idPerfil;
+$json["publicaciones"] = $array;
+echo json_encode($json);
 ?>
 

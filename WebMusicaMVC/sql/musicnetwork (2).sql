@@ -118,7 +118,7 @@ CREATE TABLE IF NOT EXISTS `publicaciones` (
   `id_usuario` int(10) NOT NULL,
   `titulo` varchar(100) NOT NULL,
   `texto` varchar(250) NOT NULL,
-  `archivo` varchar(30) NOT NULL,
+  `archivo` varchar(500) NOT NULL,
   `tipo_archivo` int(4) NOT NULL,
   `fecha_publicacion` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_publicacion`),
@@ -205,13 +205,13 @@ ALTER TABLE `comentarios`
 --
 ALTER TABLE `publicaciones`
   ADD CONSTRAINT `publicaciones_fk_2` FOREIGN KEY (`tipo_archivo`) REFERENCES `tipos_archivos` (`id_archivo`),
-  ADD CONSTRAINT `publicaciones_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `publicaciones_ibfk_1` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `comentarios_publicaciones`
 --
 ALTER TABLE `comentarios_publicaciones`
-  ADD CONSTRAINT `comentarios_publicaciones_ibfk_1` FOREIGN KEY (`id_publicacion`) REFERENCES `publicaciones` (`id_publicacion`) ON DELETE CASCADE ON UPDATE NO ACTION,
+  ADD CONSTRAINT `comentarios_publicaciones_ibfk_1` FOREIGN KEY (`id_publicacion`) REFERENCES `publicaciones` (`id_publicacion`) ON DELETE CASCADE,
   ADD CONSTRAINT `fk_comentarios_publicacion_usuario` FOREIGN KEY (`id_usuario`) REFERENCES `usuarios` (`id_usuario`);
 
 --
@@ -227,7 +227,7 @@ COMMIT;
 --
 ALTER TABLE `seguidores`
   ADD CONSTRAINT `fk_seguido_usuario` FOREIGN KEY (`seguido`) REFERENCES `usuarios` (`id_usuario`),
-  ADD CONSTRAINT `fk_seguidor_usuario` FOREIGN KEY (`seguidor`) REFERENCES `usuarios` (`id_usuario`);
+  ADD CONSTRAINT `fk_seguidor_usuario` FOREIGN KEY (`seguidor`) REFERENCES `usuarios` (`id_usuario`) ON DELETE CASCADE;
 
 --
 -- Filtros para la tabla `temas`

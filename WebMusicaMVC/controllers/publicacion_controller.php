@@ -1,5 +1,11 @@
 <?php
 session_start();
+if(!isset($_SESSION["idUsuario"]) || !isset($_SESSION["tag"])){
+	session_unset();
+	session_destroy();
+	header("Location: ../../controllers/login_controller.php");
+	die();
+}
 if(isset($_GET["idPublicacion"])){
 	$idPublicacion = $_GET["idPublicacion"];
 }else{
@@ -12,7 +18,7 @@ if(isset($_GET["idPublicacion"])){
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Perfil</title>
+	<title><?php echo '"'.$_SESSION["tag"].'"'; ?>-Publicacion</title>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 

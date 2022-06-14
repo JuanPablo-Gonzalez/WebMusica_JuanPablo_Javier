@@ -70,7 +70,6 @@ $("#formRegistrarse").validate({
 		},
 		inputPassword2:{
 			required: "Es necesario rellenar este campo",
-			password: "",
 			equalTo: "Las contraseñas no coinciden"
 		},
 		inputFechaNacimiento:{
@@ -95,3 +94,37 @@ $("#formAddComentario").validate({
 		}
 	}
 });
+
+$("#formNuevaPublicacion").validate({
+	rules:{
+		inputTitulo:{
+			required: true,
+			maxlength: 100
+		},
+		inputTexto:{
+			required: true,
+			maxlength: 350
+		},
+		inputUrl:{
+			url: true,
+			youtube: true
+		}
+	},
+	messages : {
+		inputTitulo:{
+			required: "Es necesario rellenar este campo",
+			maxlength: "El título de la publicacion no puede tener más de 100 caracteres"
+		},
+		inputTexto:{
+			required: "Es necesario rellenar este campo",
+			maxlength: "El text de la publicacion no puede tener más de 350 caracteres"
+		},
+		inputUrl:{
+			url: "Es necesario rellenar este campo",
+		}
+	}
+});
+
+$.validator.addMethod("youtube", (value, element) => {
+	return /^(https:\/\/youtu\.be|https:\/\/www.youtube\.com)/.test(value);
+}, "Solo se aceptan enlaces a youtube");

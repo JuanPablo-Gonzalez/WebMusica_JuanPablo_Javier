@@ -7,11 +7,17 @@ function alternarButtonMeGusta(urlImagenes,tegusta,id_publicacion){
 }
 
 function mostrarPublicacion(url,urlImagenes,infoUsuario, publicacion){
+	if(infoUsuario.foto_perfil != null){
+		var urlImgPerfil = url + "imagenes/" + infoUsuario.foto_perfil;
+	}else{
+		var urlImgPerfil = urlImagenes + "../imagenes/estandarPerfil.png"; 
+	}
+
 	$("#div-contenedor-publicaciones").append(
 		$("<article>").addClass("div-publicacion").attr("id","publicacion-"+publicacion.id_publicacion).append(
 			$("<div>").addClass("div-contenedora-img-nombre").append(
 				$("<div>").addClass("div-contenedora-imgUser").append(
-					$("<img>").attr("id","fotoPerfil").attr("src",url+"imagenes/" + infoUsuario.foto_perfil).click(() => {
+					$("<img>").attr("id","fotoPerfil").attr("src",urlImgPerfil).click(() => {
 						window.location.assign(url);
 					})
 				),
@@ -31,9 +37,12 @@ function mostrarPublicacion(url,urlImagenes,infoUsuario, publicacion){
 				)
 			),
 			$("<div>").attr("id","div-contenido-"+publicacion.id_publicacion).addClass("div-contenido").append(
-				$("<div>").addClass("div-contenido-texto").append(
-					$("<h2>").text(publicacion.titulo),
-					$("<p>").text(publicacion.texto)
+				$("<div>").attr("id","div-contenido-textoPuntos-"+publicacion.id_publicacion)
+				.addClass("div-contenido-textoPuntos").append(
+					$("<div>").addClass("div-contenido-texto").append(
+						$("<h2>").text(publicacion.titulo),
+						$("<p>").text(publicacion.texto)
+					)
 				)
 			)
 		)
@@ -59,7 +68,7 @@ function mostrarArchivo(url,publicacion){
 
 	$("#div-contenido-"+publicacion.id_publicacion).append(
 		$("<p>").addClass("nombre-archivo").text(publicacion.archivo)
-	)
+	);
 }
 
 function mostrarAudioPublicacion(url,publicacion){
@@ -93,23 +102,57 @@ function mostrarAudioPublicacion(url,publicacion){
 				)
 			)
 		)
-	)
+	);
 }
 
 function mostrarImagenPublicacion(url,publicacion){
 	$("#div-contenido-"+publicacion.id_publicacion).append(
 		$("<div>").addClass("div-contenido-img").append(
-			$("<img>").attr("src",url+"imagenes/"+publicacion.archivo)
+			$("<img>").attr("src",url +"imagenes/" + publicacion.archivo)
 		)
-	)
+	);
 }
 
 function mostrarVideoPublicacion(url,publicacion){
-
+	archivo = publicacion.archivo;
+	var type = archivo.substr(archivo.lastIndexOf(".")+1,archivo.length);
+	$("#div-contenido-"+publicacion.id_publicacion).append(
+		$("<video controls>").addClass("videoPublicacion").append(
+			$("<source>").attr("src",url + "videos/" + archivo).attr("type","video/"+type)
+		)
+	);
 }
 
 function mostrarEnlacePublicacion(publicacion){
 	$("#div-contenido-"+publicacion.id_publicacion).append(
 		$("<iframe>").addClass("iframe-publicacion").attr("src",publicacion.archivo)
 	);
+
+	$("#div-contenido-"+publicacion.id_publicacion+" iframe").height(
+		$("#div-contenido-"+publicacion.id_publicacion+" iframe").width() / 1.8
+	);
+	$(window).resize(() => {
+		$("#div-contenido-"+publicacion.id_publicacion+" iframe").height(
+			$("#div-contenido-"+publicacion.id_publicacion+" iframe").width() / 1.8
+		);
+	});
+}
+
+function addMenusTressPuntos(esTuPerfil,id_publicacion) {
+	if(esTuPerfil){
+		$("#div-contenido-textoPuntos-"+id_publicacion).append(
+			$("<div>").addClass("div-contenerdor-tresPuntos").append(
+				$("<div>").addClass("div-punto"),
+				$("<div>").addClass("div-punto"),
+				$("<div>").addClass("div-punto")
+			).hover(() => {
+				$("#div-dropdown-"+id_publicacion).toggle();
+			}),
+			$("<div>").attr("id","div-dropdown-"+id_publicacion).addClass("div-dropdown").append(
+				$("<div>").attr("onClick","eliminarPublicacion("+id_publicacion+")").text("Eliminar Publicación")
+			).hover(() => {
+				$("#div-dropdown-"+id_publicacion).toggle();
+			})
+		)
+	}
 }

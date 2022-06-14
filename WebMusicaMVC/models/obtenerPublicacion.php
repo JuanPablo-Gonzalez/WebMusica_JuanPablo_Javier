@@ -2,8 +2,7 @@
 session_start();
 $idUsuarioActual = $_SESSION["idUsuario"];
 $idPublicacion = $_POST["idPublicacion"];
-//$idUsuarioActual = 43;
-//$idPublicacion = 3;
+//$idPublicacion = 4;
 
 include_once "../db/db.php";
 
@@ -24,6 +23,7 @@ $sql = "SELECT
 $publicacion = obtenerArraySQL($conexion, $sql)[0];
 
 $idPublicacion = $publicacion["id_publicacion"];
+$publicacion["tegusta"] = filter_var($publicacion["tegusta"], FILTER_VALIDATE_BOOLEAN);
 
 if($idPublicacion != null){
 	$sql = "SELECT 
@@ -39,11 +39,11 @@ if($idPublicacion != null){
 	$comentarios = obtenerArraySQL($conexion, $sql);
 
 	$json["error"] = false;
+	$json["esTuPerfil"] = $idUsuarioActual == $publicacion["id_usuario"];
 	$json["publicacion"] = $publicacion;
 	$json["comentarios"] = $comentarios;
 }else{
 	$json["error"] = true;
 }
-//var_dump($json);
-echo json_encode($json)
+echo json_encode($json);
 ?>

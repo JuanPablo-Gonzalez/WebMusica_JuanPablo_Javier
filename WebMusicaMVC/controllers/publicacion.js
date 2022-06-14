@@ -20,6 +20,8 @@ $.ajax({
 				var url = "../usuarios/" + usuario.tag +"/";
 				mostrarPublicacion(url,"",usuario, publicacion);
 
+				addMenusTressPuntos(result.esTuPerfil,publicacion.id_publicacion);
+
 				$("#img-mg-"+publicacion.id_publicacion).click(() => {
 					var datosMg = {
 						"idPublicacion": publicacion.id_publicacion,
@@ -27,10 +29,9 @@ $.ajax({
 					};
 					$.ajax({
 						method: "POST",
-						url: "../../models/megusta.php",
+						url: "../models/megusta.php",
 						data: datosMg,
 						success: function(result){
-							console.log(result);
 							if(!result.error){
 								publicacion.tegusta = result.tegusta;
 								alternarButtonMeGusta("",result.tegusta,datosMg.idPublicacion);
@@ -42,7 +43,7 @@ $.ajax({
 								$("#numMegust-"+publicacion.id_publicacion).text(publicacion.numMegusta)
 							}
 						},
-						dataType: "json"
+						dataType: "text"
 					});
 				});
 
@@ -58,7 +59,6 @@ $.ajax({
 	url: "../models/obtenerComentarios.php",
 	data: datos,
 	success: function(comentarios){
-		console.log(comentarios)
 		$(document).ready(function(){
 			if(Object.keys(comentarios).length == 0){
 				$("#div-contenedor-comentarios").append(
@@ -106,3 +106,15 @@ $(document).ready(() => {
 		return false;
 	});
 });
+
+function eliminarPublicacion(id_publicacion){
+	$.ajax({
+		method: "POST",
+		url: "../models/eliminarPublicacion.php",
+		data: {"idPublicacion": id_publicacion},
+		success: function(tag){
+			window.location.assign("../usuarios/" + tag);
+		},
+		dataType: "text"
+	});
+}
