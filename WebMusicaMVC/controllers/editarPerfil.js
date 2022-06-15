@@ -10,7 +10,7 @@ $.ajax({
 					$("body").css("background-image",'url("../usuarios/'+infoUsuario.tag+'/imagenes/'+infoUsuario.foto_fondo+'")');
 				}
 				if(infoUsuario.foto_perfil != null){
-					$("#fotoPerfil").attr("src","../usuarios/"+infoUsuario.tag+"/imagenes/"+infoUsuario.foto_perfil);
+					$("#fotoPerfil").css("background-image",'url("../usuarios/'+infoUsuario.tag+'/imagenes/'+infoUsuario.foto_perfil+'")');
 				}
 
 				$("#inputEmail").val(infoUsuario.email);
@@ -39,3 +39,9 @@ function setCancion(cancion){
 	}
 	$("#iframe-cancion").attr("src", cancion);
 }
+
+$(document).ready(function(){
+	$("#inputCancion").change(() => {
+		setCancion($("#inputCancion").val());
+	})
+});

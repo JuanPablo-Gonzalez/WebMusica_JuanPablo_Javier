@@ -1,7 +1,7 @@
 	<div class="div-contenedor-fotoPerfilNombre">
 		<div class="div-fotoPerfilNombre">
 			<div class="div-contenedor-fotoPerfil">
-				<img id="fotoPerfil" src="../../imagenes/estandarPerfil.png">
+				<div id="fotoPerfil"></div>
 			</div>
 			<div class="div-contedor-info">
 				<div class="div-tagNombre">

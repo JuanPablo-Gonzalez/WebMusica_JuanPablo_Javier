@@ -11,7 +11,7 @@ $.ajax({
 					$("body").css("background-image",'url("imagenes/'+infoUsuario.foto_fondo+'")');
 				}
 				if(infoUsuario.foto_perfil != null){
-					$("#fotoPerfil").attr("src","imagenes/"+infoUsuario.foto_perfil);
+					$("#fotoPerfil").css("background-image",'url("imagenes/'+infoUsuario.foto_perfil+'")');
 				}
 
 				$("#p-tagNombre-nombre").text(infoUsuario.nombre_usuario);

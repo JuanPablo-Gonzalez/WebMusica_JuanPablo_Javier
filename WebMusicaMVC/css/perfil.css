@@ -39,11 +39,15 @@ body{
 	justify-self: center;
 }
 
-.div-contenedor-fotoPerfil img{
-	width: 70%;
-	margin: 5% 15% 5% 5%;
+.div-contenedor-fotoPerfil div{
+	background-size: cover;
+	background-position: center;
+	background-image: url("../imagenes/estandarPerfil.png");
+	width: 150px;
+	height: 150px;
+	margin: 15% 0 15% 0;
 	border-radius: 50%;
-	border: solid 5px #212121;
+	border: solid 4px #212121;
 }
 
 .div-contedor-info{
