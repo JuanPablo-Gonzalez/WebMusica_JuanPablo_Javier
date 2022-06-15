@@ -1,21 +1,26 @@
 	<div class="div-editarPerfil">
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="formEditarPerfil" name="formEditarPerfil" enctype="multipart/form-data">
 			<h1>Editar Perfil</h1>
-			<div class="div-input div-input-contenedor-fotoPerfil">
+			<div class="div-input-contenedor-fotoPerfil">
 				<div class="div-contenedor-fotoPerfil">
 					<div id="fotoPerfil"></div>
 				</div>
-				<div class="div-input-fotoPerfi">
-					<label for="inputFotoPerfil">Seleciona una nueva imagen de perfil:</label><br>
-					<input type="file" name="inputFotoPerfil" id="inputFotoPerfil" maxlength="100">
-					<label id="inputFotoPerfil-error" class="error" for="inputFotoPerfil"></label>
+				<div class="div-input-contenedor">
+					<div class="div-file">
+						<label for="inputFotoPerfil">Seleciona una nueva imagen de perfil:</label><br><br>
+						<label class="buttonFile" for="inputFotoPerfil">Seleccionar archivo</label>
+						<input type="file" name="inputFotoPerfil" id="inputFotoPerfil" maxlength="100"><br><br>
+						<label id="fotoPerfilSeleccionada" for="inputArchivo"></label><br>
+						<label id="inputFotoPerfil-error" class="error" for="inputFotoPerfil"></label>
+					</div>
+					<div class="div-file">
+						<label for="inputFotoFondo">Seleciona una nueva foto de fondo de perfil:</label><br><br>
+						<label class="buttonFile" for="inputFotoFondo">Seleccionar archivo</label>
+						<input type="file" name="inputFotoFondo" id="inputFotoFondo" maxlength="100"><br><br>
+						<label id="fotoFondoSeleccionada" for="inputArchivo"></label>
+						<label id="inputFotoFondo-error" class="error" for="inputFotoFondo"></label>
+					</div>
 				</div>
-			</div>
-
-			<div class="div-input">
-				<label for="inputFotoFondo">Seleciona una nueva foto de fondo de perfil:</label><br>
-				<input type="file" name="inputFotoFondo" id="inputFotoFondo" maxlength="100">
-				<label id="inputFotoFondo-error" class="error" for="inputFotoFondo"></label>
 			</div>
 
 			<div class="div-input">

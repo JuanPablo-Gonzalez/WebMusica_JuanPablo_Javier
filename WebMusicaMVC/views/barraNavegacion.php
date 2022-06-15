@@ -14,10 +14,20 @@
 			</li>
 		</ul>
 		<div id="perfil">
+			<?php echo '<a href="'.$url.'../controllers/crearPublicacion_controller.php">'; ?><i class="icono-plusCircle"></i></a>
 			<?php echo '
 			<a class="active" href="'.$url.'../usuarios/'.$_SESSION["tag"].'">
-				<img src="'.$url.'../imagenes/perfil2.jpg" alt="perfil">
+				<div id="fotoPerfilNav"></div>
 			</a>
 			'; ?>
 		</div>
+		<?php
+		if($_SESSION["foto_perfil"] != null){
+			echo '
+			<script>
+				$("#fotoPerfilNav").css("background-image",\'url("'.$url.'../usuarios/'.$_SESSION["tag"].'/imagenes/'.$_SESSION["foto_perfil"].'")\');
+			</script>
+			';
+		}
+		?>
 	</nav>
