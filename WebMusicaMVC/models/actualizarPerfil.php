@@ -1,5 +1,6 @@
 <?php
 $idUsuarioActual = $_SESSION["idUsuario"];
+$tag = $_SESSION["tag"];
 $inputEmail = trim(addslashes($_POST["inputEmail"]));
 $inputNombreUsuario = trim(addslashes($_POST["inputNombreUsuario"]));
 $inputTag = trim(addslashes($_POST["inputTag"]));
@@ -7,8 +8,14 @@ $inputDescripcion = trim(addslashes($_POST["inputDescripcion"]));
 $inputFechaNacimiento = $_POST["inputFechaNacimiento"];
 $inputCancion = trim(addslashes($_POST["inputCancion"]));
 $inputOldPassword = trim($_POST["inputOldPassword"]);
-$inputPassword = trim($_POST["inputPassword"]);
-$inputPassword2 = trim($_POST["inputPassword2"]);
+
+if(isset($_POST["inputPassword"]) && isset($_POST["inputPassword2"])){
+	$inputPassword = trim($_POST["inputPassword"]);
+	$inputPassword2 = trim($_POST["inputPassword2"]);
+}else{
+	$inputPassword = null;
+	$inputPassword2 = null;
+}
 
 include_once "../db/db.php";
 
@@ -16,14 +23,17 @@ $sql = "SELECT password FROM usuarios WHERE id_usuario = '$idUsuarioActual'";
 
 $oldPassword = obtenerArraySQL($conexion, $sql)[0]["password"];
 
+$json = [];
+
 if(MD5($inputOldPassword) == $oldPassword){
+	$json["correctPassword"] = true;
 	try{
 		$sql = "UPDATE usuarios SET 
 					email='$inputEmail',
 					tag='$inputTag' WHERE id_usuario = '$idUsuarioActual'";
 		$conexion->exec($sql);
 
-		if($inputTag != $_SESSION["tag"]){
+		if($inputTag != $tag){
 			$urlUsuarios = "../usuarios/";
 			if(!file_exists($urlUsuarios . $inputTag)){
 				mkdir($urlUsuarios . $inputTag);
@@ -33,21 +43,22 @@ if(MD5($inputOldPassword) == $oldPassword){
 			cortarCarpeta($urlUsuarios,$inputTag,"videos");
 			cortarCarpeta($urlUsuarios,$inputTag,"audios");
 
-			copy($urlUsuarios . $_SESSION["tag"] . "/index.php", $urlUsuarios . $inputTag . "/index.php");
-			unlink($urlUsuarios . $_SESSION["tag"] . "/index.php");
-			rmdir($urlUsuarios . $_SESSION["tag"]);
+			copy($urlUsuarios . $tag . "/index.php", $urlUsuarios . $inputTag . "/index.php");
+			unlink($urlUsuarios . $tag . "/index.php");
+			rmdir($urlUsuarios . $tag);
 
-			$_SESSION["tag"] = $inputTag;
+			$tag = $_SESSION["tag"] = $inputTag;
 		}
 
-		$target_dir = "../usuarios/" . $_SESSION["tag"] . "/imagenes/";
+		$target_dir = "../usuarios/" . $tag . "/imagenes/";
 		$sql = "UPDATE usuarios SET 
 					nombre_usuario='$inputNombreUsuario',
 					descripcion='$inputDescripcion',
 					fecha_nacimiento='$inputFechaNacimiento',
 					cancion='$inputCancion'";
 
-		if($inputPassword == $inputPassword2 && $inputPassword != ""){
+		if($inputPassword == $inputPassword2 && $inputPassword != "" && $inputPassword != null){
+			$inputPassword = MD5($inputPassword);
 			$sql .= ",password='$inputPassword'";
 		}
 
@@ -69,7 +80,12 @@ if(MD5($inputOldPassword) == $oldPassword){
 		$sql .= " WHERE id_usuario = '$idUsuarioActual'";
 
 		$conexion->exec($sql);
+
+		header("Location: ../usuarios/".$tag."/");
+		die();
 	} catch(PDOException $e) {
+		$json["inputTag"] = $inputTag;
+		$json["inputEmail"] = $inputEmail;
 		$json["error"] = true;
 		$json["errorInfo"]["errorCode"] = $e->getCode();
 
@@ -80,22 +96,25 @@ if(MD5($inputOldPassword) == $oldPassword){
 				$json["errorInfo"]["key"] = $key;
 			}
 		}
-		//var_dump($json);
 	}
 }else{
-	//echo "NO password";
+	$json["error"] = true;
+	$json["correctPassword"] = false;
 }
+echo "<script>var jsonResult = " . json_encode($json) .";</script>
+"; 
 
 function cortarCarpeta($url,$inputTag,$nombre){
+	$tag = $_SESSION["tag"];
 	if(!file_exists($url . $inputTag . "/".$nombre)){
 		mkdir($url . $inputTag . "/".$nombre);
 	}
-	foreach(scandir($url . $_SESSION["tag"] ."/".$nombre) as $file){
+	foreach(scandir($url . $tag ."/".$nombre) as $file){
 		if($file != "." && $file != ".."){
-			copy($url.$_SESSION["tag"] . "/".$nombre."/" . $file,$url . $inputTag . "/".$nombre."/" . $file);
-			unlink($url . $_SESSION["tag"] . "/".$nombre."/" . $file);
+			copy($url.$tag . "/".$nombre."/" . $file,$url . $inputTag . "/".$nombre."/" . $file);
+			unlink($url . $tag . "/".$nombre."/" . $file);
 		}
 	}
-	rmdir($url . $_SESSION["tag"] ."/".$nombre);
+	rmdir($url . $tag ."/".$nombre);
 }
 ?>

@@ -43,38 +43,30 @@
 			</div>
 
 			<div class="div-input">
-				<label for="inputFechaNacimiento">Fecha nacimiento</label><br>
+				<label for="inputFechaNacimiento">Fecha nacimiento:</label><br>
 				<input type="date" name="inputFechaNacimiento" id="inputFechaNacimiento"> 
 				<label id="inputFechaNacimiento-error" class="error" for="inputFechaNacimiento"></label>
 			</div>
 
 			<div class="div-input">
-				<label for="inputCancion">Tu canción favorita (introduce una cancion de spotify):</label><br>
+				<label for="inputCancion">Introduce tu cancion favorita de spotify:</label><br>
 				<input type="text" name="inputCancion" id="inputCancion"> 
 				<label id="inputCancion-error" class="error" for="inputCancion"></label>
 				<iframe class="iframe-spotify" id="iframe-cancion" frameBorder="0" allow="autoplay; clipboard-write; encrypted-media;picture-in-picture"></iframe>
 			</div>
 
 			<div class="div-input">
-				<label for="inputOldPassword">Escribe tu contraseña</label><br>
+				<label for="inputOldPassword">Escribe tu contraseña para verificar tu identidad</label><br>
 				<input type="password" name="inputOldPassword" id="inputOldPassword"> 
 				<label id="inputOldPassword-error" class="error" for="inputOldPassword"></label>
 			</div>
 
-			<div class="div-cambiarPassword">
-				<div class="div-input">
-					<label for="inputPassword">Introduce una nueva contraseña</label><br>
-					<input type="password" name="inputPassword" id="inputPassword"> 
-					<label id="inputPassword-error" class="error" for="inputPassword"></label>
-				</div>
+			<button type="button" class="bttn-cambiarPassword" id="bttn-cambiarPassword">Cambiar contraseña</button>
+			<div class="div-cambiarPassword" id="div-cambiarPassword"></div>
 
-				<div class="div-input">
-					<label for="inputPassword2">Repite la nueva contraseña</label><br>
-					<input type="password" name="inputPassword2" id="inputPassword2">
-					<label id="inputPassword2-error" class="error" for="inputPassword2"></label>
-				</div>
+			<div class="div-contenedor-bttnsForm">
+				<button type="submit" id="bttn-editarPerfil">Guardar cambios</button>
+				<button type="button" id="bttn-deshacerCambios">Deshacer cambios</button>
 			</div>
-
-			<button type="submit" id="bttn-editarPerfil">Editar</button>
 		</form>
 	</div>

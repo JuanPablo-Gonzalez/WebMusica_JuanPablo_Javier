@@ -68,7 +68,9 @@ $.ajax({
 						mostrarPublicacion("","../",infoUsuario, publicaciones[i]);
 						let id_publicacion = publicaciones[i].id_publicacion;
 						
-						$("#publicacion-"+id_publicacion).attr("onClick","irAPublicacion('../',"+id_publicacion+")")
+						$("#publicacion-"+id_publicacion).click(() => {
+							irAPublicacion("../",id_publicacion);
+						});
 
 						addMenusTressPuntos(jsonPublicaciones.esTuPerfil,id_publicacion);
 
@@ -121,7 +123,7 @@ function alternarButtonSeguir(siguiendo){
 
 function setCancion(cancion){
 	var theme = "&utm_source=generator&theme=0";
-	if(cancion == null){
+	if(cancion == null || cancion == ""){
 		cancion = "https://open.spotify.com/embed/track/57iDDD9N9tTWe75x6qhStw?" + theme;
 	}else if(cancion.startsWith("https://open.spotify.com/track/")){
 		cancion = cancion.replace("https://open.spotify.com/track/","https://open.spotify.com/embed/track/");

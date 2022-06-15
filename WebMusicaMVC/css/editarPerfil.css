@@ -60,3 +60,36 @@
 	width: 200px;
 	height: 200px;
 }
+
+.div-editarPerfil button{
+	background-color: rgba(200, 200, 200);
+	padding: 1%;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.div-editarPerfil button:hover{
+	background-color: rgba(150, 150, 150);
+	color: #F5F5F5;
+}
+
+.div-editarPerfil button:active{
+	position: relative;
+	top: 1px;
+	left: 1px;
+}
+
+.bttn-cambiarPassword{
+	width: 20%;
+	margin: 1% 75% 1% 5%;
+}
+
+.div-contenedor-bttnsForm{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.div-contenedor-bttnsForm button{
+	margin: 1% 5%;
+}

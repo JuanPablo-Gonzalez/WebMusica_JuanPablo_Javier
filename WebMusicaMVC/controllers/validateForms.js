@@ -136,7 +136,6 @@ $("#formEditarPerfil").validate({
 			maxlength: 15
 		},
 		inputDescripcion:{
-			required: true,
 			maxlength: 500
 		},
 		inputFechaNacimiento:{
