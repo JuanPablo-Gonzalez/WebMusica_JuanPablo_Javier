@@ -1,45 +1,50 @@
-html, body {
-	margin:0 auto;
-	height: 100%;
+* {
 	font-family: arial;
+	margin:0 auto;
+	box-sizing: border-box;
+}
+
+body {
+	height: 100vh;
 	background-image: linear-gradient(
 		rgba(0, 0, 150,.5),
 		rgba(0, 0, 50, 0.3)
 	), url("../imagenes/imagenPortada2.jpg");
 	background-size: cover;
+	background-repeat: no-repeat;
 }
 
 main {
-	height: 100%;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+	padding: 30px;
+	max-width: 1400px;
+}
+
+body a {
+	text-decoration: none;
 }
 
 #contenedor-registro {
-	width: 80%;
 	border-radius: 20px;
 	padding: 30px;
 	background-color: rgba(255,255,255,.9);
 	text-align: center;
 	box-shadow: 0px 0px 10px 8px rgba(0,0,0,0.3);
-	font-size: 40px;
+	font-size: 15px;
 }
 
 #contenedor-registro>h2 {
-	font-size: 55px;
+	font-size: 20px;
+	margin-bottom: 18px;
 }
 
 #formRegistrarse input {
-	margin-top: 10px;
+	margin-top: 5px;
 	text-align: justify;
 	border: 2px solid lightgrey;
 	border-radius: 15px;
-	padding: 7px;
-	width: 210px;
-	width: 70%;
-	height: 50px;
-	font-size: 30px;
+	padding: 5px;
+	width: 90%;
+	font-size: 15px;
 }
 
 #formRegistrarse input:focus{
@@ -47,20 +52,15 @@ main {
 	border: 2px solid rgb(250, 222, 179);
 } 
 
-#boton-validar, #codigo {
-	display: none;
-}
-
 #formRegistrarse>#bttn-registrarse {
 	border: 0px;
 	width: 70%;
-	/*height: 80px;*/
-	margin: 0;
+	margin: 0 0 18px 0;
 	text-align: center;
 	background-color: rgb(250, 222, 179);
 	color: black;
 	box-shadow: 0px 8px 0px -3px rgba(0,0,0,0.75);
-	font-size: 30px;
+	font-size: 12px;
 }
 
 #formRegistrarse>#bttn-registrarse:hover{
@@ -73,41 +73,81 @@ main {
 	color: grey;
 }
 
-@media (min-width: 1000px) {
+/*Móviles en horizontal o tablets en vertical*/
+@media (min-width: 768px) { 
 	#contenedor-registro {
-		width: 400px;
-		margin-top: 0%;
-		margin-bottom: 0%;
-		max-width: 1000px;
-		font-size: 12px;
+		font-size: 18px;
 	}
-	
+
 	#contenedor-registro>h2 {
-		font-size: 22px;
+		font-size: 23px;
 	}
-	
+
 	#formRegistrarse input {
-		margin-top: 3px;
-		text-align: justify;
-		border: 2px solid lightgrey;
-		border-radius: 15px;
-		padding: 7px;
 		width: 70%;
-		height: 8px;
-		font-size: 12px;
+		font-size: 18px;
 	}
-	
+
 	#formRegistrarse>#bttn-registrarse {
-		width: 50%;
-		height: 20px;
-		font-size: 12px;
-		padding: 0;
+		font-size: 15px;
+		width: 60%;
 	}
-	
-	#contenedor-foros {
-		display: grid;
-		grid-template-columns: repeat(3,1fr);
-		grid-template-rows: repeat(1,1fr);
-		
+}
+ 
+/*Tablets en horizonal y escritorios normales*/
+@media (min-width: 1024px) { 
+	main {
+		padding: 20px 250px;
+	}
+
+	#contenedor-registro {
+		font-size: 10px;
+	}
+
+	#contenedor-registro {
+		font-size: 13px;
+	}
+
+	#contenedor-registro>h2 {
+		font-size: 20px;
+	}
+
+	#formRegistrarse input {
+		width: 60%;
+		font-size: 12px;
+	}
+
+	#formRegistrarse>#bttn-registrarse {
+		font-size: 12px;
+		width: 60%;
+	}
+}
+ 
+/*Escritorios muy anchos*/
+@media (min-width: 1200px) { 
+	main {
+		padding: 20px 360px;
+	}
+
+	#contenedor-registro {
+		font-size: 12px;
+	}
+
+	#contenedor-registro {
+		font-size: 15px;
+	}
+
+	#contenedor-registro>h2 {
+		font-size: 20px;
+	}
+
+	#formRegistrarse input {
+		width: 60%;
+		font-size: 12px;
+	}
+
+	#formRegistrarse>#bttn-registrarse {
+		font-size: 12px;
+		width: 60%;
 	}
 }

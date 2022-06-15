@@ -14,20 +14,7 @@ $(document).ready(function() {
     $("#foro-busqueda").click({foro: contenidoBusqueda},mostrarTablaForos,cambiarForoCrearTema);
     $("#foro-general").click({foro: contenidoGeneral},mostrarTablaForos,cambiarForoCrearTema);
 
-    /*$($("#tablaTemas tbody").find('tr:first').find('td:first')).on('click', function(){
-        alert($("#tablaTemas tbody").find('tr:first').find('td:first').text());
-    });
-
-    $('#tablaTemas td').click( function () {
-        alert("hola");
-    } );
-    $('#tablaTemas tbody').on( 'click', 'tr td:eq(0)', function (){
-        alert("col1");
-     });
-
-     $("#ver").on('click', function () {
-        alert($("#tablaTemas tbody").find('tr:first').find('td:first').text());
-    });*/
+    mostrarNotificaciones();
 } );
 
 function mostrarTablaForos(event) {
@@ -89,39 +76,25 @@ function mostrarTablaForos(event) {
         },
         "columns": [
             {"data": "titulo",
-                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) { //otra forma de crear enlace, pero este sí me dejaba elegir que valor de qué td darle
+                "fnCreatedCell": function (nTd, sData, oData) { //otra forma de crear enlace, pero este sí me dejaba elegir que valor de qué td darle
                     $(nTd).html('<a href=../controllers/verTema_controller.php?dato='+encodeURIComponent(oData.id_tema)+'>'+sData+'</a>');
                 }
             },
             {"data": "fecha_publicacion"},
-            {"data": "nombre_usuario",
-                "fnCreatedCell": function (nTd, sData, oData, iRow, iCol) { //oData permite recoger cualquier dato de columna, y sData es el propio dato
-                    $(nTd).html('<a href=../controllers/registro_controller.php?dato='+encodeURIComponent(sData)+'>'+sData+'</a>');
+            {"data": "tag",
+                "fnCreatedCell": function (nTd, sData) { //oData permite recoger cualquier dato de columna, y sData es el propio dato
+                    $(nTd).html('<a href=../usuarios/'+sData+'>'+sData+'</a>');
                 }
             }, 
-            {"data": "cuentaResp"},
             {"data": "id_tema"}
         ],
-
-        /*"aoColumnDefs": [ //Sirve para quitar la ordenación por columnas al pulsar sobre ellas
-            {"bSortable": false, "aTargets": [1, 3]}, //para controlar columnas a ordenar
-            {"bSearchable": false, "aTargets": [1, 3 ]} //para controlar las columnas que podrán ser buscadas 
-        ],*/ //bSearchable sirve para indicar las columnas que podrán ser buscadas en el campo search, cada posicion puesta en la matriz es de una columna
         
         //Con esta conseguimos añadir un enlace a las celdas especificadas(en targets como antes),
         //y además le pasaremos el valor por url a la siguiente pantalla que mostrará los comentarios...
         "columnDefs": [
-            /*{"targets": [0, 1], 
-            "render": function (data, type, row, meta) {
-                //encodeURIComponent para que no omita los espacios al pasarse...
-                
-                return '<a href=../controllers/registro_controller.php?dato='+encodeURIComponent(data)+'>'+data+'</a>';
-            }},*/
             {"bSortable": false, "aTargets": [0, 2]},
-            {"bSearchable": false, "aTargets": [1, 3]},
-            {"bVisible": false, "aTargets": [4]},
-            {"width": "400px", "targets": [0]},
-            {"width": "180px", "targets": [1,2,3]}
+            {"bSearchable": false, "aTargets": [1]},
+            {"bVisible": false, "aTargets": [3]}
         ]
     } );
 
@@ -131,6 +104,12 @@ function mostrarTablaForos(event) {
 
 /*Función para que recoja y envía el foro correcto para crear el tema*/
 function cambiarForoCrearTema(foroElegido) {
-    $('#ver a').attr('href','crearTema_controller.php?dato='+encodeURIComponent(foroElegido));
+    $('#pad-superior a').attr('href','crearTema_controller.php?dato='+encodeURIComponent(foroElegido));
 }
 
+function mostrarNotificaciones() {
+	if($("#tag-usuario").val().includes("xdebug-error"))
+		$("#listado-nav li").eq(2).hide();
+	else
+		$("#listado-nav li").eq(2).show();
+}

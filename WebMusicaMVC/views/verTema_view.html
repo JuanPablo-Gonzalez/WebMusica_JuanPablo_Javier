@@ -2,34 +2,24 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Music Network</title>
     <link rel="stylesheet" href="../css/verTema.css">
+    <link rel="stylesheet" href="../css/barraNavegacion.css">
     <script src="https://kit.fontawesome.com/ce14add742.js" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
     <script src='../controllers/crearTema.js'></script>
   </head>
   <body>
-    <nav>
-      <div id="logo" class="parte-nav">
-        <h1><a href="../index.php">Music-Network</a></h1>
-      </div>
-
-      <ul id="listado-nav" class="parte-nav">
-        <li><a href="">Comunidad</a></li>
-        <li><a href="#contact">Canciones</a></li>
-        <li><a href="#sobre">Sobre nosotros</a></li>
-      </ul>
-
-      <div id="perfil" class="parte-nav">
-        <a class="active" href="../views/perfil.html"><img src="../imagenes/perfil2.jpg" alt="perfil"></a>
-      </div>
-    </nav>
+    <?php
+      include_once "barraNavegacion.html";
+    ?>
     <header>
       <div class="encabezado-tema">
         <?php
           foreach($comentarios as $row) {
               $titulo= $row['titulo'];
-              $usuario_creador= $row['nombre_usuario'];
+              $usuario_creador= $row['tag'];
               //$comentarios= 2;
               break;
           }
@@ -50,41 +40,74 @@
         <a href="#form-responder"><button>Escribe tu respuesta</button></a>
 
           <?php
+              //crear uno oculto nuevo con el id del comentario, y pasarle el eq($id) para obtenerlo correctamente
+              $id= 1;
               foreach($comentarios as $row) {
-                  echo "<div class='contenedor-comentario'>";
+                  $idCom= $row["id_comentario"];
+                  echo "<div class='contenedor-comentario' id='$idCom'>";
                   echo "<div class='encabezado-comentario'>";
                   echo "<img src='../imagenes/perfil2.jpg' alt='imagen de perfil' width='80px'/>";
-                  echo "<span><a href=''>".$row['nombre_usuario']."</a></span>";
+                  echo "<span class='creador-comentario'><a href=''>".$row['tag']."</a></span>";
                   echo "</div>";
                   echo "<div class='mensaje-comentario'>";
-                  echo "<p>".nl2br($row['mensaje'])."</p>"; //nl2br para que los espacios se conviertan correctamente
+                  echo $row['mensaje']; //nl2br para que los espacios se conviertan correctamente
                   echo "</div>";
+                  echo "<a href='#form-responder' class='boton-editar' title='editar'>#".$id."<br></a>";
+                  echo "<div class='idComentario' hidden>".$row['id_comentario']."</div>";
+                  echo "<a href='#form-responder' class='citar-comentario' title='citar'>#".$id."<br></a>";
                   echo "</div>";
+                  echo "<p class='usuarioActivo'></p>";
+                  echo "<p class='usuarioComentario'></p>";
+                  $id+=1;
               }
           ?>
       </section>
       <section class="seccion-responder">
           <form name="formulario" id="form-responder" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-            <label for="comentario">Escribe tu respuesta</label> <br>
+            <p id="comentario-antes-editar"></p> <br>
+            <textarea name="mostrar-citado" id="mostrar-citado" cols="83" rows="10" readonly hidden></textarea> <br>
+            <p id="ver-citado"></p> <br>
+            <label for="comentario" id="comentario-label">Escribe tu respuesta</label> <br>
             <textarea name="comentario" id="comentario" cols="83" rows="15" wrap="hard"></textarea>
 
-            <div id="barra-añadir-adicionales">
+            <!--Para editar-->
+            <label for="comentario-editar" id="comentario-editar-label">Edita tu comentario</label> <br>
+            <textarea name="comentario-editar" id="comentario-editar" cols="83" rows="15" wrap="hard"></textarea>
+
+            <div id="barra-anadir-adicionales">
               <button type="button" name="negrita" id="negrita"><b>B</b></button>
               <button type="button" name="cursiva" id="cursiva"><i>I</i></button>
               <button type="button" name="subrayado" id="subrayado"><u>A</u></button>
+              <button type="button" name="enlace" id="enlace">ENLACE</button>
+
+              <br>
+              <br>
+
+              <label for="imagen-archivo">Selecciona una imagen, audio o vídeo (un archivo por comentario):</label> <br>
+              <input type="file" id="imagen-archivo" name="imagen-archivo" accept="image/*,audio/*,video/*">
+              <span id="quitar-imagen">X</span> <br>
+              <img src="" width="200px" id="imagen-elegida" alt="imagen elegida para mostrar">
             </div>
 
             <br>
 
+            <input type="hidden" name="tag-usuario" id="tag-usuario" value="<?php echo $_SESSION['tag'] ?>">
             <input type="hidden" name="tema-elegido" id="tema-elegido" value="<?php echo $idTema ?>">
-            <input type="submit" id="boton-responder" value="Responder"> <br>
+            <input type="hidden" name="editar-comentario" id="editar-comentario" value="">
+            <input type="submit" id="boton-responder" value="Responder" name="boton-responder"> 
+            <!--Para editar-->
+            <input type="submit" id="boton-editar-comentario" value="Editar Comentario" name="boton-editar-comentario">
+            <input type="submit" name="eliminar-comentario" id="eliminar-comentario" value="Eliminar comentario" title="Tu comentario será eliminado para siempre">
+
+            <br>
+            <br>
+
+            <p id="ver">
+          
+            </p>
+
+            <br>
           </form>
-
-          <br>
-
-          <p id="ver">
-        
-          </p>
       </section>
     </main>
     <!--<aside>

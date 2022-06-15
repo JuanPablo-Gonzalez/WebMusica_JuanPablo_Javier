@@ -4,11 +4,11 @@
         $foroElegido= $_POST['foroElegido'];
 
         $elementosTema="SELECT titulo,date_format(temas.fecha_publicacion,'%d/%m/%Y  %H:%i') as fecha_publicacion,
-        nombre_usuario,count(id_comentario) as 'cuentaResp',temas.id_tema
+        tag,temas.id_tema
         from temas,usuarios,comentarios
         where usuarios.id_usuario=temas.id_usuario
         and temas.id_tema=comentarios.id_tema and id_foro='$foroElegido' group by temas.id_tema
-        order by fecha_publicacion desc";
+        order by temas.fecha_publicacion desc";
 
         $resultado= $conexion->prepare($elementosTema);
         $resultado->execute();
