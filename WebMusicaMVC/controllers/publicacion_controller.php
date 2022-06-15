@@ -12,6 +12,7 @@ if(isset($_GET["idPublicacion"])){
 	header("Location: ../usuarios/".$_SESSION["tag"]."/");
 	die();
 }
+$url = "";
 ?>
 <!DOCTYPE html>
 <html>
@@ -24,6 +25,7 @@ if(isset($_GET["idPublicacion"])){
 
 	<link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
 
+	<link rel="stylesheet" type="text/css" href="../css/estilosIndex.css">
 	<link rel="stylesheet" type="text/css" href="../css/perfil.css">
 	<link rel="stylesheet" type="text/css" href="../css/publicaciones.css">
 	<link rel="stylesheet" type="text/css" href="../css/comentarios.css">
@@ -40,6 +42,7 @@ if(isset($_GET["idPublicacion"])){
 	<script type="text/javascript" src="publicacion.js"></script>
 	
 	<?php
+	include_once "../views/barraNavegacion.php";
 	include_once "../views/publicacion.html";
 	?>
 

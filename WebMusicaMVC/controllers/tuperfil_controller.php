@@ -1,3 +1,4 @@
+<?php $url = "../"; ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -8,6 +9,7 @@
 
 	<link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
 
+	<link rel="stylesheet" type="text/css" href="../../css/estilosIndex.css">
 	<link rel="stylesheet" type="text/css" href="../../css/perfil.css">
 	<link rel="stylesheet" type="text/css" href="../../css/publicaciones.css">
 	<link rel="stylesheet" type="text/css" href="../../css/audio.css">
@@ -20,6 +22,7 @@
 	<script type="text/javascript" src="../../controllers/perfil.js"></script>
 
 	<?php
+	include_once "../../views/barraNavegacion.php";
 	include_once "../../views/cabeceraPerfil.php";
 	include_once "../../views/estadisticasPerfil.html";
 	?>

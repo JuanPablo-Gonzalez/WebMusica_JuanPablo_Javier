@@ -9,6 +9,7 @@ if(!isset($_SESSION["idUsuario"]) || !isset($_SESSION["tag"])){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	include "../models/actualizarPerfil.php";
 }
+$url = "";
 ?>
 <!DOCTYPE html>
 <html>
@@ -21,6 +22,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	<link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
 
+	<link rel="stylesheet" type="text/css" href="../css/estilosIndex.css">
 	<link rel="stylesheet" type="text/css" href="../css/perfil.css">
 	<link rel="stylesheet" type="text/css" href="../css/publicaciones.css">
 	<link rel="stylesheet" type="text/css" href="../css/audio.css">
@@ -30,6 +32,7 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 </head>
 <body>
 	<?php
+	include_once "../views/barraNavegacion.php";
 	include_once "../views/formEditarPerfil.php";
 	?>
 	<script type="text/javascript" src="validateForms.js"></script>
