@@ -1,0 +1,95 @@
+.div-editarPerfil{
+	background-color: rgba(200, 200, 200, 0.8);
+	width: 70%;
+	margin: 2% 15%;
+	padding: 1%;
+	box-shadow: 0px 0px 15px 8px rgba(47,47,47,0.7);
+	-webkit-box-shadow: 0px 0px 15px 8px rgba(47,47,47,0.7);
+	-moz-box-shadow: 0px 0px 15px 8px rgba(47,47,47,0.7);
+	cursor: pointer;
+	border-radius: 10px;
+}
+
+.div-editarPerfil h1{
+	width: 100%;
+	text-align: center;
+	padding: 1%;
+}
+
+.div-input{
+	position: relative;
+	width: 90%;
+	margin: 1% 5%;
+}
+
+.div-input input{
+	width: 100%;
+	margin: 0.5% 0;
+	height: 30px;
+	padding: 0.1% 0.5%;
+}
+
+.div-input textarea{
+	width: 100%;
+	margin: 0.5% 0;
+	height: 75px;
+	padding: 0.5%;
+	resize: none;
+}
+
+.div-input label{
+	width: 100%;
+	margin: 0 1%;
+}
+
+.div-input iframe{
+	margin: 1%;
+	width: 98%;
+	height: 80px;
+}
+
+.div-input-contenedor-fotoPerfil{
+	display: flex;
+}
+
+.div-contenedor-fotoPerfil{
+	width: 25%;
+}
+
+.div-contenedor-fotoPerfil div{
+	width: 200px;
+	height: 200px;
+}
+
+.div-editarPerfil button{
+	background-color: rgba(200, 200, 200);
+	padding: 1%;
+	border-radius: 10px;
+	cursor: pointer;
+}
+
+.div-editarPerfil button:hover{
+	background-color: rgba(150, 150, 150);
+	color: #F5F5F5;
+}
+
+.div-editarPerfil button:active{
+	position: relative;
+	top: 1px;
+	left: 1px;
+}
+
+.bttn-cambiarPassword{
+	width: 20%;
+	margin: 1% 75% 1% 5%;
+}
+
+.div-contenedor-bttnsForm{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+}
+
+.div-contenedor-bttnsForm button{
+	margin: 1% 5%;
+}

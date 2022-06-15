@@ -22,7 +22,7 @@ $("#formRegistrarse").submit(() => {
 								$("#inputEmail-error").show();
 							break;
 							case "UK_tag":
-								$("#inputTag-error").text("Ya existe una cuenta con ese Nombre de usuario");
+								$("#inputTag-error").text("Ya existe una cuenta con ese nombre de usuario");
 								$("#inputTag-error").show();
 							break;
 						}

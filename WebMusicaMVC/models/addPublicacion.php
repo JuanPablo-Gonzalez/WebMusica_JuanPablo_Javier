@@ -8,7 +8,6 @@ $texto = trim(addslashes($_POST["inputTexto"]));
 include_once "../db/db.php";
 
 if(isset($_FILES["inputArchivo"]) && $_FILES["inputArchivo"]["type"] != ""){
-	var_dump($_FILES);
 	$type = explode("/",$_FILES["inputArchivo"]["type"])[0];
 
 	switch($type){

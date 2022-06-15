@@ -17,7 +17,7 @@ function mostrarPublicacion(url,urlImagenes,infoUsuario, publicacion){
 		$("<article>").addClass("div-publicacion").attr("id","publicacion-"+publicacion.id_publicacion).append(
 			$("<div>").addClass("div-contenedora-img-nombre").append(
 				$("<div>").addClass("div-contenedora-imgUser").append(
-					$("<img>").attr("id","fotoPerfil").attr("src",urlImgPerfil).click(() => {
+					$("<div>").attr("id","fotoPerfil").css("background-image",'url("'+urlImgPerfil+'")').click(() => {
 						window.location.assign(url);
 					})
 				),
@@ -80,8 +80,10 @@ function mostrarAudioPublicacion(url,publicacion){
 					$("<div>")
 					.attr("id","boton-play-"+publicacion.id_publicacion)
 					.addClass("toggle-play play")
-					.attr("onClick","alternarReproducion("+publicacion.id_publicacion+")")
-				),
+				).click((event) => {
+					event.stopPropagation();
+					alternarReproducion(publicacion.id_publicacion);
+				}),
 				$("<div>").addClass("barraCancion").append(
 					$("<div>").addClass("completeBar").append(
 						$("<div>").attr("id","progressBar-"+publicacion.id_publicacion).addClass("progressBar-cancion")
@@ -91,7 +93,7 @@ function mostrarAudioPublicacion(url,publicacion){
 					$("<p>").attr("id","song-currentTime-"+publicacion.id_publicacion).text("00:00"),
 					$("<p>").attr("id","divider").text("/"),
 					$("<p>").attr("id","song-length-"+publicacion.id_publicacion)
-				),
+				)/*,
 				$("<div>").addClass("volume-container").append(
 					$("<div>").addClass("volume-slider").append(
 						$("<div>").addClass("volume-percentage")
@@ -99,7 +101,7 @@ function mostrarAudioPublicacion(url,publicacion){
 					$("<div>").addClass("div-boton-volumen").append(
 						$("<div>").addClass("volume icono-volumeMedium")
 					)
-				)
+				)*/
 			)
 		)
 	);
