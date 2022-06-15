@@ -89,7 +89,26 @@ $(document).ready(() => {
 					$("#inputTag-error").val(jsonResult.inputTag);
 					break;
 				}
+			}else if(jsonResult.errorInfo.errorCode == 22001 && jsonResult.errorInfo.code == 1406){
+				switch(jsonResult.errorInfo.key){
+					case "foto_perfil":
+					$("#inputFotoPerfil-error").text("No se ha podido subir el archivo tenía un nombre demasiado largo");
+					$("#inputFotoPerfil-error").show();
+					break;
+					case "foto_fondo":
+					$("#inputFotoFondo-error").text("No se ha podido subir el archivo tenía un nombre demasiado largo");
+					$("#inputFotoFondo-error").show();
+					break;
+				}
 			}
 		}
 	}
+
+	$("#inputFotoPerfil").change(() => {
+		$("#fotoPerfilSeleccionada").text($("#inputFotoPerfil").val())
+	});
+
+	$("#inputFotoFondo").change(() => {
+		$("#fotoFondoSeleccionada").text($("#inputFotoFondo").val())
+	});
 });

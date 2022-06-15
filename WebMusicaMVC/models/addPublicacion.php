@@ -37,18 +37,22 @@ if(isset($_FILES["inputArchivo"]) && $_FILES["inputArchivo"]["type"] != ""){
 	die();
 }else if(isset($_POST["inputUrl"])){
 	$url = $_POST["inputUrl"];
-	$url = str_replace("https://youtu.be/","https://www.youtube.com/embed/",$url);
-	
-	$sql = "INSERT into publicaciones (id_usuario, titulo, texto, archivo, tipo_archivo) VALUES ('$idUsuarioActual', '$titulo', '$texto', '$url', 4)";
+	if($url != "" && $titulo != "" && $texto != ""){
+		$url = str_replace("https://youtu.be/","https://www.youtube.com/embed/",$url);
+		
+		$sql = "INSERT into publicaciones (id_usuario, titulo, texto, archivo, tipo_archivo) VALUES ('$idUsuarioActual', '$titulo', '$texto', '$url', 4)";
 
-	$conexion->exec($sql);
+		$conexion->exec($sql);
 
-	header("Location: ../usuarios/".$tag."/");
-	die();
+		header("Location: ../usuarios/".$tag."/");
+		die();
+	}
 }else{
-	$sql = "INSERT into publicaciones (id_usuario, titulo, texto) VALUES ('$idUsuarioActual', '$titulo', '$texto')";
+	if($titulo != "" && $texto != ""){
+		$sql = "INSERT into publicaciones (id_usuario, titulo, texto) VALUES ('$idUsuarioActual', '$titulo', '$texto')";
 
-	$conexion->exec($sql);
+		$conexion->exec($sql);
+	}
 
 	header("Location: ../usuarios/".$tag."/");
 	die();

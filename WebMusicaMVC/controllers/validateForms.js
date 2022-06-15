@@ -56,11 +56,13 @@ $("#formRegistrarse").validate({
 		},
 		inputNombre:{
 			required: "Es necesario rellenar este campo",
-			minlength: "El campo debe de tener un mínimo de 3 caracteres"
+			minlength: "El nombre tiene que tener un mínimo de 3 caracteres",
+			maxlength: "El nombre solo puede tener un máximo de 30 caracteres"
 		},
 		inputTag:{
 			required: "Es necesario rellenar este campo",
-			minlength: "El campo debe de tener un mínimo de 3 caracteres"
+			minlength: "El nombre de usuario tiene que tener un mínimo de 3 caracteres",
+			maxlength: "El nombre de usuario solo puede tener un máximo de 15 caracteres"
 		},
 		inputPassword:{
 			required: "Es necesario rellenar este campo",
@@ -112,7 +114,7 @@ $("#formNuevaPublicacion").validate({
 		},
 		inputTexto:{
 			required: "Es necesario rellenar este campo",
-			maxlength: "El text de la publicacion no puede tener más de 350 caracteres"
+			maxlength: "El texto de la publicacion no puede tener más de 350 caracteres"
 		},
 		inputUrl:{
 			url: "Es necesario rellenar este campo",
@@ -129,10 +131,12 @@ $("#formEditarPerfil").validate({
 		},
 		inputNombreUsuario:{
 			required: true,
+			minlength: 3,
 			maxlength: 30
 		},
 		inputTag:{
 			required: true,
+			minlength: 3,
 			maxlength: 15
 		},
 		inputDescripcion:{
@@ -156,7 +160,39 @@ $("#formEditarPerfil").validate({
 		},
 	},
 	messages : {
-
+		inputEmail:{
+			required: "Es necesario rellenar este campo",
+			email: true,
+			maxlength: 30
+		},
+		inputNombreUsuario:{
+			required: "Es necesario rellenar este campo",
+			minlength: "El nombre tiene que tener un mínimo de 3 caracteres",
+			maxlength: "El nombre solo puede tener un máximo de 30 caracteres"
+		},
+		inputTag:{
+			required: "Es necesario rellenar este campo",
+			minlength: "El nombre de usuario tiene que tener un mínimo de 3 caracteres",
+			maxlength: "El nombre de usuario solo puede tener un máximo de 15 caracteres"
+		},
+		inputDescripcion:{
+			maxlength: "La descripción solo puede tener un máximo de 15 caracteres"
+		},
+		inputFechaNacimiento:{
+			required: "Es necesario rellenar este campo"
+		},
+		inputOldPassword:{
+			required: "Es necesario rellenar este campo"
+		},
+		inputPassword:{
+			required: "Es necesario rellenar este campo",
+			minlength: "La contraseña debe tener 6 caracteres como mínimo",
+			maxlength: "La contraseña solo puede tener 12 caracteres como máximo"
+		},
+		inputPassword2:{
+			required: "Es necesario rellenar este campo",
+			equalTo: "Las contraseñas no coinciden"
+		},
 	}
 });
 

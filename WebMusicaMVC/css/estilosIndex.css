@@ -6,11 +6,10 @@ html, body {
 
 /*estilos nav*/
 nav {
-	background-color: rgb(56, 56, 56);
+	background-color: rgb(56, 56, 56, 0.9);
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
-	padding: 10px 0;
 }
 
 .parte-nav {
@@ -19,6 +18,8 @@ nav {
 
 #logo h1 a{
 	color: white;
+	text-decoration: none;
+	margin: 17px 0;
 }
 
 ul {
@@ -44,6 +45,7 @@ li a {
 	text-decoration: none;
 	margin-left: 10px;
 	border-radius: 20px;
+	font-size: 17px;
 }
 
 li a:hover {
@@ -51,10 +53,25 @@ li a:hover {
 	color: rgb(250, 222, 179);
 }
 
-#perfil a img {
-	width: 55px;
-	border-radius: 30%;
-	border: solid 2px rgb(250, 222, 179);
+#perfil{
+	display: flex;
+}
+
+#perfil i{
+	margin: 17px 12px;
+	width: 30px;
+	height: 30px;
+}
+
+#perfil a div {
+	background-size: cover;
+	background-position: center;
+	background-image: url("../imagenes/estandarPerfil.png");
+	width: 50px;
+	height: 50px;
+	border-radius: 50%;
+	border: solid 2px #212121;
+	margin: 7px;
 }
 /*fin estilos nav*/
 

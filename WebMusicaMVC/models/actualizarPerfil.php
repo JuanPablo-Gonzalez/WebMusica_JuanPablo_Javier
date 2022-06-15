@@ -48,6 +48,7 @@ if(MD5($inputOldPassword) == $oldPassword){
 			rmdir($urlUsuarios . $tag);
 
 			$tag = $_SESSION["tag"] = $inputTag;
+			$_SESSION["email"] = $inputEmail;
 		}
 
 		$target_dir = "../usuarios/" . $tag . "/imagenes/";
@@ -67,6 +68,7 @@ if(MD5($inputOldPassword) == $oldPassword){
 			$target_file = $target_dir . $archivo;
 			if(move_uploaded_file($_FILES["inputFotoPerfil"]["tmp_name"], $target_file)){
 				$sql .= ",foto_perfil='$archivo'";
+				$_SESSION["foto_perfil"] = $archivo;
 			}
 		}
 
@@ -75,11 +77,14 @@ if(MD5($inputOldPassword) == $oldPassword){
 			$target_file = $target_dir . $archivo;
 			if(move_uploaded_file($_FILES["inputFotoFondo"]["tmp_name"], $target_file)){
 				$sql .= ",foto_fondo='$archivo'";
+				$_SESSION["foto_fondo"] = $archivo;
 			}
 		}
 		$sql .= " WHERE id_usuario = '$idUsuarioActual'";
 
 		$conexion->exec($sql);
+
+		$_SESSION["nombre"] = $inputNombreUsuario;
 
 		header("Location: ../usuarios/".$tag."/");
 		die();
@@ -89,13 +94,18 @@ if(MD5($inputOldPassword) == $oldPassword){
 		$json["error"] = true;
 		$json["errorInfo"]["errorCode"] = $e->getCode();
 
+		$key = "";
 		if($e->getCode() == 23000){
-			$json["errorInfo"]["code"] = $e->errorInfo[1];
 			if($e->errorInfo[1] == 1062){
 				$key = str_replace("'","",explode(" ",$e->errorInfo[2])[5]);
-				$json["errorInfo"]["key"] = $key;
+			}
+		}else if($e->getCode() == 22001){
+			if($e->errorInfo[1] == 1406){
+				$key = explode("'",$e->errorInfo[2])[1];
 			}
 		}
+		$json["errorInfo"]["code"] = $e->errorInfo[1];
+		$json["errorInfo"]["key"] = $key;
 	}
 }else{
 	$json["error"] = true;

@@ -9,6 +9,7 @@ if(!isset($_SESSION["idUsuario"]) || !isset($_SESSION["tag"])){
 if($_SERVER["REQUEST_METHOD"] == "POST"){
 	include "../models/addPublicacion.php";
 }
+$url = "";
 ?>
 <!DOCTYPE html>
 <html>
@@ -23,9 +24,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 	<link rel="stylesheet" type="text/css" href="../css/estilosIndex.css">
 	<link rel="stylesheet" type="text/css" href="../css/perfil.css">
-	<!--<link rel="stylesheet" type="text/css" href="../css/publicaciones.css">-->
-	<!--<link rel="stylesheet" type="text/css" href="../css/comentarios.css">
-	<link rel="stylesheet" type="text/css" href="../css/audio.css">-->
 	<link rel="stylesheet" type="text/css" href="../css/newPublicacion.css">
 </head>
 <body>
@@ -42,7 +40,10 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 		$("#bttnAddEnlace").click(() => {
 			$("#div-addArchivos").hide();
 			$("#div-addEnlace").toggle();
-		})
+		});
+		$("#inputArchivo").change(() => {
+			$("#archivoSeleccionado").text($("#inputArchivo").val())
+		});
 	</script>
 
 	<script type="text/javascript" src="audio.js"></script>
