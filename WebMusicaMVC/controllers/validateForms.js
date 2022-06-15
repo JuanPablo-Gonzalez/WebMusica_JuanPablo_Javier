@@ -5,8 +5,7 @@ $("#formLogin").validate({
 			email: true
 		},
 		inputPassword:{
-			required: true,
-			password: false
+			required: true
 		}
 	},
 	messages : {
@@ -78,10 +77,6 @@ $("#formRegistrarse").validate({
 	}
 });
 
-$.validator.addMethod("password", (value, element) => {
-	return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[\S\s]+$/.test(value);
-}, "La contraseña debe incluir al menos una mayuscula, una minuscula y un número");
-
 $("#formAddComentario").validate({
 	rules:{
 		inputNewComentario:{
@@ -124,6 +119,51 @@ $("#formNuevaPublicacion").validate({
 		}
 	}
 });
+
+$("#formEditarPerfil").validate({
+	rules:{
+		inputEmail:{
+			required: true,
+			email: true,
+			maxlength: 30
+		},
+		inputNombreUsuario:{
+			required: true,
+			maxlength: 30
+		},
+		inputTag:{
+			required: true,
+			maxlength: 15
+		},
+		inputDescripcion:{
+			required: true,
+			maxlength: 500
+		},
+		inputFechaNacimiento:{
+			required: true
+		},
+		inputOldPassword:{
+			required: true
+		},
+		inputPassword:{
+			required: false,
+			minlength: 6,
+			maxlength: 12,	
+			password: true
+		},
+		inputPassword2:{
+			required: false,
+			equalTo: "#inputPassword"
+		},
+	},
+	messages : {
+
+	}
+});
+
+$.validator.addMethod("password", (value, element) => {
+	return /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)[\S\s]+$/.test(value);
+}, "La contraseña debe incluir al menos una mayuscula, una minuscula y un número");
 
 $.validator.addMethod("youtube", (value, element) => {
 	return /^(https:\/\/youtu\.be|https:\/\/www.youtube\.com)/.test(value);

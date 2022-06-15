@@ -19,6 +19,7 @@
 				</div>';
 				}
 				?>
+				
 				<div class="div-fechaNacimiento">
 					<p id="p-fechaNacimiento"></p>
 				</div>
