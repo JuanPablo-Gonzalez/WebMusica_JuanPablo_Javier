@@ -1,4 +1,4 @@
-<?php $url = "../"; ?>;
+<?php $url = "../"; ?>
 <!DOCTYPE html>
 <html>
 <head>

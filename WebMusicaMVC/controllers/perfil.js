@@ -26,7 +26,8 @@ $.ajax({
 
 				alternarButtonSeguir(infoUsuario.siguiendo);
 
-				$("#bttnSeguir").click(() => {
+				$("#bttnSeguir").click((event) => {
+					event.stopPropagation();
 					let datosSeguir = {
 						"idPerfil" : infoUsuario.id_usuario,
 						"siguiendo" : infoUsuario.siguiendo
@@ -74,7 +75,8 @@ $.ajax({
 
 						addMenusTressPuntos(jsonPublicaciones.esTuPerfil,id_publicacion);
 
-						$("#img-mg-"+id_publicacion).click(() => {
+						$("#img-mg-"+id_publicacion).click((event) => {
+							event.stopPropagation();
 							var datosMg = {
 								"idPublicacion": id_publicacion,
 								"tegusta": publicaciones[i].tegusta
