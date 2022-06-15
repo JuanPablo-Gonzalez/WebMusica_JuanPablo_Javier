@@ -6,7 +6,19 @@ html, body {
 
 /*estilos nav*/
 nav {
-	background-color: #333;
+	background-color: rgb(56, 56, 56);
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+	padding: 10px 0;
+}
+
+.parte-nav {
+	margin: 0;
+}
+
+#logo h1 a{
+	color: white;
 }
 
 ul {
@@ -28,32 +40,18 @@ li a {
 	display: block;
 	color: white;
 	text-align: center;
-	padding: 26px 25px;
+	padding: 6px 10px;
 	text-decoration: none;
+	margin-left: 10px;
+	border-radius: 20px;
 }
 
-li a:hover:not(.active) {
-	background-color: #111;
+li a:hover {
+	/*background-color: white;*/
+	color: rgb(250, 222, 179);
 }
 
-.active {
-	background-color: transparent;
-	padding:12px 0px 8px 0px;
-}
-
-ul li:first-child {
-	margin-right: 30px;
-}
-
-ul li:first-child img {
-	width: 45px;
-}
-
-ul li:first-child a {
-	padding:12px 0 8px 0;
-}
-
-ul li:last-child img {
+#perfil a img {
 	width: 55px;
 	border-radius: 30%;
 	border: solid 2px rgb(250, 222, 179);
