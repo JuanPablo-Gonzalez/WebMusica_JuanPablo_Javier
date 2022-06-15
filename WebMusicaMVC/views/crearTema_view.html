@@ -2,70 +2,55 @@
 <html>
   <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Music Network</title>
+    <link rel="stylesheet" href="../css/barraNavegacion.css">
     <link rel="stylesheet" href="../css/crearTema.css">
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="https://kit.fontawesome.com/ce14add742.js" crossorigin="anonymous"></script>
     <script src='../controllers/crearTema.js'></script>
   </head>
   <body>
-    <nav>
-      <div id="logo">
-        <h1><a href="../index.php">Music-Network</a></h1>
-      </div>
-
-      <ul id="listado-nav">
-        <li><a href="">Comunidad</a></li>
-        <li><a href="#contact">Canciones</a></li>
-        <li><a href="#sobre">Sobre nosotros</a></li>
-      </ul>
-
-      <div id="perfil">
-        <a class="active" href="../views/perfil.html"><img src="../imagenes/perfil2.jpg" alt="perfil"></a>
-      </div>
-    </nav>
+    <?php
+      include_once "barraNavegacion.html";
+    ?>
     <main>
       <section id="creacion-tema">
         <div class="contenedor-encabezado">
           <h2>Vas a publicar en el foro de <span>Ayuda</span></h2>
-
-          <label for="lista-foros">Cambia de foro si lo deseas</label> <br>
-          <select class="lista-foros" name="lista-foros">
-            <option value="1">Ayuda</option>
-            <option value="2">Búsqueda artistas</option>
-            <option value="3">General</option>
-          </select>
         </div>
 
         <div id="contenedor-seleccion-foro">
           <form name="formulario" id="form-login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
             <label for="titulo-tema">Título del tema</label> <br>
-            <input type="text" name="titulo-tema" id="titulo-tema" size="50">
+            <input type="text" name="titulo-tema" id="titulo-tema" class="textinput2">
             <br><br>
 
             <label for="comentario">Comentario</label> <br>
-            <textarea name="comentario" id="comentario" cols="83" rows="15" wrap="hard"></textarea>
+            <textarea name="comentario" id="comentario" class="textinput" wrap="hard"></textarea>
 
             <div id="barra-anadir-adicionales">
               <button type="button" name="negrita" id="negrita"><b>B</b></button>
               <button type="button" name="cursiva" id="cursiva"><i>I</i></button>
               <button type="button" name="subrayado" id="subrayado"><u>A</u></button>
               <button type="button" name="enlace" id="enlace">ENLACE</button>
-              <input type="file" id="file" name="imagen-archivo">
 
               <br>
+              <br>
 
-              <!--<audio controls>
-                <source src="../American Idiot.mp3" type="audio/mp3">
-                    Tu navegador no soporta audio HTML5.
+              <label for="imagen-archivo">Selecciona una imagen, audio o vídeo (un archivo por comentario):</label> <br>
+              <input type="file" id="imagen-archivo" name="imagen-archivo" accept="image/*,audio/*,video/*" class="textinput2">
+              <span id="quitar-imagen">X</span> <br>
+              <img src="" width="200px" id="imagen-elegida" alt="imagen elegida para mostrar">
+              <audio controls id="audio-elegido">
+                <source src="" type="audio/mp3">Tu navegador no soporta audio HTML5.
               </audio>
-              
-              <br>
-
-              <input type="file" id="audio" name="audio-archivo">
-            </div>-->
+              <!--<img src="" width="200px" id="video-elegido" alt="imagen elegida para mostrar">-->
+            </div>
 
             <br>
 
+            <input type="hidden" name="tag-usuario" id="tag-usuario" value="<?php echo $_SESSION['tag'] ?>">
             <input type="hidden" name="foro-elegido" id="foro-elegido" value="<?php echo $foroElegido ?>">
             <input type="submit" id="boton-publicar-tema" value="Publicar tema"> <br>
 
@@ -79,25 +64,5 @@
       </section>
     </main>
     <footer>footer</footer>
-
-    <script>
-        const file = document.getElementById("file");
-        const img = document.getElementById("img");
-        const url = document.getElementById("url");
-        file.addEventListener("change", ev => {
-            const formdata = new FormData()
-            formdata.append("image", ev.target.files[0])
-            fetch("https://api.imgur.com/3/image/", {
-                method: "post",
-                headers: {
-                    Authorization: "Client-ID 6ba5f71b0c1e1ca"
-                },
-                body: formdata
-            }).then(data => data.json()).then(data => {
-                img.src = data.data.link
-                url.innerText = data.data.link
-            })
-        })
-    </script>
   </body>
 </html>

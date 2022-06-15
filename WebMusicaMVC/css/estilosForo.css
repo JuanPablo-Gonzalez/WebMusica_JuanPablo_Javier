@@ -4,60 +4,6 @@
 	font-family: arial;
 }
 
-/*estilos nav*/
-nav {
-	background-color: rgb(56, 56, 56);
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	padding: 10px 0;
-}
-
-.parte-nav {
-	margin: 0;
-}
-
-#logo h1 a{
-	color: white;
-}
-
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	position: -webkit-sticky; /* Safari */
-	position: sticky;
-	top: 0;
-	margin: 0 30px;
-}
-
-li {
-	float: left;
-}
-
-li a {
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 6px 10px;
-	text-decoration: none;
-  margin-left: 10px;
-  border-radius: 20px;
-}
-
-li a:hover {
-	/*background-color: white;*/
-	color: rgb(250, 222, 179);
-}
-
-#perfil a img {
-	width: 55px;
-	border-radius: 30%;
-	border: solid 2px rgb(250, 222, 179);
-}
-/*fin estilos nav*/
-
 main {
 	background-color: white;
 }
@@ -65,8 +11,8 @@ main {
 .flecha {
 	display: inline-block;
 	background-color: lightblue;
-	width: 50px;
-	height: 50px;
+	width: 20px;
+	height: 20px;
 	text-align: center;
 	border-radius: 4px;
 	margin: 30px;
@@ -93,10 +39,14 @@ main {
 
 #tablaTemas_filter {
 	margin-bottom: 10px;
+	width: 100%;
+	float: left;
 }
 
 #tablaTemas_paginate {
 	margin: 10px 0;
+	width: 100%;
+	float: left;
 }
 
 #tablaTemas tr td:first-child a,#tablaTemas tr td:nth-child(3) a {
@@ -107,7 +57,7 @@ main {
 	color: rgb(25, 125, 255);
 }
 
-td a{
+td a {
 	color: black;
 }
 
@@ -130,7 +80,6 @@ td a{
 	color: black;
 	padding: 15px 0;
 	text-align: center;
-	/*background-image:linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url('../imagenes/foro.jpeg');*/
 	background-size: cover;
 	background-position: center;
 	background-repeat: no-repeat;
@@ -138,12 +87,6 @@ td a{
 /*fin estilos cabecera*/
 
 /*estilos tabla*/
-#contenedor-listadoForos {
-	width: 100%;
-	display: flex;
-	justify-content: center;
-}
-
 #ver {
 	background-color: rgb(230, 230, 230);
 	color: black;
@@ -153,6 +96,7 @@ td a{
 	-webkit-box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.5);
 	box-shadow: 3px 3px 3px 1px rgba(0,0,0,0.5);
 	border-radius: 5px;
+	margin-bottom: 10px;
 }
 
 #ver:hover {
@@ -161,36 +105,30 @@ td a{
 }
 
 #tablaTemas {
-	/*table-layout: fixed;*/
 	border-collapse: collapse;
-	width: 100%; /*para movil*/
 }
-
-/*
-#contenedor-listadoForos div {
-		background-color: lightyellow;
-}*/
 
 #pad-superior {
 	margin-top: 30px;
+	width: 90%;
 }
 
+.contenedor-temas {
+	max-width: 1400px;
+}
 
 #listado-foros table thead tr th:first-child, #listado-foros table td:first-child {
-	/*width: 500px;*/
 	word-wrap: break-word;
 	text-align: left;
-	/*border: solid 2px blue;*/
 }
 
-a{
+a {
 	text-decoration: none;
 }
 
 #listado-foros table th, #listado-foros table td {
 	padding: 10px;
 	text-align: right;
-	/*width:120px;*/
 }
 
 #listado-foros table th {
@@ -207,6 +145,8 @@ a{
 	width: 80%;
 	margin-bottom: 20px;
 	margin-top: 30px;
+	flex-direction: column;
+	max-width: 1400px;
 }
 
 .selector-foro {
@@ -214,10 +154,11 @@ a{
 	box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.3);
 	border-radius: 20px;
 	text-align: center;
-	width: 15%;
+	width: 70%;
 	cursor: pointer;
 	padding: 15px 0;
 	font-size: 11px;
+	margin-bottom: 10px;
 }
 
 .selector-foro:hover {
@@ -228,4 +169,60 @@ footer {
 	text-align: center;
 	background-color: beige;
 	padding: 20px;
+}
+
+/*Móviles en horizontal o tablets en vertical*/
+@media (min-width: 630px) { 
+	#tablaTemas_filter {
+		margin-bottom: 10px;
+		width: 90%;
+		float: left;
+	}
+	
+	#tablaTemas_paginate {
+		margin: 10px 0;
+		width: 90%;
+		float: left;
+	}
+
+	#ver {
+		margin-left: 40px;
+	}
+
+	.selector-foro {
+		width: 50%;
+	}
+}
+ 
+/*Tablets en horizonal y escritorios normales*/
+@media (min-width: 1024px) { 
+	#contenedor-seleccion-foro {
+		display: flex;
+		justify-content: space-around;
+		width: 100%;
+		margin-bottom: 5px;
+		margin-top: 20px;
+		flex-direction: row;
+	}
+
+	.selector-foro {
+		width: 20%;
+		margin-bottom: 0;
+	}
+
+	#pad-superior {
+		margin-top: 12px;
+	}
+
+	#ver {
+		margin-left: 55px;
+		margin-bottom: 5px;
+	}
+}
+ 
+/*Escritorios muy anchos*/
+@media (min-width: 1200px) { 
+	#ver {
+		margin-left: 65px;
+	}
 }

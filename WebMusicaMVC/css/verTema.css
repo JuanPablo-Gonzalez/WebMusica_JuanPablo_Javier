@@ -4,60 +4,6 @@
 	box-sizing: border-box;
 }
 
-/*estilos nav*/
-nav {
-	background-color: rgb(56, 56, 56);
-	display: flex;
-	justify-content: space-around;
-	align-items: center;
-	padding: 10px 0;
-}
-
-.parte-nav {
-	margin: 0;
-}
-
-#logo h1 a{
-	color: white;
-}
-
-ul {
-	list-style-type: none;
-	margin: 0;
-	padding: 0;
-	overflow: hidden;
-	position: -webkit-sticky; /* Safari */
-	position: sticky;
-	top: 0;
-	margin: 0 30px;
-}
-
-li {
-	float: left;
-}
-
-li a {
-	display: block;
-	color: white;
-	text-align: center;
-	padding: 6px 10px;
-	text-decoration: none;
-    margin-left: 10px;
-    border-radius: 20px;
-}
-
-li a:hover {
-	/*background-color: white;*/
-	color: rgb(250, 222, 179);
-}
-
-#perfil a img {
-	width: 55px;
-	border-radius: 30%;
-	border: solid 2px rgb(250, 222, 179);
-}
-/*fin estilos nav*/
-
 /*Inicio estilos encabezado tema*/
 .encabezado-tema {
 	background-color: rgb(250, 222, 179);
@@ -139,7 +85,7 @@ main {
 	word-wrap: break-word;
 }
 
-#boton-responder{
+#boton-responder, #boton-editar-comentario{
 	background-color: rgb(230, 230, 230);
 	color: black;
 	padding: 6px;
@@ -150,9 +96,24 @@ main {
 	border-radius: 5px;
 }
 
-#boton-responder:hover {
+#boton-responder:hover, #boton-editar-comentario:hover {
 	-webkit-box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.5);
 	box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.5);
+}
+
+#eliminar-comentario {
+	background-color: rgb(85, 85, 85);
+	color: yellow;
+	padding: 6px;
+	cursor: pointer;
+	border: none;
+	border-radius: 5px;
+	margin: 0 5px 0 20px;
+}
+
+#eliminar-comentario:hover {
+	background-color: black;
+	color: yellow;
 }
 
 #ver {
@@ -217,3 +178,80 @@ footer {
 	clear: both;
 }
 /*estilos footer*/
+
+.boton-editar {
+	color: black;
+	padding: 0 3px;
+	border-radius: 2px;
+	cursor: pointer;
+	height: 20px;
+	position: relative;
+	top: 10px;
+	right: 5px;
+}
+
+.boton-editar:hover {
+	color: rgb(100, 100, 100);
+}
+
+.boton-editar::after {
+	content: "\f044";
+	font-family: FontAwesome;
+}
+
+#quitar-imagen {
+	background-color: red;
+	color: white;
+	padding: 0 3px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+#quitar-imagen:hover {
+	background-color: rgb(255, 78, 78);
+}
+
+#barra-anadir-adicionales button { 
+	background-color: lightgrey;
+	border: solid 1px black;
+	border-radius: 20px;
+	padding: 2px 8px;
+	cursor: pointer;
+}
+
+#barra-anadir-adicionales button:active {
+	background-color: white;
+}
+
+.citar-comentario {
+	color: red;
+	padding: 0 3px;
+	border-radius: 2px;
+	cursor: pointer;
+	height: 20px;
+	position: relative;
+	top: 10px;
+	right: 5px;
+}
+
+.citar-comentario:hover{
+	color: rgb(255, 164, 164);
+}
+
+.citar-comentario::after {
+	content: "\f52c";
+	font-family: FontAwesome;
+}
+
+.citado {
+	color: black;
+	background-color: rgb(224, 224, 224);
+	border: solid black 1px;
+	border-radius: 10px;
+	padding: 5px;
+	font-style: italic;
+}
+
+#ver-citado {
+	background-color: aqua;
+}

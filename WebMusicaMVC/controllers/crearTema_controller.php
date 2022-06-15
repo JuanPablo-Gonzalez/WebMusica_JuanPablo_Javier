@@ -1,4 +1,13 @@
 <?php
+session_start();
+
+if(!isset($_SESSION["email"])){
+	session_unset();
+	session_destroy();
+	header("Location: login_controller.php");
+	die();
+}
+
 include_once "../db/db.php";
 include_once "../models/crearTema_model.php";
 
@@ -6,35 +15,26 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 	$titulo= $_POST["titulo-tema"];
 	$contenidoComentario= $_POST["comentario"];
 	$foroElegido= $_POST["foro-elegido"];
+	$usuario= $_SESSION["tag"];
 
 	if($titulo!=""&&$contenidoComentario!="") {
-		/*$directorio = '../imagenes/';
-		$subir_archivo = $directorio.basename($_FILES['audio-archivo']['name']);
-		echo "<div>";
-		if (move_uploaded_file($_FILES['audio-archivo']['tmp_name'], $subir_archivo)) {
-			echo "El archivo es válido y se cargó correctamente.<br><br>";
+		if(strpos($_FILES['imagen-archivo']['name'], ".mp3") != false) {
+			$directorio = '../usuarios/'.$usuario.'/audios/';
+		} else if(strpos($_FILES['imagen-archivo']['name'], ".mp4") != false) {
+			$directorio = '../usuarios/'.$usuario.'/videos/';
 		} else {
-			echo "La subida ha fallado";
+			$directorio = '../usuarios/'.$usuario.'/imagenes/';
 		}
-			echo "</div>";
-		if($_FILES['audio-archivo']['name']!="") {
-			$directorio = '../imagenes/';
-			$subir_archivo = $directorio.basename($_FILES['subir_archivo']['name']);
 		
-			if (copy($_FILES['audio-archivo']['tmp_name'],$_FILES['audio-archivo']['name'])) {
-				echo "<h2>Se ha transferido el archivo ". $_FILES['audio-archivo']['name']. "</h2>";
-			}
-			else{
-				echo "<h2>No ha podido transferirse el fichero</h2>";
-			}
-		}*/
-
+		$subir_archivo = $directorio.basename($_FILES['imagen-archivo']['name']);
+		move_uploaded_file($_FILES['imagen-archivo']['tmp_name'], $subir_archivo);
+	
 		insertarNuevoTema($conexion,$titulo,$contenidoComentario,$foroElegido);
 
 		header("location: foro_controller.php");
 	}
 }
-	
+
 $foroElegido=$_GET['dato']; 
 include_once "../views/crearTema_view.html";
 ?>
