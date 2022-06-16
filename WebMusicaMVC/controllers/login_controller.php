@@ -17,6 +17,7 @@ $url = "";
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="../css/estilosIndex.css">
+	<link rel="stylesheet" type="text/css" href="../css/estilosnav.css">
 </head>
 <body>
 	<?php

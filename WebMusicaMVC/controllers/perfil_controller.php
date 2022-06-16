@@ -9,7 +9,7 @@
 
 	<link rel="stylesheet" href="https://icono-49d6.kxcdn.com/icono.min.css">
 
-	<link rel="stylesheet" type="text/css" href="../../css/estilosIndex.css">
+	<link rel="stylesheet" type="text/css" href="../../css/estilosnav.css">
 	<link rel="stylesheet" type="text/css" href="../../css/perfil.css">
 	<link rel="stylesheet" type="text/css" href="../../css/publicaciones.css">
 	<link rel="stylesheet" type="text/css" href="../../css/audio.css">

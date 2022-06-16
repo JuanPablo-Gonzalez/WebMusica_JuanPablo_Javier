@@ -27,15 +27,15 @@
 			}
 			?>
 		</div>
-		<?php
-		if(isset($_SESSION["foto_perfil"])){
-			if($_SESSION["foto_perfil"] != null){
-				echo '
-				<script>
-					$("#fotoPerfilNav").css("background-image",\'url("'.$url.'../usuarios/'.$_SESSION["tag"].'/imagenes/'.$_SESSION["foto_perfil"].'")\');
-				</script>
-				';
-			}
-		}
-		?>
 	</nav>
+	<?php
+	if(isset($_SESSION["foto_perfil"])){
+		if($_SESSION["foto_perfil"] != null){
+			echo '
+			<script>
+				$("#fotoPerfilNav").css("background-image",\'url("'.$url.'../usuarios/'.$_SESSION["tag"].'/imagenes/'.$_SESSION["foto_perfil"].'")\');
+			</script>
+			';
+		}
+	}
+	?>

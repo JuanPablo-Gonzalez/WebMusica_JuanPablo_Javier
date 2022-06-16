@@ -33,7 +33,6 @@ DROP TABLE IF EXISTS `comentarios`;
 DROP TABLE IF EXISTS `comentarios_publicaciones`;
 DROP TABLE IF EXISTS `megusta`;
 DROP TABLE IF EXISTS `publicaciones`;
-DROP TABLE IF EXISTS `tipos_archivos`;
 DROP TABLE IF EXISTS `temas`;
 DROP TABLE IF EXISTS `foros`;
 DROP TABLE IF EXISTS `usuarios`;
@@ -80,7 +79,7 @@ CREATE TABLE IF NOT EXISTS `foros` (
 --
 
 CREATE TABLE IF NOT EXISTS `temas` (
-  `id_tema` int(10) NOT NULL,
+  `id_tema` int(10) NOT NULL AUTO_INCREMENT,
   `titulo` varchar(20) NOT NULL,
   `fecha_publicacion` datetime NOT NULL,
   `id_usuario` int(10) NOT NULL,
@@ -149,7 +148,6 @@ CREATE TABLE IF NOT EXISTS `comentarios_publicaciones` (
 -- Estructura de tabla para la tabla `megusta`
 --
 
-DROP TABLE IF EXISTS `megusta`;
 CREATE TABLE IF NOT EXISTS `megusta` (
   `id_usuario` int(10) NOT NULL,
   `id_publicacion` int(10) NOT NULL,
@@ -174,7 +172,6 @@ CREATE TABLE IF NOT EXISTS `seguidores` (
 -- Estructura de tabla para la tabla `tipos_archivos`
 --
 
-DROP TABLE IF EXISTS `tipos_archivos`;
 CREATE TABLE IF NOT EXISTS `tipos_archivos` (
   `id_archivo` int(4) NOT NULL AUTO_INCREMENT,
   `nombre` varchar(50) NOT NULL,

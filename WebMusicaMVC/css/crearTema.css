@@ -1,5 +1,5 @@
 * {
-	margin: 0 auto;
+	margin: 0;
 	box-sizing: border-box;
 	font-family: arial;
 }
@@ -13,6 +13,7 @@ body a {
 }
 
 .contenedor-encabezado {
+	margin: 0 auto;
 	background-color: rgb(250, 222, 179);
 	margin-bottom: 25px;
 	padding: 20px;
@@ -41,6 +42,7 @@ body a {
 }
 
 #boton-publicar-tema {
+	margin: 0 auto;
 	background-color: rgb(230, 230, 230);
 	color: black;
 	padding: 6px;
@@ -81,6 +83,7 @@ body a {
 }
 
 #ver {
+	margin: 0 auto;
 	width: 90%;
 	word-wrap: break-word;
 	margin: 0;
@@ -102,6 +105,7 @@ footer {
 }
 
 #quitar-imagen {
+	margin: 0 auto;
 	background-color: red;
 	color: white;
 	padding: 0 3px;
@@ -114,6 +118,7 @@ footer {
 }
 
 .textinput {
+	margin: 0 auto;
 	float: left;
 	width: 100%;
 	min-height: 120px;
@@ -123,6 +128,7 @@ footer {
 }
 
 .textinput2 {
+	margin: 0 auto;
 	float: left;
 	width: 100%;
 	min-height: 20px;

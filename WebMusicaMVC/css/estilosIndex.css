@@ -1,6 +1,6 @@
 * {
 	font-family: arial;
-	margin:0 auto;
+	margin: 0;
 	box-sizing: border-box;
 }
 
@@ -10,8 +10,8 @@ body {
 			rgba(0, 0, 150,.5),
 			rgba(0, 0, 50, 0.3)
 		), url("../imagenes/imagenPortada2.jpg");
-		background-size: cover;
-		background-attachment: fixed;
+	background-size: cover;
+	background-attachment: fixed;
 }
 
 body a {
@@ -20,6 +20,7 @@ body a {
 
 /*Estilos para la portada*/
 #seccion-portada {
+	margin: 0 auto;
 	width: 100%;
 	display: flex;
 	justify-content: center;
@@ -30,6 +31,7 @@ body a {
 }
 
 #texto-presentacion {
+	margin: 0 auto;
 	font-size: 20px;
 	text-align: center;
 	color: white;
@@ -38,6 +40,7 @@ body a {
 }
 
 #contenedor-login {
+	margin: 0 auto;
 	width: 100%;
 	display: flex;
 	justify-content: center;

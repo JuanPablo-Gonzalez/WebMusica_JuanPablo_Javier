@@ -1,5 +1,5 @@
 * {
-	margin: 0 auto;
+	margin: 0;
 	box-sizing: border-box;
 	font-family: arial;
 }
@@ -9,6 +9,7 @@ main {
 }
 
 .flecha {
+	margin: 0 auto;
 	display: inline-block;
 	background-color: lightblue;
 	width: 20px;
@@ -38,6 +39,7 @@ main {
 }
 
 #tablaTemas_filter {
+	margin: 0 auto;
 	margin-bottom: 10px;
 	width: 100%;
 	float: left;
@@ -58,6 +60,7 @@ main {
 }
 
 td a {
+	margin: 0 auto;
 	color: black;
 }
 
@@ -76,6 +79,7 @@ td a {
 
 /*estilos cabecera*/
 #cabecera-titulo {
+	margin: 0 auto;
 	background-color: rgb(250, 222, 179);
 	color: black;
 	padding: 15px 0;
@@ -88,6 +92,7 @@ td a {
 
 /*estilos tabla*/
 #ver {
+	margin: 0 auto;
 	background-color: rgb(230, 230, 230);
 	color: black;
 	padding: 6px;
@@ -114,19 +119,23 @@ td a {
 }
 
 .contenedor-temas {
+	margin: 0 auto;
 	max-width: 1400px;
 }
 
 #listado-foros table thead tr th:first-child, #listado-foros table td:first-child {
+	margin: 0 auto;
 	word-wrap: break-word;
 	text-align: left;
 }
 
 a {
+	margin: 0 auto;
 	text-decoration: none;
 }
 
 #listado-foros table th, #listado-foros table td {
+	margin: 0 auto;
 	padding: 10px;
 	text-align: right;
 }
@@ -140,6 +149,7 @@ a {
 
 /*Estilos cuadro selección*/
 #contenedor-seleccion-foro {
+	margin: 0 auto;
 	display: flex;
 	justify-content: space-around;
 	width: 80%;
@@ -150,6 +160,7 @@ a {
 }
 
 .selector-foro {
+	margin: 0 auto;
 	background-color: rgb(250, 222, 179);
 	box-shadow: 0px 0px 8px 4px rgba(0,0,0,0.3);
 	border-radius: 20px;
@@ -166,6 +177,7 @@ a {
 }
 
 footer {
+	margin: 0 auto;
 	text-align: center;
 	background-color: beige;
 	padding: 20px;

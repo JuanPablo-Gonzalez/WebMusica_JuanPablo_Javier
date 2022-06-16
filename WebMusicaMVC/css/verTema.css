@@ -1,11 +1,12 @@
 * {
 	font-family: arial;
-	margin:0 auto;
+	margin: 0;
 	box-sizing: border-box;
 }
 
 /*Inicio estilos encabezado tema*/
 .encabezado-tema {
+	margin: 0 auto;
 	background-color: rgb(250, 222, 179);
 	padding: 20px;
 }
@@ -22,12 +23,14 @@
 /*seccion comentarios*/
 main {
 	/*padding: 8px 120px;*/
+	margin: 0 auto;
 	float: left;
 	width: 100%;
 	background-color: rgb(226, 226, 226);
 }
 
 .seccion-comentarios {
+	margin: 0 auto;
 	margin-bottom: 30px;
 	width: 80%;
 }
@@ -42,6 +45,7 @@ main {
 }
 
 .contenedor-comentario {
+	margin: 0 auto;
 	width: 100%;
 	margin-bottom: 10px;
 	background-color: white;
@@ -51,6 +55,7 @@ main {
 }
 
 .encabezado-comentario {
+	margin: 0 auto;
 	background-color: rgb(253, 239, 216);
 	border-radius: 20px;
 	width: 20%;
@@ -86,6 +91,7 @@ main {
 }
 
 #boton-responder, #boton-editar-comentario{
+	margin: 0 auto;
 	background-color: rgb(230, 230, 230);
 	color: black;
 	padding: 6px;
@@ -102,6 +108,7 @@ main {
 }
 
 #eliminar-comentario {
+	margin: 0 auto;
 	background-color: rgb(85, 85, 85);
 	color: yellow;
 	padding: 6px;
@@ -142,6 +149,7 @@ aside {
 }
 
 .flecha {
+	margin: 0 auto;
 	display: inline-block;
 	background-color: lightblue;
 	width: 50px;
@@ -180,6 +188,7 @@ footer {
 /*estilos footer*/
 
 .boton-editar {
+	margin: 0 auto;
 	color: black;
 	padding: 0 3px;
 	border-radius: 2px;
@@ -200,6 +209,7 @@ footer {
 }
 
 #quitar-imagen {
+	margin: 0 auto;
 	background-color: red;
 	color: white;
 	padding: 0 3px;
@@ -224,6 +234,7 @@ footer {
 }
 
 .citar-comentario {
+	margin: 0 auto;
 	color: red;
 	padding: 0 3px;
 	border-radius: 2px;
@@ -244,6 +255,7 @@ footer {
 }
 
 .citado {
+	margin: 0 auto;
 	color: black;
 	background-color: rgb(224, 224, 224);
 	border: solid black 1px;
