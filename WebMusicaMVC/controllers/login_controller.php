@@ -12,7 +12,7 @@ $url = "";
 <head>
 	<meta charset="utf-8">
 	<title>Login Music Network</title>
-
+	<link rel="icon" type="image/x-icon" href="../imagenes/musica.png">
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
 
