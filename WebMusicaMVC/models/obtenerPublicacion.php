@@ -13,7 +13,8 @@ $sql = "SELECT
 	IF('$idUsuarioActual' in (SELECT id_usuario from megusta where megusta.id_publicacion=publicaciones.id_publicacion),'true','false') as tegusta,
 	usuarios.nombre_usuario,
 	usuarios.tag,
-	usuarios.foto_perfil
+	usuarios.foto_perfil,
+	usuarios.foto_fondo
 	FROM publicaciones
 	LEFT JOIN comentarios_publicaciones ON comentarios_publicaciones.id_publicacion = publicaciones.id_publicacion 
 	LEFT JOIN megusta ON megusta.id_publicacion = publicaciones.id_publicacion 

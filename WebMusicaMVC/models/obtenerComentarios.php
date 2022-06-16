@@ -10,7 +10,7 @@ $sql = "SELECT
 	FROM comentarios_publicaciones 
 	LEFT JOIN usuarios on comentarios_publicaciones.id_usuario = usuarios.id_usuario
 	WHERE id_publicacion='$idPublicacion'
-	ORDER BY fecha_publicacion DESC";
+	ORDER BY fecha_publicacion ASC";
 
 $comentarios = obtenerArraySQL($conexion, $sql);
 

@@ -18,6 +18,11 @@ body a {
 	text-decoration: none;
 }
 
+.error{
+	color: #CD0000;
+}
+
+
 /*Estilos para la portada*/
 #seccion-portada {
 	margin: 0 auto;

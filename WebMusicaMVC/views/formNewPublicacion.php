@@ -1,6 +1,6 @@
 	<div class="divNuevaPublicacion">
 		<form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>" method="post" id="formNuevaPublicacion" name="formNuevaPublicacion" enctype="multipart/form-data">
-			<h1>Nuevo publicación</h1>
+			<h1>Nueva publicación</h1>
 			<div class="div-input">
 				<label for="inputTitulo">Introduce el titulo de la publicacion</label>
 				<input type="text" name="inputTitulo" id="inputTitulo" maxlength="100">

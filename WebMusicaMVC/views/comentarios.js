@@ -6,7 +6,7 @@ function mostrarComentario(comentario, nuevo = false){
 	}
 	var nuevoComentario = $("<div>").addClass("div-comentario").append(
 				$("<div>").addClass("div-contenedora-imgUser").append(
-					$("<img>").attr("src",urlImagenPerfil).click(() => {
+					$("<div>").css("background-image",'url("'+urlImagenPerfil+'")').click(() => {
 						window.location.assign("../usuarios/"+comentario.tag);
 					})
 				),

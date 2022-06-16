@@ -3,6 +3,7 @@ nav {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	height: 64px;
 }
 
 .parte-nav {
