@@ -4,10 +4,6 @@
 	font-family: arial;
 }
 
-html {
-	height: 100vh;
-}
-
 body a {
 	text-decoration: none;
 }
@@ -94,10 +90,6 @@ body a {
 	box-shadow: 2px 2px 3px 1px rgba(0,0,0,0.5);
 }
 
-#form-login {
-	margin: 0;
-}
-
 footer {
 	text-align: center;
 	background-color: beige;
@@ -119,7 +111,6 @@ footer {
 
 .textinput {
 	margin: 0 auto;
-	float: left;
 	width: 100%;
 	min-height: 120px;
 	outline: none;
@@ -129,7 +120,6 @@ footer {
 
 .textinput2 {
 	margin: 0 auto;
-	float: left;
 	width: 100%;
 	min-height: 20px;
 	outline: none;
@@ -137,5 +127,26 @@ footer {
 }
 
 #contenedor-seleccion-foro {
-	padding: 10px 50px;
+	margin: 0 10px;
+}
+
+/*Móviles en horizontal o tablets en vertical*/
+@media (min-width: 768px) {
+	#contenedor-seleccion-foro {
+		margin: 0 100px;
+	}
+}
+ 
+/*Tablets en horizonal y escritorios normales*/
+@media (min-width: 1024px) { 
+	#contenedor-seleccion-foro {
+		margin: 0 150px;
+	}
+}
+ 
+/*Escritorios muy anchos*/
+@media (min-width: 1200px) { 
+	#contenedor-seleccion-foro {
+		margin: 0 220px;
+	}
 }

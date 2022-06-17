@@ -18,35 +18,51 @@
     <main>
       <section id="creacion-tema">
         <div class="contenedor-encabezado">
-          <h2>Vas a publicar en el foro de <span>Ayuda</span></h2>
+          <h2>Vas a publicar en el foro 
+            <span>
+              <?php 
+                if($foroElegido==1)
+                  echo "'Ayuda'"; 
+                else if($foroElegido==2)
+                  echo "'Búsqueda'";
+                else if($foroElegido==3)
+                  echo "'General'";
+              ?>
+          </span>
+          </h2>
+          <p>
+            <?php 
+                if($foroElegido==1)
+                  echo "Pide ayuda a los demás usuarios para que te ayuden con tus nuevas composiciones"; 
+                else if($foroElegido==2)
+                  echo "Busca nuevos integrantes para tu grupo o inicia una nueva colaboración";
+                else if($foroElegido==3)
+                  echo "Habla de cualquier tema relacionado con la música";
+              ?>
+          </p>
         </div>
 
         <div id="contenedor-seleccion-foro">
           <form name="formulario" id="form-login" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
             <label for="titulo-tema">Título del tema</label> <br>
-            <input type="text" name="titulo-tema" id="titulo-tema" class="textinput2">
+            <input type="text" name="titulo-tema" id="titulo-tema" class="textinput2" maxlength="25">
             <br><br>
 
             <label for="comentario">Comentario</label> <br>
-            <textarea name="comentario" id="comentario" class="textinput" wrap="hard"></textarea>
+            <textarea name="comentario" id="comentario" class="textinput" wrap="hard"></textarea> <br>
 
             <div id="barra-anadir-adicionales">
               <button type="button" name="negrita" id="negrita"><b>B</b></button>
               <button type="button" name="cursiva" id="cursiva"><i>I</i></button>
               <button type="button" name="subrayado" id="subrayado"><u>A</u></button>
-              <button type="button" name="enlace" id="enlace">ENLACE</button>
 
               <br>
               <br>
 
-              <label for="imagen-archivo">Selecciona una imagen, audio o vídeo (un archivo por comentario):</label> <br>
-              <input type="file" id="imagen-archivo" name="imagen-archivo" accept="image/*,audio/*,video/*" class="textinput2">
+              <label for="imagen-archivo">Selecciona una imagen, audio (un archivo por comentario):</label> <br>
+              <input type="file" id="imagen-archivo" name="imagen-archivo" accept=".png, .jpg, .jpeg, audio/mp3" class="textinput2"> <br>
               <span id="quitar-imagen">X</span> <br>
               <img src="" width="200px" id="imagen-elegida" alt="imagen elegida para mostrar">
-              <audio controls id="audio-elegido">
-                <source src="" type="audio/mp3">Tu navegador no soporta audio HTML5.
-              </audio>
-              <!--<img src="" width="200px" id="video-elegido" alt="imagen elegida para mostrar">-->
             </div>
 
             <br>
@@ -60,10 +76,10 @@
             <p id="ver">
 
             </p>
+            <br>
           </form>
         </div>
       </section>
     </main>
-    <footer>footer</footer>
   </body>
 </html>

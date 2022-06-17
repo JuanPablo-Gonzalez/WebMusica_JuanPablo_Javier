@@ -1,5 +1,5 @@
 <?php
-    function insertarNuevoTema($conexion,$titulo,$contenidoComentario,$foroElegido) {
+    function insertarNuevoTema($conexion,$titulo,$contenidoComentario,$directorio,$tipoArchivo,$foroElegido) {
         $fechaPublicacionTema= date("Y-m-d H:i:s");
         $idUsuario= $_SESSION["idUsuario"];
         
@@ -10,8 +10,8 @@
     
             $siguienteIdTema= obtenerUltimoIDTema($conexion);
             
-            $insertPrimerComentario= "INSERT INTO comentarios(fecha_publicacion,mensaje,imagen,audio,id_tema,id_usuario) 
-            VALUES('$fechaPublicacionTema','$contenidoComentario',null,null,'$siguienteIdTema','$idUsuario')";
+            $insertPrimerComentario= "INSERT INTO comentarios(fecha_publicacion,mensaje,archivo,tipo_archivo,id_tema,id_usuario) 
+            VALUES('$fechaPublicacionTema','$contenidoComentario','$directorio','$tipoArchivo','$siguienteIdTema','$idUsuario')";
             $conexion->exec($insertPrimerComentario);
         } 
         catch(PDOException $e) {

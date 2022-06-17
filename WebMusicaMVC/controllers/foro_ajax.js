@@ -45,7 +45,7 @@ function mostrarTablaForos(event) {
         "lengthChange": false,
         "pageLength": 15,
         "info": false,
-        //ordering: false, //no aparecerán las flechas ordenación y no funcionará
+        ordering: false,
         retrieve: true, //mirar
         //paging: false, //para quitar o poner los números que aparecen abajo cuando se excede un límite
         "language": {
@@ -59,7 +59,7 @@ function mostrarTablaForos(event) {
             "lengthMenu": "Mostrar _MENU_ Entradas",
             "loadingRecords": "Cargando...",
             "processing": "Procesando...",
-            "search": "Buscar por título o usuario:",
+            "search": "Buscar por usuario:",
             "zeroRecords": "Sin resultados encontrados",
             "paginate": {
             "first": "Primero",
@@ -92,8 +92,8 @@ function mostrarTablaForos(event) {
         //Con esta conseguimos añadir un enlace a las celdas especificadas(en targets como antes),
         //y además le pasaremos el valor por url a la siguiente pantalla que mostrará los comentarios...
         "columnDefs": [
-            {"bSortable": false, "aTargets": [0, 2]},
-            {"bSearchable": false, "aTargets": [1]},
+            {"bSortable": false, "aTargets": [0,1,2]},
+            {"bSearchable": false, "aTargets": [0,1]},
             {"bVisible": false, "aTargets": [3]}
         ]
     } );
