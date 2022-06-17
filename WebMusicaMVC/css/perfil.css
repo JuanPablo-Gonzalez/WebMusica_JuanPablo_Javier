@@ -8,7 +8,6 @@ body{
 	background-color: #212121;
 	background-image: linear-gradient(to bottom, #585959 0%, #141415 100%);
 	background-size: 100%;
-	background-repeat: no-repeat;
 	background-attachment: fixed;
 }
 
@@ -52,7 +51,7 @@ body{
 	height: 150px;
 	margin: 15% 0 15% 0;
 	border-radius: 50%;
-	border: solid 4px #212121;
+	border: solid 3px #212121;
 }
 
 .div-contedor-info{
@@ -65,10 +64,11 @@ body{
 
 .div-tagNombre{
 	align-self: center;
+	margin: 0 0 10% 0;
 }
 
 .p-tagNombre-nombre{
-	font-size: 1.8em;
+	font-size: 1.7em;
 	font-weight: bold;
 }
 
@@ -105,6 +105,7 @@ body{
 	align-self: end;
 	grid-column: 1 / 2;
 	grid-row: 2 / 3;
+	margin: 0 0 4% 0;
 }
 
 .div-fechaNacimiento p{
@@ -120,8 +121,7 @@ body{
 }
 
 .div-descripcion p{
-	/*max-width: 80ch;*/
-	/*margin: 2%;*/
+	font-size: 1em;
 }
 
 .div-contenedor-iframe-Spotify{
@@ -181,11 +181,52 @@ body{
 		margin: 0 15%;
 		grid-template-columns: 30% 70%;
 	}
+	.p-tagNombre-nombre{
+		font-size: 1.6em;
+	}
+	.p-tagNombre-tag{
+		font-size: 1.2em;
+	}
 }
 
-@media(max-width: 600px){
+@media(max-width: 750px){
+	.div-fotoPerfilNombre{
+		width: 75%;
+		margin: 0 12.2%;
+		grid-template-columns: 30% 70%;
+	}
+	.div-contedor-info{	
+		grid-template-columns: 70% 30%;
+	}
+	.div-contenedor-fotoPerfil div{
+		width: 130px;
+		height: 130px;
+	}
+	.div-tagNombre{
+		margin:0 0 7% 0;
+	}
+	.div-bttnPerfil button{
+		font-size: 0.8em;
+		padding: 5% 6%;
+		border-radius: 8px;
+	}
+	.div-fechaNacimiento{
+		margin: 0 0 2% 0;
+	}
+	.p-tagNombre-nombre{
+		font-size: 1.55em;
+	}
+	.p-tagNombre-tag{
+		font-size: 1.15em;
+	}
+	.div-fechaNacimiento p{
+		font-size: 1.05em;
+	}
+	.div-descripcion p{
+		font-size: 0.95em;
+	}
 	.div-num span{
-		font-size: 1.2em;
+		font-size: 1.3em;
 	}
 }
 
@@ -195,5 +236,94 @@ body{
 		width: 80%;
 		margin: 0 10%;
 		grid-template-columns: 30% 70%;
+	}
+	.div-num span{
+		font-size: 1.2em;
+	}
+	.div-contenedor-fotoPerfil div{
+		width: 115px;
+		height: 115px;
+	}
+	.p-tagNombre-nombre{
+		font-size: 1.5em;
+	}
+	.p-tagNombre-tag{
+		font-size: 1.1em;
+	}
+	.div-fechaNacimiento p{
+		font-size: 1em;
+	}
+	.div-descripcion p{
+		font-size: 0.9em;
+	}	
+}
+
+@media(max-width: 500px){
+	.div-fotoPerfilNombre{
+		width: 90%;
+		margin: 0 5%;
+		grid-template-columns: 20% 80%;
+	}
+	.div-contenedor-fotoPerfil div{
+		width: 75px;
+		height: 75px;
+	}
+	.div-tagNombre{
+		margin:0 0 5% 0;
+	}
+	.div-fechaNacimiento{
+		margin: 0 0 1% 0;
+	}
+	.div-bttnPerfil button{
+		font-size: 0.7em;
+		padding: 4% 5%;
+		border-radius: 7px;
+	}
+	.p-tagNombre-nombre{
+		font-size: 1.4em;
+	}
+	.p-tagNombre-tag{
+		font-size: 1em;
+	}
+	.div-fechaNacimiento p{
+		font-size: 0.9em;
+	}
+	.div-descripcion p{
+		font-size: 0.8em;
+	}	
+	.div-num span{
+		font-size: 1.1em;
+	}
+}
+
+@media(max-width: 400px){
+	.div-fotoPerfilNombre{
+		width: 95%;
+		margin: 0 2.5%;
+		grid-template-columns: 20% 80%;
+	}
+	.div-contenedor-fotoPerfil div{
+		width: 60px;
+		height: 60px;
+	}
+	.div-bttnPerfil button{
+		font-size: 0.6em;
+		padding: 3% 5%;
+		border-radius: 7px;
+	}
+	.p-tagNombre-nombre{
+		font-size: 1.3em;
+	}
+	.p-tagNombre-tag{
+		font-size: 1em;
+	}
+	.div-fechaNacimiento p{
+		font-size: 0.8em;
+	}
+	.div-descripcion p{
+		font-size: 0.7em;
+	}	
+	.div-num span{
+		font-size: 1em;
 	}
 }

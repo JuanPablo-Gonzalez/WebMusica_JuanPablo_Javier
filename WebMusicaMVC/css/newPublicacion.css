@@ -132,3 +132,58 @@
 	top: 1px;
 	left: 1px;
 }
+
+@media(max-width: 750px){
+	.divNuevaPublicacion{
+		width: 75%;
+		margin: 2% 12.5%;
+	}
+	.bttn-tipoArchivo{
+		height: 44px;
+		padding: 0 10px;
+		font-size: 16px;
+	}
+}
+
+@media(max-width: 600px){
+	.divNuevaPublicacion{
+		width: 80%;
+		margin: 2% 10%;
+	}
+	.divNuevaPublicacion h1{
+		font-size: 1.9;
+	}
+	.div-contenedor-tipoArchivo h4{
+		margin: 1%;
+		font-size: 15px;
+	}
+	.div-input label{
+		font-size: 15px;
+	}
+	.bttn-tipoArchivo{
+		height: 45px;
+		padding: 0 7.5px;
+	}
+}
+
+@media(max-width: 500px){
+	.divNuevaPublicacion{
+		width: 85%;
+		margin: 2% 7.5%;
+	}
+	.divNuevaPublicacion h1{
+		font-size: 1.8;
+	}
+	.div-contenedor-tipoArchivo h4{
+		margin: 1%;
+		font-size: 14px;
+	}
+	.div-input label{
+		font-size: 14px;
+	}
+	.bttn-tipoArchivo{
+		height: 45px;
+		padding: 0 5px;
+		font-size: 15px;
+	}
+}

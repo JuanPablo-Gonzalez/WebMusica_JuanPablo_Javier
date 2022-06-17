@@ -24,7 +24,7 @@ ul {
 	position: -webkit-sticky;
 	position: sticky;
 	top: 0;
-	margin: 0 30px;
+	/*margin: 0 30px;*/
 }
 
 li {
@@ -65,4 +65,33 @@ li a:hover {
 	border-radius: 50%;
 	border: solid 2px #212121;
 	margin: 7px;
+}
+
+@media(max-width: 500px){
+	nav {
+		height: 58px;
+	}
+	#logo h1 a{
+		margin: 17px 0;
+		font-size: 20px;
+	}
+	#perfil i{
+		margin: 16px 11px;
+		width: 26px;
+		height: 26px;
+	}
+
+	#perfil a div {
+		width: 46px;
+		height: 46px;
+		margin: 6px;
+	}
+	li a {
+		padding: 5px 8px;
+		font-size: 16px;
+	}
+}
+
+@media(max-width: 400px){
+
 }

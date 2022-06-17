@@ -4,13 +4,7 @@
 		</div>
 		<ul id="listado-nav">
 			<li>
-				<?php echo '<a href="'.$url.'../controllers/foro_controller.php">'; ?>Comunidad</a>
-			</li>
-			<li>
-				<?php echo '<a href="'.$url.'../controllers/foro_controller.php#contact">'; ?>Canciones</a>
-			</li>
-			<li>
-				<?php echo '<a href="'.$url.'../controllers/foro_controller.php#sobre">'; ?>Sobre nosotros</a>
+				<?php echo '<a href="'.$url.'../controllers/foro_controller.php">'; ?>Foros</a>
 			</li>
 		</ul>
 		<div id="perfil">

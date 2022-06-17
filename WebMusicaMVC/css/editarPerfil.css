@@ -18,7 +18,6 @@
 
 .div-contenedor-fotoPerfil{
 	position: relative;
-	width: 25%;
 }
 
 .div-contenedor-fotoPerfil div{
@@ -136,4 +135,103 @@
 
 .div-contenedor-bttnsForm button{
 	margin: 1% 5%;
+}
+
+@media(max-width: 1000px){
+	.div-contenedor-fotoPerfil div{
+		width: 180px;
+		height: 180px;
+	}
+}
+
+@media(max-width: 900px){
+	.div-editarPerfil{
+		width: 75%;
+		margin: 2% 12.5%;
+	}
+	.div-contenedor-fotoPerfil div{
+		width: 170px;
+		height: 170px;
+	}
+}
+
+@media(max-width: 800px){
+	.div-editarPerfil{
+		width: 77.5%;
+		margin: 2% 11.25%;
+	}
+	.div-contenedor-fotoPerfil div{
+		width: 150px;
+		height: 150px;
+	}
+}
+
+@media(max-width: 700px){
+	.div-editarPerfil{
+		width: 80%;
+		margin: 2% 10%;
+	}
+	.div-contenedor-fotoPerfil div{
+		width: 130px;
+		height: 130px;
+	}
+	.div-file{
+		margin: 2% 5%;
+	}
+	.div-input label,
+	.div-input textarea,
+	.div-input input,
+	.div-file input,
+	.div-file label,
+	.div-editarPerfil button,
+	.buttonFile{
+		font-size: 13px;
+	}
+}
+
+@media(max-width: 600px){
+	.div-editarPerfil{
+		width: 85%;
+		margin: 2% 7.5%;
+	}
+	.div-contenedor-fotoPerfil div{
+		width: 110px;
+		height: 110px;
+	}
+	.div-file{
+		margin: 1% 5%;
+	}
+	.div-input label,
+	.div-input textarea,
+	.div-input input,
+	.div-file input,
+	.div-file label,
+	.div-editarPerfil button,
+	.buttonFile{
+		font-size: 12px;
+	}
+}
+
+@media(max-width: 500px){
+	.div-editarPerfil{
+		width: 90%;
+		margin: 2% 5%;
+	}
+	.div-contenedor-fotoPerfil div{
+		width: 90px;
+		height: 90px;
+	}
+	.div-file{
+		width: 92%;
+		margin: 0 4%;
+	}
+	.div-input label,
+	.div-input textarea,
+	.div-input input,
+	.div-file input,
+	.div-file label,
+	.div-editarPerfil button,
+	.buttonFile{
+		font-size: 11px;
+	}
 }

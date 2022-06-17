@@ -7,7 +7,7 @@
 	box-shadow: 0 0 20px 0 #000a;
 	font-family: arial;
 	color: white;
-	font-size: 0.75em;
+	
 	/*overflow: hidden;*/
 	display: grid;
 	/*grid-template-rows: 6px auto;*/
@@ -93,7 +93,6 @@
 	background: orange;
 	width: 0%;
 	height: 100%;
-	/*transition: 0.25s;*/
 }
 
 .time {
@@ -102,22 +101,92 @@
 }
 
 .time p{
+	font-size: 0.75em;
 	padding: 2px;
 }
 
-/*.volume-container {
-	width: 10%;
-	cursor: pointer;
-	position: relative;
-	z-index: 2;
+@media(max-width: 1000px){
+	.play-container{
+		width: 11%;
+	}
+	.barraCancion{
+		width: 66%;
+	}
+	.time {
+		width: 23%;
+	}
+	.time p{
+		font-size: 0.725em;
+	}
 }
 
-.div-boton-volumen {
-	height: 26px;
-	display: flex;
-	align-items: center;
+@media(max-width: 700px){
+	.play-container{
+		width: 11%;
+	}
+	.barraCancion{
+		width: 61%;
+	}
+	.time {
+		width: 26%;
+	}
+	.time p{
+		font-size: 0.7em;
+	}
 }
 
-.div-boton-volumen .volume {
-	transform: scale(0.7);
-}*/
+@media(max-width: 650px){
+	.div-contenido-audio {
+		width: 92%;
+		margin: 1% 4%;
+	}
+
+	.controls {
+		padding: 0 15px;
+	}
+}
+
+@media(max-width: 550px){
+	.play-container{
+		width: 10%;
+	}
+	.barraCancion{
+		width: 60%;
+	}
+	.time {
+		width: 30%;
+	}
+	.time p{
+		font-size: 0.65em;
+	}
+}
+
+@media(max-width: 400px){
+	.play-container{
+		width: 8%;
+	}
+	.barraCancion{
+		width: 56%;
+	}
+	.time {
+		width: 36%;
+	}
+	.time p{
+		font-size: 0.60em;
+	}
+}
+
+@media(max-width: 400px){
+	.play-container{
+		width: 10%;
+	}
+	.barraCancion{
+		width: 50%;
+	}
+	.time {
+		width: 40%;
+	}
+	.time p{
+		font-size: 0.55em;
+	}
+}

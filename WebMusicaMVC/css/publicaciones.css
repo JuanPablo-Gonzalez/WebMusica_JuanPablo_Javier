@@ -158,10 +158,6 @@
 	width: 100%;
 }
 
-.div-contenerdor-tresPuntos{
-
-}
-
 @media(max-width: 1100px){
 	.div-contenedora-nombre{
 		font-size: 14px;
@@ -170,7 +166,6 @@
 
 @media(max-width: 900px){
 	.div-publicacion{
-		background-color: rgba(200, 200, 200, 0.8);
 		width: 70%;
 		margin: 0.7% 15%;
 		grid-template-columns: 15% 85%;
@@ -182,17 +177,73 @@
 	}
 }
 
+@media(max-width: 750px){
+	.div-contenerdor-tresPuntos{
+		width: 5%;
+		display: inline;
+	}
+	.div-punto{
+		width: 4px;
+		height: 4px;
+		border-radius: 2px;
+		margin: 3px 0 3px 10px;
+	}
+}
+
 @media(max-width: 700px){
 	.div-contenedora-nombre{
 		font-size: 12px;
+	}
+	.div-contenido h2{
+		font-size: 22px;
+	}
+	.div-contenido p{
+		font-size: 14px;
 	}
 }
 
 @media(max-width: 600px){
 	.div-publicacion{
-		background-color: rgba(200, 200, 200, 0.8);
 		width: 75%;
 		margin: 0.7% 12.5%;
 		grid-template-columns: 15% 85%;
+	}
+}
+
+@media(max-width: 500px){
+	.div-publicacion{
+		width: 80%;
+		margin: 1.5% 10%;
+		grid-template-columns: 17% 83%;
+	}
+	.div-contenido h2{
+		font-size: 20px;
+	}
+	.div-contenido p{
+		font-size: 12px;
+	}
+	.div-contenedora-imgUser div{
+		width: 40px;
+		height: 40px;
+	}
+}
+
+@media(max-width: 400px){
+	.div-publicacion{
+		width: 85%;
+		margin: 1.5% 7.5%;
+		grid-template-columns: 20% 80%;
+	}
+	.div-contenido h2{
+		font-size: 19px;
+	}
+	.div-contenido p{
+		font-size: 11px;
+	}
+	.div-punto{
+		width: 3px;
+		height: 3px;
+		border-radius: 2px;
+		margin: 3px 0 3px 8px;
 	}
 }

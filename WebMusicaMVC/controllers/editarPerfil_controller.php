@@ -25,8 +25,6 @@ $url = "";
 
 	<link rel="stylesheet" type="text/css" href="../css/estilosnav.css">
 	<link rel="stylesheet" type="text/css" href="../css/perfil.css">
-	<link rel="stylesheet" type="text/css" href="../css/publicaciones.css">
-	<link rel="stylesheet" type="text/css" href="../css/audio.css">
 	<link rel="stylesheet" type="text/css" href="../css/editarPerfil.css">
 
 	<script type="text/javascript" src="../controllers/editarPerfil.js"></script>
