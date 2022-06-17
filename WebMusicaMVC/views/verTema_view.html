@@ -22,15 +22,14 @@
           foreach($comentarios as $row) {
               $titulo= $row['titulo'];
               $usuario_creador= $row['tag'];
-              //$comentarios= 2;
+              $fecha_publicacion= $row['fecha_publicacion'];
               break;
           }
 
           echo "<h2>$titulo</h2>";
           echo "<div class='info-adicional-tema'>";
-          echo "<span><b>Creado por:</b> $usuario_creador</span>";
-          echo "<span><b>Comentarios:</b> 2</span>";
-          echo "<span><b>Publicación:</b> hace 2 dias</span>";
+          echo "<span><b>Creado por:</b> $usuario_creador</span> <br>";
+          echo "<span><b>Publicación:</b> $fecha_publicacion</span>";
           echo "</div>";
         ?>
       </div>
@@ -42,51 +41,64 @@
         <a href="#form-responder"><button>Escribe tu respuesta</button></a>
 
           <?php
-              //crear uno oculto nuevo con el id del comentario, y pasarle el eq($id) para obtenerlo correctamente
               $id= 1;
               foreach($comentarios as $row) {
                   $idCom= $row["id_comentario"];
+                  $archivo= $row["archivo"];
+                  $tipoArchivo= $row["tipo_archivo"];
+                  $tagUsuario= $row['tag'];
+                  $fotoPerfil= $row['foto_perfil'];
+
                   echo "<div class='contenedor-comentario' id='$idCom'>";
                   echo "<div class='encabezado-comentario'>";
-                  echo "<img src='../imagenes/perfil2.jpg' alt='imagen de perfil' width='80px'/>";
-                  echo "<span class='creador-comentario'><a href=''>".$row['tag']."</a></span>";
+
+                  if($fotoPerfil!="") {
+                    $imagenUsuario= $_SESSION['foto_perfil'];
+                    echo "<img src='../usuarios/$tagUsuario/imagenes/$fotoPerfil' alt='imagen de perfil'/>";
+                  } else 
+                    echo "<img src='../imagenes/estandarPerfil.png' alt='imagen de perfil'/>";
+
+                  echo "<div class='creador-comentario'><a href='../usuarios/$tagUsuario'>".$tagUsuario."</a></div>";
                   echo "</div>";
                   echo "<div class='mensaje-comentario'>";
-                  echo $row['mensaje']; //nl2br para que los espacios se conviertan correctamente
+                  echo "<p>".nl2br($row['mensaje'])."</p>"; //nl2br para que los espacios se conviertan correctamente
+                  if($archivo!="") {
+                    if($tipoArchivo=="image")
+                      echo "<br><img src='$archivo' class='imagen-comentario'>";
+                    else if($tipoArchivo=="audio")
+                      echo "<br><div><audio controls><source src='$archivo' type='audio/mp3' width='20%'></audio></div>";
+                  }
                   echo "</div>";
                   echo "<a href='#form-responder' class='boton-editar' title='editar'>#".$id."<br></a>";
                   echo "<div class='idComentario' hidden>".$row['id_comentario']."</div>";
                   echo "<a href='#form-responder' class='citar-comentario' title='citar'>#".$id."<br></a>";
                   echo "</div>";
-                  echo "<p class='usuarioActivo'></p>";
-                  echo "<p class='usuarioComentario'></p>";
                   $id+=1;
               }
           ?>
       </section>
       <section class="seccion-responder">
           <form name="formulario" id="form-responder" action="<?php echo $_SERVER['PHP_SELF']; ?>" method="post" enctype="multipart/form-data">
-            <p id="comentario-antes-editar"></p> <br>
             <textarea name="mostrar-citado" id="mostrar-citado" cols="83" rows="10" readonly hidden></textarea> <br>
             <p id="ver-citado"></p> <br>
+
             <label for="comentario" id="comentario-label">Escribe tu respuesta</label> <br>
-            <textarea name="comentario" id="comentario" cols="83" rows="15" wrap="hard"></textarea>
+            <textarea name="comentario" id="comentario" cols="83" rows="15" wrap="hard" class="textinput"></textarea>
 
             <!--Para editar-->
             <label for="comentario-editar" id="comentario-editar-label">Edita tu comentario</label> <br>
-            <textarea name="comentario-editar" id="comentario-editar" cols="83" rows="15" wrap="hard"></textarea>
+            <textarea name="comentario-editar" id="comentario-editar" cols="83" rows="15" wrap="hard" class="textinput"></textarea>
 
             <div id="barra-anadir-adicionales">
               <button type="button" name="negrita" id="negrita"><b>B</b></button>
               <button type="button" name="cursiva" id="cursiva"><i>I</i></button>
               <button type="button" name="subrayado" id="subrayado"><u>A</u></button>
-              <button type="button" name="enlace" id="enlace">ENLACE</button>
 
               <br>
               <br>
 
-              <label for="imagen-archivo">Selecciona una imagen, audio o vídeo (un archivo por comentario):</label> <br>
-              <input type="file" id="imagen-archivo" name="imagen-archivo" accept="image/*,audio/*,video/*">
+              <label for="imagen-archivo">Selecciona una imagen, audio (un archivo por comentario):</label> <br>
+              <input type="file" id="imagen-archivo" name="imagen-archivo" accept=".png, .jpg, .jpeg ,audio/mp3">
               <span id="quitar-imagen">X</span> <br>
               <img src="" width="200px" id="imagen-elegida" alt="imagen elegida para mostrar">
             </div>
@@ -112,9 +124,5 @@
           </form>
       </section>
     </main>
-    <!--<aside>
-      Publicidad
-    </aside>-->
-    <footer>footer</footer>
   </body>
 </html>
