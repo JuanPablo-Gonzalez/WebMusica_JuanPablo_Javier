@@ -16,7 +16,6 @@ $.ajax({
 				$("#div-crearComentario").hide();
 			}else {
 				var publicacion = result.publicacion;
-				console.log(publicacion)
 				var usuario = {"nombre_usuario" : publicacion.nombre_usuario, "tag" : publicacion.tag, "foto_perfil" : publicacion.foto_perfil};
 				var url = "../usuarios/" + usuario.tag +"/";
 				mostrarPublicacion(url,"",usuario, publicacion);

@@ -73,5 +73,8 @@
 				<button type="submit" id="bttn-editarPerfil">Guardar cambios</button>
 				<button type="button" id="bttn-deshacerCambios">Deshacer cambios</button>
 			</div>
+			<div class="div-contenedor-bttnsForm">
+				<button type="button" id="bttn-cerrarSesion">Cerrar Sesión</button>
+			</div>
 		</form>
 	</div>

@@ -1,6 +1,6 @@
 	<nav>
 		<div id="logo" class="parte-nav">
-			<h1><?php echo '<a href="'.$url.'../index.php">'; ?>Music-Network</a></h1>
+			<h1><?php echo '<a href="'.$url.'../controllers/inicio_controller.php">'; ?>Music-Network</a></h1>
 		</div>
 		<ul id="listado-nav">
 			<li>

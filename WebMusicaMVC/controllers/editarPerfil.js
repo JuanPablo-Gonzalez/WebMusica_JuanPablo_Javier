@@ -1,7 +1,6 @@
 $.ajax({
 	method: "POST",
 	url: "../models/obtenerEditarTuPerfil.php",
-	data: {},
 	success: function(infoUsuario){
 		if(!infoUsuario.error){
 			$(document).ready(() =>{
@@ -69,6 +68,17 @@ $(document).ready(() => {
 		}else{
 			$("#div-cambiarPassword").empty();
 		}
+	});
+
+	$("#bttn-cerrarSesion").click(() => {
+		$.ajax({
+			method: "POST",
+			url: "../models/cerrarSesion.php",
+			success: function(infoUsuario){
+				window.location.assign("login_controller.php");
+			},
+			dataType: "text"
+		});
 	});
 
 	if (typeof jsonResult !== 'undefined'){

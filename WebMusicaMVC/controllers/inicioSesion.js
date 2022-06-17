@@ -11,7 +11,7 @@ $("#formLogin").submit(() => {
 			data: datosInicioSesion,
 			success: function(result){
 				if(!result.error){
-					window.location.assign("../usuarios/" + result.tag)
+					window.location.assign("inicio_controller.php");
 				}else{
 					$("#label-inicioIncorrecto").text("Email o Contraseña incorrectos");
 					$("#label-inicioIncorrecto").show();
